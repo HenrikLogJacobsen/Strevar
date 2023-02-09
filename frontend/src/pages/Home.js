@@ -1,5 +1,7 @@
 import { BrowserRouter } from "react-router-dom"
 
+//components
+
 const Home = () => {
     return (
         <div className="home">
