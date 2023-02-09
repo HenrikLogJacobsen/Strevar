@@ -6,9 +6,11 @@ const Navbar = () => {
         <header>
             <div className="container">
                 <Link to='/'>
-                    <h1>Workout Buddy</h1>
+                    <h1>Strevar</h1>
                 </Link>
             </div>
         </header>
     )
 }
+
+export default Navbar
