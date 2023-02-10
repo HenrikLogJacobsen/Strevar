@@ -17,7 +17,6 @@ function App() {
             />
           </Routes>
         </div>
-        <h1 className="whatisupp"></h1>
       </BrowserRouter>
     </div>
   );

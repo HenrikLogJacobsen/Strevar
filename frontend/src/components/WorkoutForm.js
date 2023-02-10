@@ -4,23 +4,22 @@ const WorkoutForm = () => {
     const [title, setTitle] = useState('')
     const [sets, setSets] = useState('')
     const [reps, setReps] = useState('')
-    const [weight, setWeight] = useState('')
 
     const handleSubmit = async (e) => {
         e.preventDefault()
 
-        const workout = {title, sets, reps, weight}
+        const workout = {title, sets, reps}
 
         const response = await fetch()
     }
 
     return (
         <form className="create" onSubmit={handleSubmit}>
-            <h3>Add Workout</h3>
+            <h3>Legg til økt</h3>
 
-            <label>Exercise:</label>
+            <label>Øvelse:</label>
             <input 
-                type = "text"
+                type = ""
                 onChange = {(e) => setTitle(e.target.value)}
                 value = {title}
             />
@@ -39,14 +38,7 @@ const WorkoutForm = () => {
                 value = {reps}
             />
 
-            <label>Weight [kg]:</label>
-            <input 
-                type = "number"
-                onChange = {(e) => setWeight(e.target.value)}
-                value = {weight}
-            />
-
-            <button>Add Workout</button>
+            <button>Legg til</button>
         </form>
     )
 }

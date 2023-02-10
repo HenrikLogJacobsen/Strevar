@@ -1,11 +1,12 @@
 import { BrowserRouter } from "react-router-dom"
 
+
 //components
 
 const Home = () => {
     return (
         <div className="home">
-            <h2>Home</h2>
+            <h2>Hjem</h2>
         </div>
     )
 }
