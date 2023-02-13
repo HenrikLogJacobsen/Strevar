@@ -61,6 +61,9 @@ Oppdaterer en treningsøkt
 mongoose legger til et ekstra lag med struktur til databasen som mongoDB ikke lar ogss gjore
 
 
+## Autentisering
+
+Vi bruker JWT
 
 
 
