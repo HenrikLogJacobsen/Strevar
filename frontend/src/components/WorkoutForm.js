@@ -19,7 +19,7 @@ const WorkoutForm = () => {
 
             <label>Øvelse:</label>
             <input 
-                type = ""
+                type = "text"
                 onChange = {(e) => setTitle(e.target.value)}
                 value = {title}
             />

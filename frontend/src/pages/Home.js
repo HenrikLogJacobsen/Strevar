@@ -1,6 +1,5 @@
 import { BrowserRouter } from "react-router-dom"
 
-
 //components
 
 const Home = () => {
