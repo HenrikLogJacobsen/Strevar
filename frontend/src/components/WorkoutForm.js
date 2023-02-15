@@ -4,13 +4,35 @@ const WorkoutForm = () => {
     const [title, setTitle] = useState('')
     const [sets, setSets] = useState('')
     const [reps, setReps] = useState('')
+    const [weight, setWeight] = useState('')
+    const [error, setError] = useState(null)
+ 
 
     const handleSubmit = async (e) => {
         e.preventDefault()
 
-        const workout = {title, sets, reps}
+        const workout = {title, sets, reps, weight}
 
-        const response = await fetch()
+        const response = await fetch("/api/treningsokter", {
+            method: "POST",
+            body: JSON.stringify(workout),
+            header: {
+                "Content-Type": "application/json"
+            }
+        })
+        const json = await response.json()
+
+        if(!response.ok) {
+            setError(json.error)
+        }
+        else {
+            setTitle('')
+            setSets('')
+            setReps('')
+            setWeight('')
+            setError(null)
+            console.log("Ny treningsøkt lagt til", json)
+        }
     }
 
     return (
@@ -24,18 +46,25 @@ const WorkoutForm = () => {
                 value = {title}
             />
 
-            <label>Sets:</label>
+            <label>Sett:</label>
             <input 
                 type = "number"
                 onChange = {(e) => setSets(e.target.value)}
                 value = {sets}
             />
 
-            <label>Reps:</label>
+            <label>Repitisjoner:</label>
             <input 
                 type = "number"
                 onChange = {(e) => setReps(e.target.value)}
                 value = {reps}
+            />
+
+            <label>Vekt (kg):</label>
+            <input 
+                type = "number"
+                onChange = {(e) => setWeight(e.target.value)}
+                value = {weight}
             />
 
             <button>Legg til</button>
