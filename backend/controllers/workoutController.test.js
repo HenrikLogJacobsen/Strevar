@@ -1,6 +1,45 @@
 const workoutController = require('./workoutController')
 const getWorkout = workoutController.getWorkout;
 const getAllWorkouts = workoutController.getAllWorkouts;
+const { mockRequest, mockResponse } = require('./util/interceptor')
+
+
+
+describe("Check function \'getWorkout\' ", () => {
+  test('should 200 and return correct value', async () => {
+    let req = mockRequest();
+    req.params.id = '1';
+    const res = mockResponse();
+
+    await getWorkout(req, res);
+
+    expect(res.status).toHaveBeenCalledTimes(1)
+    expect(res.status.mock.calls.length).toBe(1);
+    expect(res.status(404).json).toHaveBeenCalledWith({error: "Ikke gyldig treningsoktID"});
+  });
+})
+
+  
+  /*
+
+  test('test 2', async () => {
+    let req = mockRequest();
+    req.params.id = '63de85f61be0fe13117db866';
+    const res = mockResponse();
+
+    await getWorkout(req, res);
+
+    expect(res.status).toHaveBeenCalledTimes(1)
+    expect(res.send.mock.calls.length).toBe(0);
+    expect(res.status(404).json).toHaveBeenCalledWith({error: "Fant ikke okten med id %s", id});
+  });
+
+
+})
+
+
+
+
 
 //test('Dette er min første test', () => {
   //  expect(getWorkout()).toBe("")
