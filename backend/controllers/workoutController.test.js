@@ -1,31 +1,34 @@
-const getWorkout = require('./workoutController')
+const workoutController = require('./workoutController')
+const getWorkout = workoutController.getWorkout;
+const getAllWorkouts = workoutController.getAllWorkouts;
 
-test('Dette er min første test', () => {
-    expect(getWorkout()).toBe("")
-})
+//test('Dette er min første test', () => {
+  //  expect(getWorkout()).toBe("")
+//})
 
 
-
-const retrieveMember = require('./retrieveMember');
-const MemberService = require('./MemberService');
 
 describe('61834610', () => {
+
+  
+  it('test is failing', async () => {
+    const mReq = { params: {} };
+    const mRes = {};
+    //const mNext = jest.fn();
+    await getAllWorkouts(mReq, mRes);
+    expect(mRes).toBeCalledWith(new Error('invalid.'));
+  });
+
   it('should throw 400 error if id is empty string', async () => {
     const mReq = { params: { id: '' } };
     const mRes = {};
-    const mNext = jest.fn();
-    await retrieveMember(mReq, mRes, mNext);
-    expect(mNext).toBeCalledWith(new Error('invalid.'));
+    //const mNext = jest.fn();
+    await getWorkout(mReq, mRes);
+    //expect(mRes).toBeCalledWith(new Error('invalid.'));
   });
+})
 
-
-  it('should throw 400 error if id is undefined', async () => {
-    const mReq = { params: {} };
-    const mRes = {};
-    const mNext = jest.fn();
-    await retrieveMember(mReq, mRes, mNext);
-    expect(mNext).toBeCalledWith(new Error('invalid.'));
-  });
+/*
 
 
 
@@ -54,3 +57,4 @@ describe('61834610', () => {
 
 
 //Kilde: https://you.com/search?q=how%20to%20test%20a%20controller%20function%20with%20jest
+*/

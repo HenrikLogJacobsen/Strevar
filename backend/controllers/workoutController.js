@@ -29,9 +29,9 @@ const getWorkout = async (req, res) => {
     const { id } = req.params
 
 //om id ikke har en viss minimum lengde krasjer program, validerer derfor dette i hht. mongoose.
-if (!mongoose.Types.ObjectId.isValid(id)){
-    return res.status(404).json({error: "Ikke gyldig treningsoktID"})
-}
+    if (!mongoose.Types.ObjectId.isValid(id)){
+        return res.status(404).json({error: "Ikke gyldig treningsoktID"})
+    }
 
     const workout = await Workout.findById(id)
 
