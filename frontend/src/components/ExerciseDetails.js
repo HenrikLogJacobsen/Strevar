@@ -1,5 +1,8 @@
 import { useExerciseCtx } from "../hooks/useExerciseCtx"
 
+//date handling
+import formatDistanceToNow from "date-fns/formatDistanceToNow"
+
 const ExerciseDetails = ({ exercise }) => {
   const {dispatch} = useExerciseCtx()
 
@@ -20,8 +23,8 @@ const ExerciseDetails = ({ exercise }) => {
       <p><strong>Antall sett: </strong>{exercise.sett}</p>
       <p><strong>Antall repetisjoner: </strong>{exercise.repetisjoner}</p>
       <p><strong>Vekt (kg): </strong>{exercise.vekt}</p>
-      <p>{exercise.createdAt}</p>
-      <span onClick={handleClick}>Fjern øvelse</span>
+      <p>{formatDistanceToNow(new Date(exercise.createdAt), {addSuffix: true})}</p>
+      <span onClick={handleClick}>Fjern</span>
     </div>
   ) 
 }
