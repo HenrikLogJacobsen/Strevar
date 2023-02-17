@@ -19,7 +19,7 @@ describe("Check function \'getWorkout\' ", () => {
   });
 })
 
-  
+  //
   /*
 
   test('test 2', async () => {
