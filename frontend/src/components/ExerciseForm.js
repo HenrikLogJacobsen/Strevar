@@ -1,23 +1,23 @@
 import { useState } from "react"
-import { useWorkoutCtx } from "../hooks/useWorkoutCtx"
+import { useExerciseCtx } from "../hooks/useExerciseCtx"
 
-const WorkoutForm = () => {
+const ExerciseForm = () => {
     const [tittel, setTitle] = useState('')
     const [sett, setSets] = useState('')
     const [repetisjoner, setReps] = useState('')
     const [vekt, setWeight] = useState('')
     const [error, setError] = useState(null)
  
-    const {dispatch} = useWorkoutCtx()
+    const {dispatch} = useExerciseCtx()
 
     const handleSubmit = async (e) => {
         e.preventDefault()
 
-        const workout = {tittel, sett, repetisjoner, vekt}
-        console.log(workout)
+        const exercise = {tittel, sett, repetisjoner, vekt}
+        console.log(exercise)
         const response = await fetch("/api/treningsokter", {
             method: "POST",
-            body: JSON.stringify(workout),
+            body: JSON.stringify(exercise),
             headers: {
                 "Content-Type": "application/json"
             }
@@ -35,7 +35,7 @@ const WorkoutForm = () => {
             setWeight('')
             setError(null)
             console.log("Ny treningsøvelse lagt til", json)
-            dispatch({type: "CREATE_WORKOUT", payload: json})
+            dispatch({type: "CREATE_EXERCISE", payload: json})
         }
     }
 
@@ -77,4 +77,4 @@ const WorkoutForm = () => {
     )
 }
 
-export default WorkoutForm
+export default ExerciseForm

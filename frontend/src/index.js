@@ -2,14 +2,14 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
-import { WorkoutCtxProvider } from './context/WorkoutContext';
+import { ExerciseCtxProvider } from './context/ExerciseCtx';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <WorkoutCtxProvider>  
+    <ExerciseCtxProvider>  
       <App />
-    </WorkoutCtxProvider>
+    </ExerciseCtxProvider>
   </React.StrictMode>
 );
 
