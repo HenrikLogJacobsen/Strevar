@@ -1,4 +1,5 @@
 import { useState } from "react"
+import { useWorkoutCtx } from "../hooks/useWorkoutCtx"
 
 const WorkoutForm = () => {
     const [tittel, setTitle] = useState('')
@@ -7,6 +8,7 @@ const WorkoutForm = () => {
     const [vekt, setWeight] = useState('')
     const [error, setError] = useState(null)
  
+    const {dispatch} = useWorkoutCtx()
 
     const handleSubmit = async (e) => {
         e.preventDefault()
@@ -33,6 +35,7 @@ const WorkoutForm = () => {
             setWeight('')
             setError(null)
             console.log("Ny treningsøvelse lagt til", json)
+            dispatch({type: "CREATE_WORKOUT", payload: json})
         }
     }
 
