@@ -6,11 +6,11 @@ export const workoutReducer = (state, action) => {
     switch (action.type) {
         case "SET_WORKOUTS":
             return { 
-                workout: action.payload 
+                workouts: action.payload 
             }
         case "CREATE_WORKOUT":
             return { 
-                workout: [action.payload, ...state.workout] 
+                workouts: [action.payload, ...state.workouts] 
             }
         default:
             return state
@@ -18,7 +18,7 @@ export const workoutReducer = (state, action) => {
 }
 export const WorkoutCtxProvider = ({children}) => {
     const [state, dispatch] = useReducer(workoutReducer, { 
-        workout: null
+        workouts: null
     })
   
     return (
