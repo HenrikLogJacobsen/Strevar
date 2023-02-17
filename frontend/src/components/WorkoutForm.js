@@ -13,6 +13,7 @@ const WorkoutForm = () => {
         const response = await fetch()
     }
 
+    
     return (
         <form className="create" onSubmit={handleSubmit}>
             <h3>Legg til økt</h3>
