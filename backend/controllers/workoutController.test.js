@@ -8,6 +8,20 @@ const { mockRequest, mockResponse } = require('./util/interceptor')
 
 //jest.setTimeout(60000);
 
+describe("Check function \'getWorkout\' ", () => {
+  test('should 200 and return correct value', async () => {
+    let req = mockRequest();
+    req.body = 'hei';
+    const res = mockResponse();
+
+    await createWorkout(req, res);
+
+    expect(res.status).toHaveBeenCalledTimes(1)
+    expect(res.status.mock.calls.length).toBe(1);
+    expect(res.status(200).json).toHaveBeenCalledWith('yo');
+  });
+})
+
 
 
 describe("Check function \'getWorkout\' ", () => {
@@ -20,10 +34,9 @@ describe("Check function \'getWorkout\' ", () => {
 
     expect(res.status).toHaveBeenCalledTimes(1)
     expect(res.status.mock.calls.length).toBe(1);
-    expect(res.status(404).json).toHaveBeenCalledWith({error: "Ikke gyldig treningsoktID"});
+    expect(res.status(404).json).toHaveBeenCalledWith({error: "ID spesifisert er ikke gyldig"});
   });
 })
-
 
 
   //Tror vi må ha verdier i databasen for at denne skal kjøre
