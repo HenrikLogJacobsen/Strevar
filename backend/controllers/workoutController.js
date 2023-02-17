@@ -26,12 +26,11 @@ const getAllWorkouts = async (req, res) => {
 
 //Hente spesifikk treningsokt
 const getWorkout = async (req, res) => {
-    const { id } = req.params
+    const {id} = req.params
 
-//om id ikke har en viss minimum lengde krasjer program, validerer derfor dette i hht. mongoose.
-if (!mongoose.Types.ObjectId.isValid(id)){
-    return res.status(404).json({error: "Ikke gyldig treningsoktID"})
-}
+    //om id ikke har en viss minimum lengde krasjer program, validerer derfor dette i hht. mongoose.
+    //sjekke om ID er gyldig
+    if((validateID(id, 'ID spesifisert er ikke gyldig', res) != null)){return};
 
     const workout = await Workout.findById(id)
 
@@ -41,12 +40,34 @@ if (!mongoose.Types.ObjectId.isValid(id)){
     res.status(200).json(workout)
 }
 
+//validering av ID
+function validateID (id, message, res) {
+    if (!mongoose.Types.ObjectId.isValid(id)) {
+        return res.status(404).json({error: message})
+    } else return null
+}
+
+//`DELTETE  /treningsokter/:id`
 //Slette en treningsokt
+const deleteWorkout = async (req, res) => {
+    const {id} = req.params
+
+    //sjekke om ID er gyldig
+    if((validateID(id, 'ID spesifisert er ikke gyldig', res) != null)){return};
+
+    const workout = await Workout.findOneAndDelete({_id: id})
+    
+    if (!workout) {
+      return res.status(400).json({error: 'Treningsokt finnes ikke'})
+    }
+  
+    res.status(200).json(workout)
+  }
 
 //Oppdatere en treningsokt
-
 module.exports = {
     createWorkout,
     getAllWorkouts,
-    getWorkout
+    getWorkout,
+    deleteWorkout
 }
