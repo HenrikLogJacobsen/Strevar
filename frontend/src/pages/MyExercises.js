@@ -9,7 +9,7 @@ import { useExerciseCtx } from "../hooks/useExerciseCtx"
 
 const MyExercises = () => {
   const {exercises, dispatch} = useExerciseCtx()
-  
+
   useEffect(() => {
     const fetchExercises = async () => {
       const response = await fetch("/api/treningsokter")
@@ -23,7 +23,6 @@ const MyExercises = () => {
     fetchExercises()
   }, [dispatch])
 
-  console.log(exercises)
   return (
     <div className="myExercises">
         <h2>Mine Øvelser</h2>
