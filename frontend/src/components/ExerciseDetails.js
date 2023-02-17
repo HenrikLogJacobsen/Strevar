@@ -6,7 +6,7 @@ import formatDistanceToNow from "date-fns/formatDistanceToNow"
 const ExerciseDetails = ({ exercise }) => {
   const {dispatch} = useExerciseCtx()
 
-  const handleClick = async() => {
+  const handleDelete = async() => {
     const response = await fetch("api/treningsokter/" + exercise._id, {
       method: "DELETE"
     })
@@ -17,6 +17,11 @@ const ExerciseDetails = ({ exercise }) => {
     }
   }
 
+  const handleEdit = () => {
+      console.log(exercise.tittel)
+  }
+  
+
   return (
     <div className="exercise-details">
       <h4>{exercise.tittel}</h4>
@@ -24,7 +29,8 @@ const ExerciseDetails = ({ exercise }) => {
       <p><strong>Antall repetisjoner: </strong>{exercise.repetisjoner}</p>
       <p><strong>Vekt (kg): </strong>{exercise.vekt}</p>
       <p>{formatDistanceToNow(new Date(exercise.createdAt), {addSuffix: true})}</p>
-      <span onClick={handleClick}>Fjern</span>
+      <span onClick={handleEdit}>Endre</span>
+      <span onClick={handleDelete}>Fjern</span>
     </div>
   ) 
 }
