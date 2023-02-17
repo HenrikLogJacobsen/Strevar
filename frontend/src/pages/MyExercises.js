@@ -1,35 +1,37 @@
-import { useEffect, useState } from "react"
+import { useEffect} from "react"
 
 // components
-import WorkoutDetails from "../components/WorkoutDetails"
-import WorkoutForm from "../components/WorkoutForm"
+import ExerciseDetails from "../components/ExerciseDetails"
+import ExerciseForm from "../components/ExerciseForm"
+import { useExerciseCtx } from "../hooks/useExerciseCtx"
 
 
 
 const MyExercises = () => {
-  const [workouts, setWorkouts] = useState(null)
+  const {exercises, dispatch} = useExerciseCtx()
 
   useEffect(() => {
-    const fetchWorkouts = async () => {
+    const fetchExercises = async () => {
       const response = await fetch("/api/treningsokter")
       const json = await response.json()
 
       if (response.ok) {
-        setWorkouts(json)
+        dispatch({type: "SET_EXERCISES", payload: json})
       }
     }
-
-    fetchWorkouts()
-  }, [])
+    
+    fetchExercises()
+  }, [dispatch])
 
   return (
     <div className="myExercises">
         <h2>Mine Øvelser</h2>
       <div className="workouts">
-        {workouts && workouts.map(workout => (
-          <WorkoutDetails workout={workout} key={workout._id} />
+        {exercises && exercises.map(exercise => (
+          <ExerciseDetails exercise={exercise} key={exercise._id} />
         ))}
       </div>
+      <ExerciseForm />
     </div>  
   )
 }
