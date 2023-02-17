@@ -14,7 +14,6 @@ const ExerciseForm = () => {
         e.preventDefault()
 
         const exercise = {tittel, sett, repetisjoner, vekt}
-        console.log(exercise)
         const response = await fetch("/api/treningsokter", {
             method: "POST",
             body: JSON.stringify(exercise),
