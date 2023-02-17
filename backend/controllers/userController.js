@@ -1,12 +1,43 @@
 const User = require('../models/userModel')
 const bcrypt = require('bcrypt');
 const validator = require('validator')
+const JWT = require('jsonwebtoken')
 
-const { createUser } = require('../userAuthentication/signup')
+
+const generateJWT = (_id) => {
+    return JWT.sign({_id}, process.env.SECRET, { expiresIn: '1d' })
+  }
 
 //innlogging av bruker
 const userLogin = async (req, res) => {
-    res.json({mssg: "innlogging endepunkt"})
+    const {username, password} = req.body
+    const loginUser = await User.findOne({username})
+
+    //validering
+    if(!(username && password)){
+        return res.status(400).json({error: "Passord eller brukernavn er ugyldig eller ikke oppgitt"})
+    }
+    else if (!validator.isEmail(username)){
+        return res.status(400).json({error: "Brukernavn/mail er ikke registrert"})
+    }
+    else if(!loginUser){
+        return res.status(400).json({error: "Brukernavn/mail er ikke registrert"})
+    }
+    
+    const isValidPassword = bcrypt.compareSync(
+        req.body.password,
+        loginUser.password
+      );
+
+    if (!isValidPassword){
+        return res.status(400).json({error: "Passord er ikke gyldig"})
+    }
+
+    //lage token
+    const loginToken = generateJWT(loginUser._id)
+
+    return res.status(200).json({username, loginToken})
+
 }
 
 //oppretting av bruker
@@ -35,7 +66,10 @@ const userSignup = async (req, res) => {
             password: bcrypt.hashSync(password, 10),
         });
 
-        res.status(200).json({username, newUser})
+        const userJWT = generateJWT(newUser._id)
+
+        console.log(userJWT)
+        res.status(200).json({username, userJWT})
        
 }
 } 
