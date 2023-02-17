@@ -1,14 +1,19 @@
 const workoutController = require('./workoutController')
 const getWorkout = workoutController.getWorkout;
 const getAllWorkouts = workoutController.getAllWorkouts;
+const createWorkout = workoutController.createWorkout;
 const { mockRequest, mockResponse } = require('./util/interceptor')
+
+
+
+//jest.setTimeout(60000);
 
 
 
 describe("Check function \'getWorkout\' ", () => {
   test('should 200 and return correct value', async () => {
     let req = mockRequest();
-    req.params.id = '1';
+    req.params.id = '61';
     const res = mockResponse();
 
     await getWorkout(req, res);
@@ -19,9 +24,10 @@ describe("Check function \'getWorkout\' ", () => {
   });
 })
 
-  //
-  /*
 
+
+  //Tror vi må ha verdier i databasen for at denne skal kjøre
+/*
   test('test 2', async () => {
     let req = mockRequest();
     req.params.id = '63de85f61be0fe13117db866';
@@ -33,6 +39,44 @@ describe("Check function \'getWorkout\' ", () => {
     expect(res.send.mock.calls.length).toBe(0);
     expect(res.status(404).json).toHaveBeenCalledWith({error: "Fant ikke okten med id %s", id});
   });
+
+*/
+
+/*
+
+describe("Check function \'getAllWorkouts\' ", () => {
+  test('should 200 and return correct value', async () => {
+    let req = mockRequest();
+    const res = mockResponse();
+
+    await getAllWorkouts(req, res);
+
+    expect(res.status).toHaveBeenCalledTimes(1)
+    expect(res.status.mock.calls.length).toBe(1);
+  });
+})
+
+*/
+
+/*
+describe("Check function \'createWorkout\' ", () => {
+  test('should 200 and return correct value', async () => {
+    let req = mockRequest();
+    req.params.id = '61';
+    const res = mockResponse();
+
+    await createWorkout(req, res);
+
+    expect(res.status).toHaveBeenCalledTimes(1)
+    expect(res.status.mock.calls.length).toBe(1);
+    expect(res.status(404).json).toHaveBeenCalledWith({error: "Ikke gyldig treningsoktID"});
+  });
+})
+*/
+  //
+  /*
+
+
 
 
 })
