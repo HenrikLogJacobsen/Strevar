@@ -8,14 +8,18 @@ const Navbar = () => {
                 <Link to='/'>
                     <h1>Strevar</h1>
                 </Link>
+                <nav>
+                  <div>
+                    <Link to="/login">Login</Link>
+                    <Link to="/signup">Signup</Link>
+                  </div>
+                </nav>
                 <ul>
                     <CustomLink to="/">Hjem</CustomLink>
                     <CustomLink to="/">Grupper</CustomLink>
                     <CustomLink to="/">Ukeplan</CustomLink>
                     <CustomLink to="/my-sessions">Mine Treningsøkter</CustomLink>
-                    <CustomLink to="/my-exercises">Mine Øvelser</CustomLink>
-                </ul>
-                
+                </ul>             
             </div>
         </header>
     )
