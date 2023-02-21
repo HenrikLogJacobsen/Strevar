@@ -65,12 +65,14 @@ input, button {
   display: block;
 }
 
-.exercise-details, .session-details {
+.exercise-details, .session-details, .addSessionBtn {
   background-color: var(--compBg);
   color: var(--textClr);
   border-radius: 5px;
   margin: 1rem;
-  padding: 0.5rem;
+  padding-left: 1rem;
+  height: 7rem;
+  width: 8rem;
 }
 
 /* sessions */
@@ -80,15 +82,22 @@ input, button {
   flex-wrap: wrap;
 }
 
-.session-details {
-  width: 8rem;
-}
 
-.session-details:hover {
+.session-details:hover, .addSessionBtn:hover {
   background-color: var(--primary);
   -webkit-text-fill-color: var(--compBg);
   transition: 400ms;
   cursor: pointer;
+}
+
+.addSessionBtn {
+  background-color: #ffffff3b;
+  font-size: xx-large;
+  width: 4rem;
+}
+
+.addSessionBtn:hover {
+  background-color: rgba(0, 181, 0, 0.683);
 }
 
 /* button */
