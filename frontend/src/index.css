@@ -4,34 +4,54 @@
 
 :root {
   --primary: #6b00ae;
+  --primaryBg: #cec9c9dc;
+  --compBg: #fff;
   --error: #e7195a;
+  --textClr: #333;
+}
+
+a, p, h1, h2, h3 {
+  color: var(--textClr);
+  text-decoration: none;
 }
 
 body {
-  background: #f1f1f1;
+  background: var(--primaryBg);
   margin: 0;
   font-family: "Poppins";
 }
 
-header a {
-  color: #333;
-  text-decoration: none;
+/* navbar */
+header .nav {
+  margin-top: 0;
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 10px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
 
-header a:hover {
+ul {
+  list-style-type: none;
+}
+
+header h1:hover, header a:hover {
   color: var(--primary);
   transition: 300ms;
 }
 
 header {
-  background: #fff;
+  background: var(--compBg)
 }
 
-.workouts {
-  margin: 2rem;
+/* pages */
+.pages {
+  margin: 1rem;
   padding: 1rem;
 }
 
+/* excercises */
 .create {
   position: absolute;
   right: 30px;
@@ -45,32 +65,30 @@ input, button {
   display: block;
 }
 
-.exercise-details {
-  background-color: #fff;
-  border-radius: 2px;
+.exercise-details, .session-details {
+  background-color: var(--compBg);
+  color: var(--textClr);
+  border-radius: 5px;
   margin: 1rem;
   padding: 0.5rem;
+
 }
 
-header .nav {
-  margin-top: 0;
-  max-width: 1400px;
-  margin: 0 auto;
-  padding: 10px 20px;
+/* sessions */
+
+.sessions {
   display: flex;
-  align-items: center;
-  justify-content: space-between;
+  flex-wrap: wrap;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+.session-details:hover {
+  background-color: var(--primary);
+  -webkit-text-fill-color: var(--compBg);
+  transition: 400ms;
+  cursor: pointer;
 }
 
-ul {
-  list-style-type: none;
-}
-
+/* button */
 .button {
   background-color: var(--primary);
   color: #f1f1f1;
