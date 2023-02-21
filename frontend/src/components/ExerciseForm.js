@@ -42,35 +42,35 @@ const ExerciseForm = () => {
         <form className="create" onSubmit={handleSubmit}>
             <h3>Legg til øvelse</h3>
 
-            <label>Navn:</label>
-            <input 
+            <input
+                placeholder="Navn"
                 type = "text"
                 onChange = {(e) => setTitle(e.target.value)}
                 value = {tittel}
             />
 
-            <label>Sett:</label>
             <input 
+                placeholder="Antall sett"
                 type = "number"
                 onChange = {(e) => setSets(e.target.value)}
                 value = {sett}
             />
 
-            <label>Repitisjoner:</label>
             <input 
+                placeholder="Repetisjoner"
                 type = "number"
                 onChange = {(e) => setReps(e.target.value)}
                 value = {repetisjoner}
             />
 
-            <label>Vekt (kg):</label>
             <input 
+                placeholder="Vekt (kg)"
                 type = "number"
                 onChange = {(e) => setWeight(e.target.value)}
                 value = {vekt}
             />
 
-            <button>Legg til</button>
+            <button className="button">Legg til</button>
             {error && <div className="error">{error}</div>}
         </form>
     )

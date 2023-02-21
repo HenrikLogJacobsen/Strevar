@@ -27,6 +27,31 @@ header {
   background: #fff;
 }
 
+.workouts {
+  margin: 2rem;
+  padding: 1rem;
+}
+
+.create {
+  position: absolute;
+  right: 30px;
+}
+
+input, button {
+  margin-bottom: 10px;
+  border-radius: 5px;
+  padding: 5px;
+  border: solid var(--primary) 1px;
+  display: block;
+}
+
+.exercise-details {
+  background-color: #fff;
+  border-radius: 2px;
+  margin: 1rem;
+  padding: 0.5rem;
+}
+
 header .nav {
   margin-top: 0;
   max-width: 1400px;
@@ -46,14 +71,14 @@ ul {
   list-style-type: none;
 }
 
-.addExerciseBtn {
+.button {
   background-color: var(--primary);
   color: #f1f1f1;
-  border-radius: 3px;
   border: none;
   cursor: pointer;
+  width: 156px;
 }
-.addExerciseBtn:hover {
-  transform: scale(1.15);
+.button:hover {
+  transform: scale(1.05);
   transition: 300ms;
 }
