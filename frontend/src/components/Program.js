@@ -1,5 +1,4 @@
 import SessionDetails from "./SessionDetails"
-import { session } from "./Session"
 import AddSession from "./AddSessionBtn"
 
 
