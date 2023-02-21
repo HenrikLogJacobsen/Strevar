@@ -1,12 +1,14 @@
-const SessionDetails = ({ session }) => {
+//TODO: ta inn session her i stedet
+// {session.title} osv..
 
-    return (
-      <div className="session-details">
-        <h5>(navn på økt)</h5>
-        <p>Uke</p>
-        <p>Dag</p>
-      </div>
-    ) 
-  }
-  
-  export default SessionDetails
+const SessionDetails = ({title, day, week}) => {
+
+  return (
+    <div className="session-details">
+      <h4>{title}</h4> 
+      <p>Uke {week} / Dag {day}</p>
+    </div>
+  ) 
+}
+
+export default SessionDetails

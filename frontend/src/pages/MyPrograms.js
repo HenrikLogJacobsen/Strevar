@@ -1,6 +1,5 @@
 import ExerciseDetails from "../components/ExerciseDetails"
 import Program from "../components/Program"
-import SessionDetails from "../components/SessionDetails"
 
 const MyPrograms = () => {
     
@@ -8,8 +7,8 @@ const MyPrograms = () => {
       <div className="MyPrograms">
         <h2>Treningsprogram</h2>
         <div className="programs">
-          <Program/>
-          <Program/>
+          <Program programTitle={'Mitt treningsprogram'}/>
+          <Program programTitle={'Jonas sitt treningsprogram'}/>
         </div>
       </div> 
     )
