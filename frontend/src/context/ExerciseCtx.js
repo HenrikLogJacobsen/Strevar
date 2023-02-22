@@ -16,6 +16,10 @@ export const exerciseReducer = (state, action) => {
             return {
                 exercises: state.exercises.filter((e) => e._id !== action.payload._id)
             }
+        case "EDIT_EXERCISE":
+            return {
+                exercises: action.payload
+            }
         default:
             return state
     }

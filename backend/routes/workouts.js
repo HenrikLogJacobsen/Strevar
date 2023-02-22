@@ -3,7 +3,8 @@ const {
     createWorkout,
     getAllWorkouts,
     getWorkout,
-    deleteWorkout
+    deleteWorkout,
+    updateWorkout
 } = require('../controllers/workoutController')
 
 const router = express.Router()
@@ -21,9 +22,13 @@ router.post('/', createWorkout)
 router.delete('/:id', deleteWorkout)
 
 //Oppdater til spesifikk treningsokt
-router.patch('/:id', (req, res) => {
+//GAMMEL********
+/*router.patch('/:id', (req, res) => {
     res.json({message: "PATCH en treningsokt"})
-})
+})*/
+
+//NY **********
+router.patch('/:id', updateWorkout)
 
 // app.get('/', (req, res) => {
 //     res.json({message: "Velkommen til Strevar!"})
