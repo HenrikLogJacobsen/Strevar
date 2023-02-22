@@ -35,7 +35,7 @@ const ExerciseEdit = ({exercise}) => {
         }
         else {
             setError(null)
-            console.log("Treningsøvelse " + exercise._id + " endret", json, "til", jsonEdit)
+            console.log("Treningsøvelse ", json, "ble endret til", jsonEdit)
             dispatch({type: "EDIT_EXERCISE", payload: jsonEdit})
         }
     }
