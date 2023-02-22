@@ -39,7 +39,7 @@ const ExerciseForm = () => {
     }
 
     return (
-        <form className="create" onSubmit={handleSubmit}>
+        <form className="createExercise" onSubmit={handleSubmit}>
             <h3>Legg til øvelse</h3>
 
             <input
