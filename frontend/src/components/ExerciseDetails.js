@@ -8,7 +8,9 @@ import formatDistanceToNow from "date-fns/formatDistanceToNow"
 
 const ExerciseDetails = ({ exercise }) => {
   const {dispatch} = useExerciseCtx()
-  const [editForm, setEditForm] = useState([]);
+  const [editForm, setEditForm] = useState(false);
+  const [editInfo, setEditInfo] = useState("Endre");
+
 
   const handleDelete = async() => {
     const response = await fetch("/api/exercises/" + exercise._id, {
@@ -22,7 +24,13 @@ const ExerciseDetails = ({ exercise }) => {
   }
 
   const handleEdit = () => {
-      setEditForm(<ExerciseEdit exercise={exercise} key={exercise._id} />)
+    setEditForm((prev) => !prev)
+    if(editInfo == "Endre") {
+      setEditInfo("Ferdig")
+    }
+    else {
+      setEditInfo("Endre")
+    }
   }
   
 
@@ -32,9 +40,9 @@ const ExerciseDetails = ({ exercise }) => {
       <p><strong>Antall sett: </strong>{exercise.sets}</p>
       <p><strong>Antall repetisjoner: </strong>{exercise.reps}</p>
       <p><strong>Vekt (kg): </strong>{exercise.weight}</p>
-      {editForm}
+      {editForm && <ExerciseEdit  exercise={exercise} key={exercise._id} />}
       <p>{formatDistanceToNow(new Date(exercise.createdAt), {addSuffix: true})}</p>
-      <span onClick={handleEdit}>Endre</span>
+      <span onClick={handleEdit}>{editInfo}</span>
       <span onClick={handleDelete}>Fjern</span>
     </div>
   ) 
