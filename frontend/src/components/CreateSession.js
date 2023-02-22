@@ -7,8 +7,7 @@ import { useExerciseCtx } from "../hooks/useExerciseCtx"
 
 export default function CreateSession() {
 
-  const [title, setTitle] = useState()
-
+  const [title, setTitle] = useState("")
   const {exercises, dispatch} = useExerciseCtx()
 
 
@@ -24,24 +23,22 @@ export default function CreateSession() {
     
     fetchExercises()
   }, [dispatch])
-
-  // standard øvelser
-  const exerciseOptions = exercises.map(
-    e => ({value: e.title, label: e.title})
-  )
-
+  
   return (
     <div className="createSession">
-        <h3>Lag en økt</h3>
-        <input
-                className='sessionInput'
-                placeholder="Navn på økt"
-                type = "text"
-                onChange = {(e) => setTitle(e.target.value)}
-                value = {title}
-            />
-        <Dropdown isMulti={true} placeHolder="Velg øvelse..." options={exerciseOptions}/>
-        <button className='button'>Opprett ny økt</button>
+      <h3>Lag en økt</h3>
+      <input
+        className='sessionInput'
+        placeholder="Navn på økt"
+        type = "text"
+        onChange = {(e) => setTitle(e.target.value)}
+        value = {title}
+      />
+      {exercises && <Dropdown isMulti={true} placeHolder="Velg øvelse..." options={
+        exercises.map(e => ({value: e.title, label: e.title}))
+      }/>}
+
+      <button className='button'>Opprett ny økt</button>
     </div>
   )
 }
