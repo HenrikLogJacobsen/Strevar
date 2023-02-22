@@ -7,7 +7,7 @@ const ExerciseDetails = ({ exercise }) => {
   const {dispatch} = useExerciseCtx()
 
   const handleDelete = async() => {
-    const response = await fetch("api/treningsokter/" + exercise._id, {
+    const response = await fetch("/api/exercises/" + exercise._id, {
       method: "DELETE"
     })
     const json = await response.json()

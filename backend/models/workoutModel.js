@@ -4,25 +4,24 @@ const mongoose = require('mongoose')
 
 const Schema = mongoose.Schema
 
-const workoutSchema = new Schema({
-    tittel: {
+const exerciseSchema = new Schema({
+    title: {
         type: String,
         required: true
     },
-    sett: {
+    sets: {
         type: Number,
         required: true
     },
-    repetisjoner: {
+    reps: {
         type: Number,
         required: true
     },
-    vekt: {
+    weight: {
         type: Number,
         required: true
     },
 }, {timestamps: true})
 
-module.exports = mongoose.model('Workout', workoutSchema)
+module.exports = mongoose.model('Exercise', exerciseSchema)
 
-//workoutSchema.find*
