@@ -51,7 +51,7 @@ response:
 
 Sletter en treningsokt
 
-`DELTETE  /treningsokter/:id`
+`DELETE  /treningsokter/:id`
 
 Oppdaterer en treningsøkt
 
