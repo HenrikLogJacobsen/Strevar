@@ -12,7 +12,7 @@ const MyExercises = () => {
 
   useEffect(() => {
     const fetchExercises = async () => {
-      const response = await fetch("/api/treningsokter")
+      const response = await fetch("api/exercises/")
       const json = await response.json()
 
       if (response.ok) {
