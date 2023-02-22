@@ -6,10 +6,14 @@ export default function CreateSession() {
 
     const [title, setTitle] = useState()
 
+    // standard øvelser
     const exerciseOptions = [
         { value: "Push-ups", label: "Push-ups"},
         { value: "Hang-ups", label: "Hang-ups"},
-        { value: "Planke", label: "Planke"}
+        { value: "Planke", label: "Planke"},
+        { value: "Sit-ups", label: "Sit-ups"},
+        { value: "Utfall", label: "Utfall"},
+        { value: "Knebøy", label: "Knebøy"}
     ]
 
 
@@ -24,6 +28,7 @@ export default function CreateSession() {
                 value = {title}
             />
         <Dropdown isMulti={true} placeHolder="Velg øvelse..." options={exerciseOptions}/>
+        <button className='button'>Lag øvelse</button>
     </div>
   )
 }
