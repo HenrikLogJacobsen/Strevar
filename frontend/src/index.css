@@ -65,7 +65,18 @@ input, button {
   display: block;
 }
 
-.exercise-details, .session-details, .addSessionBtn {
+.workouts {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.exercise-details {
+  height: 12rem;
+  background-color: var(--compBg);
+  margin: 10px;
+}
+
+.session-details, .addSessionBtn {
   background-color: var(--compBg);
   color: var(--textClr);
   border-radius: 5px;
@@ -111,4 +122,51 @@ input, button {
 .button:hover {
   transform: scale(1.05);
   transition: 300ms;
+}
+
+/* create session / create program */
+
+.createSession {
+  background-color: var(--compBg);
+  border-radius: 5px;
+  padding: 10px;
+  width: 30%;
+  right: 20px;
+}
+
+/* dropdown */
+.dropdown-container {
+  text-align: left;
+  border: 1px solid var(--primary);
+  position: relative;
+  border-radius: 5px;
+
+}
+.dropdown-input {
+  padding: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  user-select: none;
+}
+.dropdown-menu {
+  position: absolute;
+  transform: translateY(4px);
+  width: 100%;
+  border: solid 1px var(--primary);
+  border-radius: 5px;
+  overflow: auto;
+  max-height: 150px;
+  background-color: var(--primaryBg);
+}
+.dropdown-item {
+  padding: 5px;
+  cursor: pointer;
+}
+.dropdown-item:hover {
+  background-color: var(--compBg);
+}
+.dropdown-item.selected {
+  background-color: var(--primary);
+  color: #fff;
 }
