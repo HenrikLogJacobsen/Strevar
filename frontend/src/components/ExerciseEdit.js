@@ -66,7 +66,7 @@ const ExerciseEdit = ({exercise}) => {
                 value = {weight}
             />
 
-            <button onClick={handleEdit}>Lagre</button>
+            <button className="button" onClick={handleEdit}>Lagre</button>
             {error && <div className="error">{error}</div>}
         </form>
     )

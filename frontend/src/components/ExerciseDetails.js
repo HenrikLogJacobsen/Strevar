@@ -40,10 +40,10 @@ const ExerciseDetails = ({ exercise }) => {
       <p><strong>Antall sett: </strong>{exercise.sets}</p>
       <p><strong>Antall repetisjoner: </strong>{exercise.reps}</p>
       <p><strong>Vekt (kg): </strong>{exercise.weight}</p>
-      {editForm && <ExerciseEdit  exercise={exercise} key={exercise._id} />}
       <p>{formatDistanceToNow(new Date(exercise.createdAt), {addSuffix: true})}</p>
-      <span onClick={handleEdit}>{editInfo}</span>
-      <span onClick={handleDelete}>Fjern</span>
+      {editForm && <ExerciseEdit  exercise={exercise} key={exercise._id} />}
+      <button className="button" onClick={handleEdit}>{editInfo}</button>
+      <button className="button" onClick={handleDelete}>Fjern</button>
     </div>
   ) 
 }

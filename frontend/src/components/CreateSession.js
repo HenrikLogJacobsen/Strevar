@@ -41,7 +41,7 @@ export default function CreateSession() {
                 value = {title}
             />
         <Dropdown isMulti={true} placeHolder="Velg øvelse..." options={exerciseOptions}/>
-        <button className='button'>Lag øvelse</button>
+        <button className='button'>Opprett ny økt</button>
     </div>
   )
 }
