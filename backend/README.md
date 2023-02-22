@@ -61,7 +61,7 @@ Oppdaterer en treningsøkt
 mongoose legger til et ekstra lag med struktur til databasen som mongoDB ikke lar ogss gjore
 
 
-### Eksempel på session request http://localhost:5553/api/sessions
+### Eksempel på session POST request http://localhost:5553/api/sessions
 
 {
   "title": "Chest Day",
@@ -81,7 +81,7 @@ mongoose legger til et ekstra lag med struktur til databasen som mongoDB ikke la
   ]
 }
 
-### Eksempel på respons du vil få ved session request
+### Eksempel på respons du vil få ved session POST request
 
 {
   "title": "Chest Day",
