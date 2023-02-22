@@ -1,21 +1,34 @@
 import React from 'react'
+import { useState, useEffect } from "react"
+
+//components
 import Dropdown from './Dropdown'
-import { useState } from "react"
+import { useExerciseCtx } from "../hooks/useExerciseCtx"
 
 export default function CreateSession() {
 
-    const [title, setTitle] = useState()
+  const [title, setTitle] = useState()
 
-    // standard øvelser
-    const exerciseOptions = [
-        { value: "Push-ups", label: "Push-ups"},
-        { value: "Hang-ups", label: "Hang-ups"},
-        { value: "Planke", label: "Planke"},
-        { value: "Sit-ups", label: "Sit-ups"},
-        { value: "Utfall", label: "Utfall"},
-        { value: "Knebøy", label: "Knebøy"}
-    ]
+  const {exercises, dispatch} = useExerciseCtx()
 
+
+  useEffect(() => {
+    const fetchExercises = async () => {
+      const response = await fetch("api/exercises/")
+      const json = await response.json()
+
+      if (response.ok) {
+        dispatch({type: "SET_EXERCISES", payload: json})
+      }
+    }
+    
+    fetchExercises()
+  }, [dispatch])
+
+  // standard øvelser
+  const exerciseOptions = exercises.map(
+    e => ({value: e.title, label: e.title})
+  )
 
   return (
     <div className="createSession">
