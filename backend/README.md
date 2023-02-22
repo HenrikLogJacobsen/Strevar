@@ -61,7 +61,7 @@ Oppdaterer en treningsøkt
 mongoose legger til et ekstra lag med struktur til databasen som mongoDB ikke lar ogss gjore
 
 
-### Example of session request in at http://localhost:5553/api/sessions
+### Eksempel på session request http://localhost:5553/api/sessions
 
 {
   "title": "Chest Day",
@@ -81,7 +81,7 @@ mongoose legger til et ekstra lag med struktur til databasen som mongoDB ikke la
   ]
 }
 
-### Example of the response you would get
+### Eksempel på respons du vil få ved session request
 
 {
   "title": "Chest Day",
@@ -112,6 +112,10 @@ mongoose legger til et ekstra lag med struktur til databasen som mongoDB ikke la
 }
 
 
+
+### Endepunkt for å ente alle treningsøkter
+
+http://localhost:5553/api/sessions
 
 
 
