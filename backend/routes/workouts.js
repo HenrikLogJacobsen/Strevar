@@ -22,12 +22,6 @@ router.post('/', createWorkout)
 router.delete('/:id', deleteWorkout)
 
 //Oppdater til spesifikk treningsokt
-//GAMMEL********
-/*router.patch('/:id', (req, res) => {
-    res.json({message: "PATCH en treningsokt"})
-})*/
-
-//NY **********
 router.patch('/:id', updateWorkout)
 
 // app.get('/', (req, res) => {
