@@ -25,7 +25,7 @@ const ExerciseDetails = ({ exercise }) => {
 
   const handleEdit = () => {
     setEditForm((prev) => !prev)
-    if(editInfo == "Endre") {
+    if(editInfo === "Endre") {
       setEditInfo("Ferdig")
     }
     else {
