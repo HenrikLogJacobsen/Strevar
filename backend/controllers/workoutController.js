@@ -6,12 +6,12 @@ const { response } = require('express')
 
 //Lage en ny treningsokt
 const createWorkout = async (req, res) => {
-    const {tittel, sett, repetisjoner, vekt} = req.body
+    const {title, sets, reps, weight} = req.body
 
 
     //legg dokument til i database
     try {
-        const workout = await Workout.create({vekt, tittel, sett, repetisjoner})
+        const workout = await Workout.create({title, sets, reps, weight})
         res.status(200).json(workout)
     } catch (error) {
         res.status(400).json({error: error.message})
