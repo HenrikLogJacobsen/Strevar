@@ -61,7 +61,61 @@ Oppdaterer en treningsøkt
 mongoose legger til et ekstra lag med struktur til databasen som mongoDB ikke lar ogss gjore
 
 
+### Eksempel på session POST request http://localhost:5553/api/sessions
 
+{
+  "title": "Chest Day",
+  "exercises": [
+    {
+      "title": "Bench Press",
+      "sets": 3,
+      "reps": 10,
+      "weight": 100
+    },
+    {
+      "title": "Incline Press",
+      "sets": 3,
+      "reps": 10,
+      "weight": 80
+    }
+  ]
+}
+
+### Eksempel på respons du vil få ved session POST request
+
+{
+  "title": "Chest Day",
+  "exercises": [
+    {
+      "title": "Bench Press",
+      "sets": 3,
+      "reps": 10,
+      "weight": 100,
+      "_id": "63f63168079e1379c6787584",
+      "createdAt": "2023-02-22T15:14:48.768Z",
+      "updatedAt": "2023-02-22T15:14:48.768Z"
+    },
+    {
+      "title": "Incline Press",
+      "sets": 3,
+      "reps": 10,
+      "weight": 80,
+      "_id": "63f63168079e1379c6787585",
+      "createdAt": "2023-02-22T15:14:48.769Z",
+      "updatedAt": "2023-02-22T15:14:48.769Z"
+    }
+  ],
+  "_id": "63f63168079e1379c6787583",
+  "createdAt": "2023-02-22T15:14:48.770Z",
+  "updatedAt": "2023-02-22T15:14:48.770Z",
+  "__v": 0
+}
+
+
+
+### Endepunkt for å ente alle treningsøkter
+
+http://localhost:5553/api/sessions
 
 
 
