@@ -37,17 +37,18 @@ const getAllSessions = async (req, res) => {
 //Hente spesifikk treningsokt
 const getSession = async (req, res) => {
     const {id} = req.params
+    console.log("ID:" , id)
 
     //om id ikke har en viss minimum lengde krasjer program, validerer derfor dette i hht. mongoose.
     //sjekke om ID er gyldig
     if((validateID(id, 'ID spesifisert er ikke gyldig', res) != null)){return};
 
-    const Session = await Session.findById(id)
+    const session = await Session.findById({_id: id})
 
     if (!Session) {
         return res.status(404).json({error: "Fant ikke okten med id %s", id})
     }
-    res.status(200).json(Session)
+    res.status(200).json(session)
 }
 
 //validering av ID
@@ -65,13 +66,13 @@ const deleteSession = async (req, res) => {
     //sjekke om ID er gyldig
     if((validateID(id, 'ID spesifisert er ikke gyldig', res) != null)){return};
 
-    const Session = await Session.findOneAndDelete({_id: id})
+    const session = await Session.findOneAndDelete({_id: id})
     
     if (!Session) {
       return res.status(400).json({error: 'Treningsokt finnes ikke'})
     }
   
-    res.status(200).json(Session)
+    res.status(200).json(session)
   }
 
 //Oppdatere en treningsokt
