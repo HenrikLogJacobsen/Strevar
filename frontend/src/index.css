@@ -157,7 +157,8 @@ input, button {
   background-color: var(--compBg);
   border-radius: 5px;
   text-align: left;
-  border-radius: 5px;
+  width: 100%;
+  margin-bottom: 10px;
   
 }
 .dropdown-input {
@@ -166,11 +167,12 @@ input, button {
   align-items: center;
   justify-content: space-between;
   user-select: none;
+  width: 350px;
 }
 .dropdown-menu {
   position: absolute;
   transform: translateY(4px);
-  width: 25rem;
+  width: 370px;
   border: solid 1px var(--primary);
   border-radius: 5px;
   overflow: auto;
