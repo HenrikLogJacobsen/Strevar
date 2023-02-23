@@ -1,14 +1,15 @@
-//TODO: ta inn session her i stedet
-// {session.title} osv..
 
-const SessionDetails = ({title, day, week}) => {
+const SessionDetails = ({session}) => {
 
   return (
     <div className="session-details">
-      <h4>{title}</h4> 
-      <p>Uke {week} / Dag {day}</p>
+      <h4>{session.title}</h4> 
+      {session.exercises && session.exercises.map(e => (
+        <p className="container" key={e._id}>{e.title}: {e.reps} x {e.sets} ({e.weight}kg)</p>
+      ))}
     </div>
   ) 
 }
 
 export default SessionDetails
+
