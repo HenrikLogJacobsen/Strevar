@@ -43,24 +43,28 @@ const ExerciseEdit = ({exercise}) => {
     return (
         <form className="edit">
             <input 
+                className="edit-input"
                 type = "text"
                 onChange = {(e) => setTitle(e.target.value)}
                 value = {title}
             />
 
             <input 
+                className="edit-input"
                 type = "number"
                 onChange = {(e) => setSets(e.target.value)}
                 value = {sets}
             />
 
             <input 
+                className="edit-input"
                 type = "number"
                 onChange = {(e) => setReps(e.target.value)}
                 value = {reps}
             />
 
             <input 
+                className="edit-input"
                 type = "number"
                 onChange = {(e) => setWeight(e.target.value)}
                 value = {weight}

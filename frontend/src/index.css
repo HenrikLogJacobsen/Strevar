@@ -3,7 +3,7 @@
 
 
 :root {
-  --primary: #6b00ae;
+  --primary: #4093fe;
   --primaryBg: #cec9c9dc;
   --compBg: #fff;
   --error: #e7195a;
@@ -36,7 +36,7 @@ ul {
   list-style-type: none;
 }
 
-header h1:hover, header a:hover {
+header h1, header a:hover {
   color: var(--primary);
   transition: 300ms;
 }
@@ -78,19 +78,30 @@ input, button {
   color: var(--textClr);
   border-radius: 5px;
   margin: 1rem;
-  padding-left: 1rem;
+  padding: 0.5rem;
   height: 7rem;
   width: 8rem;
 }
+
 .exercise-details {
-  height: 15rem;
   width: 15rem;
-  background-color: var(--compBg);
 }
 
 .createExercise {
   margin-top: -8px;
 }
+
+.editExercise {
+  background-color: var(--compBg);
+}
+
+
+.edit-input {
+  background-color: var(--primaryBg);
+  /* ikke bra, fiks dette!! */
+  width: 92%; 
+}
+
 
 /* sessions */
 

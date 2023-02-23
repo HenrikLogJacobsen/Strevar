@@ -26,7 +26,7 @@ const ExerciseDetails = ({ exercise }) => {
   const handleEdit = () => {
     setEditForm((prev) => !prev)
     if(editInfo === "Endre") {
-      setEditInfo("Ferdig")
+      setEditInfo("Lukk")
     }
     else {
       setEditInfo("Endre")
@@ -35,15 +35,19 @@ const ExerciseDetails = ({ exercise }) => {
   
 
   return (
-    <div className="exercise-details">
-      <h4>{exercise.title}</h4>
-      <p><strong>Antall sett: </strong>{exercise.sets}</p>
-      <p><strong>Antall repetisjoner: </strong>{exercise.reps}</p>
-      <p><strong>Vekt (kg): </strong>{exercise.weight}</p>
-      <p>{formatDistanceToNow(new Date(exercise.createdAt), {addSuffix: true})}</p>
-      {editForm && <ExerciseEdit  exercise={exercise} key={exercise._id} />}
-      <button className="button" onClick={handleEdit}>{editInfo}</button>
-      <button className="button" onClick={handleDelete}>Fjern</button>
+    <div className="exercise-details" style={ editForm ? {height: '32rem'} : {height: '20rem'}} >
+      <div className="details">
+        <h4>{exercise.title}</h4>
+        <p><strong>Antall sett: </strong>{exercise.sets}</p>
+        <p><strong>Antall repetisjoner: </strong>{exercise.reps}</p>
+        <p><strong>Vekt (kg): </strong>{exercise.weight}</p>
+        <p>{formatDistanceToNow(new Date(exercise.createdAt), {addSuffix: true})}</p>
+      </div>
+      <div className="editExercise">
+        {editForm && <ExerciseEdit  exercise={exercise} key={exercise._id} />}
+        <button className="button" onClick={handleEdit}>{editInfo}</button>
+        <button className="button" onClick={handleDelete}>Fjern øvelse</button>
+      </div>
     </div>
   ) 
 }
