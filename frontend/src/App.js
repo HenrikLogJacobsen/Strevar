@@ -8,6 +8,8 @@ import MySessions from './pages/MySessions';
 import MyPrograms from './pages/MyPrograms';
 
 
+
+
 function App() {
   return (
     <div className="App">
@@ -24,7 +26,7 @@ function App() {
         </div>
       </BrowserRouter>
     </div>
-  );
+  )
 }
 
 export default App;

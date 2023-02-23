@@ -41,4 +41,4 @@ export default function CreateSession() {
       <button className='button'>Opprett ny økt</button>
     </div>
   )
-}
+} 
