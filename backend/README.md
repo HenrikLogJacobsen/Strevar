@@ -19,17 +19,17 @@ run `npm install dotenv` for at denne filen kan gjore jobben sin
 
 ## Foreslåtte API endepunkter
 
-Henter alle treningsøkter:
+Henter alle øvelser:
 
-`GET /treningsokter`
+`GET /exercise`
 
-Henter en treningsøkt
+Henter en øvelse
 
-`GET /treningsokter/:id`
+`GET /exercise/:id`
 
-Lager en ny treningsokt
+Lager en ny øvelse
 
-`POST /treningsokter`
+`POST /exercise`
 {
   "tittel": "Benk",
   "sett": 2,
@@ -49,13 +49,13 @@ response:
   "__v": 0
 }
 
-Sletter en treningsokt
+Sletter en øvelse
 
-`DELETE  /treningsokter/:id`
+`DELTETE  /exercise/:id`
 
-Oppdaterer en treningsøkt
+Oppdaterer en øvelse
 
-`PATCH  /treningsokter/:id`
+`PATCH  /exercise/:id`
 
 
 mongoose legger til et ekstra lag med struktur til databasen som mongoDB ikke lar ogss gjore
@@ -113,9 +113,17 @@ mongoose legger til et ekstra lag med struktur til databasen som mongoDB ikke la
 
 
 
-### Endepunkt for å ente alle treningsøkter
+### Endepunkt for å hente alle treningsøkter
 
 http://localhost:5553/api/sessions
+
+### Sletter en treningsokt
+
+`DELTETE  /exercise/:id`
+
+### Oppdaterer en treningsøkt
+
+`PATCH  /exercise/:id`
 
 
 
