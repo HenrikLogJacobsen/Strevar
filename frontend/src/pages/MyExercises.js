@@ -8,7 +8,7 @@ import { useExerciseCtx } from "../hooks/useExerciseCtx"
 
 
 const MyExercises = () => {
-  const {exercises, dispatch} = useExerciseCtx()
+  const {exercises, dispatchExercise} = useExerciseCtx()
 
   useEffect(() => {
     const fetchExercises = async () => {
@@ -16,12 +16,12 @@ const MyExercises = () => {
       const json = await response.json()
 
       if (response.ok) {
-        dispatch({type: "SET_EXERCISES", payload: json})
+        dispatchExercise({type: "SET_EXERCISES", payload: json})
       }
     }
     
     fetchExercises()
-  }, [dispatch])
+  }, [dispatchExercise])
 
   return (
     <div className="myExercises">

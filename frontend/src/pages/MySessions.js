@@ -8,7 +8,7 @@ import { useSessionCtx } from "../hooks/useSessionCtx"
 
 const MySessions = () => {
 
-    const {sessions, dispatch} = useSessionCtx()
+    const {sessions, dispatchSession} = useSessionCtx()
 
     useEffect(() => {
     const fetchSessions = async () => {
@@ -16,13 +16,13 @@ const MySessions = () => {
         const json = await response.json()
   
         if (response.ok) {
-          dispatch({type: "SET_SESSIONS", payload: json})
+          dispatchSession({type: "SET_SESSIONS", payload: json})
         }
       }
       
       fetchSessions()
-    }, [dispatch])
-
+    }, [dispatchSession])
+    
     return (
         <div className="mySessions">
             <h2>Mine Treningsøkter</h2>

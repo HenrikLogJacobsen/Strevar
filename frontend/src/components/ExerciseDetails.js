@@ -7,7 +7,7 @@ import formatDistanceToNow from "date-fns/formatDistanceToNow"
 
 
 const ExerciseDetails = ({ exercise }) => {
-  const {dispatch} = useExerciseCtx()
+  const {dispatchExercise} = useExerciseCtx()
   const [editForm, setEditForm] = useState(false);
   const [editInfo, setEditInfo] = useState("Endre");
 
@@ -19,7 +19,7 @@ const ExerciseDetails = ({ exercise }) => {
     const json = await response.json()
 
     if (response.ok) {
-      dispatch({type: "DELETE_EXERCISE", payload: json})
+      dispatchExercise({type: "DELETE_EXERCISE", payload: json})
     }
   }
 

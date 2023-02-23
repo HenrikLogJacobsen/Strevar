@@ -8,7 +8,7 @@ const ExerciseForm = () => {
     const [weight, setWeight] = useState('')
     const [error, setError] = useState(null)
  
-    const {dispatch} = useExerciseCtx()
+    const {dispatchExercise} = useExerciseCtx()
 
     const handleSubmit = async (e) => {
         e.preventDefault()
@@ -34,7 +34,7 @@ const ExerciseForm = () => {
             setWeight('')
             setError(null)
             console.log("Ny treningsøvelse lagt til", json)
-            dispatch({type: "CREATE_EXERCISE", payload: json})
+            dispatchExercise({type: "CREATE_EXERCISE", payload: json})
         }
     }
 

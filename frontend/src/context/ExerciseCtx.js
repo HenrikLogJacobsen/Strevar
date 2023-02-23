@@ -4,6 +4,10 @@ export const ExerciseCtx = createContext()
 
 export const exerciseReducer = (state, action) => {
     switch (action.type) {
+        case "TEST":
+            return {
+                exercises: [action.payload]
+            }
         case "SET_EXERCISES":
             return { 
                 exercises: action.payload 
@@ -33,12 +37,12 @@ export const exerciseReducer = (state, action) => {
     }
 }
 export const ExerciseCtxProvider = ({children}) => {
-    const [state, dispatch] = useReducer(exerciseReducer, { 
+    const [state, dispatchExercise] = useReducer(exerciseReducer, { 
         exercises: null
     })
   
     return (
-        <ExerciseCtx.Provider value={{...state, dispatch}}>
+        <ExerciseCtx.Provider value={{...state, dispatchExercise}}>
             {children}
         </ExerciseCtx.Provider>
     )

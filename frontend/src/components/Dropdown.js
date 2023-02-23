@@ -1,4 +1,6 @@
 import React, { useEffect, useState } from "react";
+import { useExerciseCtx } from "../hooks/useExerciseCtx"
+import { useSessionCtx } from "../hooks/useSessionCtx"
 
 const Icon = () => {
     return (
@@ -13,6 +15,9 @@ const Dropdown = ({ placeHolder, options, isMulti }) => {
     
     const [showMenu, setShowMenu] = useState(false)
     const [selectedValue, setSelectedValue] = useState(isMulti ? [] : null)
+    const {exercises, dispatchExercise} = useExerciseCtx()
+    const [title, setTitle] = useState("")
+    const {dispatchSession} = useSessionCtx()
 
     useEffect(() => {
         const handler = () => setShowMenu(false)
@@ -96,9 +101,50 @@ const Dropdown = ({ placeHolder, options, isMulti }) => {
         return selectedValue.value === option.value
     }
 
+    const handleClick = async (e) => {
+        e.preventDefault()
+
+        //GET SELECTED EXERCISES  
+        selectedValue.map(async(item) => {
+            const response = await fetch("api/exercises/" + item.value)
+            const json = await response.json()
+            console.log(json)
+            if (response.ok) {
+                dispatchExercise({type: "TEST", payload: json})
+            }
+        })
+        console.log(exercises)
+        // POST NEW SESSION
+         const session = {title, "exercises": exercises}
+         const response = await fetch("/api/sessions/", {
+             method: "POST",
+             body: JSON.stringify(session),
+             headers: {
+                 "Content-Type": "application/json"
+             }
+         })
+
+         const json = await response.json()
+
+         if(response.ok) {
+             setTitle('')
+             setSelectedValue([])
+             console.log("Ny treningsøkt lagt til", json)
+             dispatchSession({type: "CREATE_SESSION", payload: json})
+         }
+      }
+
+    
 
     return (
       <div className="dropdown-container">
+        <input
+            className='sessionInput'
+            placeholder="Navn på økt"
+            type = "text"
+            onChange = {(e) => setTitle(e.target.value)}
+            value = {title}
+        />
         <div onClick={handleInputClick} className="dropdown-input">
           <div className="dropdown-selected-value">{getDisplay()}</div>
           <div className="dropdown-tools">
@@ -120,6 +166,7 @@ const Dropdown = ({ placeHolder, options, isMulti }) => {
                 ))}
             </div>
         )}
+        <button className='button' onClick={handleClick}>Opprett ny økt</button>
       </div>
     )
   }

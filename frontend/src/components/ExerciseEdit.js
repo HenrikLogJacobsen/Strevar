@@ -8,7 +8,7 @@ const ExerciseEdit = ({exercise}) => {
     const [weight, setWeight] = useState(exercise.weight)
     const [error, setError] = useState(null)
 
-    const {dispatch} = useExerciseCtx()
+    const {dispatchExercise} = useExerciseCtx()
 
     const handleEdit = async (e) => {
         e.preventDefault()
@@ -36,7 +36,7 @@ const ExerciseEdit = ({exercise}) => {
         else {
             setError(null)
             console.log("Treningsøvelse ", json, "ble endret til", jsonEdit)
-            dispatch({type: "EDIT_EXERCISE", payload: jsonEdit})
+            dispatchExercise({type: "EDIT_EXERCISE", payload: jsonEdit})
         }
     }
 

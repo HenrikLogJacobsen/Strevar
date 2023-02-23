@@ -8,17 +8,21 @@ export const sessionReducer = (state, action) => {
             return { 
                 sessions: action.payload 
             }
+        case "CREATE_SESSION":
+            return { 
+                sessions: [...state.sessions, action.payload] 
+            }
         default:
             return state
     }
 }
 export const SessionCtxProvider = ({children}) => {
-    const [state, dispatch] = useReducer(sessionReducer, { 
+    const [state, dispatchSession] = useReducer(sessionReducer, { 
         sessions: null
     })
   
     return (
-        <SessionCtx.Provider value={{...state, dispatch}}>
+        <SessionCtx.Provider value={{...state, dispatchSession}}>
             {children}
         </SessionCtx.Provider>
     )
