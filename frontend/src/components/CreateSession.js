@@ -27,9 +27,12 @@ export default function CreateSession() {
   return (
     <div className="createSession">
       <h3>Lag en økt</h3>
-      {exercises && <Dropdown isMulti={true} placeHolder="Velg øvelse..." options={
-        exercises.map(e => ({value: e._id, label: e.title}))
-      }/>}
+      {exercises && <Dropdown 
+        isMulti={true} 
+        placeHolder="Velg øvelse..." 
+        options={exercises.map(e => ({value: e._id, label: e.title}))}
+        allExercises={exercises}
+      />}
     </div>
   )
 } 

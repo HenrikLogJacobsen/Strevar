@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react";
-import { useExerciseCtx } from "../hooks/useExerciseCtx"
 import { useSessionCtx } from "../hooks/useSessionCtx"
 
 const Icon = () => {
@@ -11,11 +10,10 @@ const Icon = () => {
   }
   
   
-const Dropdown = ({ placeHolder, options, isMulti }) => {
+const Dropdown = ({ placeHolder, options, isMulti, allExercises }) => {
     
     const [showMenu, setShowMenu] = useState(false)
     const [selectedValue, setSelectedValue] = useState(isMulti ? [] : null)
-    const {exercises, dispatchExercise} = useExerciseCtx()
     const [title, setTitle] = useState("")
     const {dispatchSession} = useSessionCtx()
 
@@ -104,18 +102,11 @@ const Dropdown = ({ placeHolder, options, isMulti }) => {
     const handleClick = async (e) => {
         e.preventDefault()
 
-        //GET SELECTED EXERCISES  
-        selectedValue.map(async(item) => {
-            const response = await fetch("api/exercises/" + item.value)
-            const json = await response.json()
-            console.log(json)
-            if (response.ok) {
-                dispatchExercise({type: "TEST", payload: json})
-            }
-        })
-        console.log(exercises)
         // POST NEW SESSION
-         const session = {title, "exercises": exercises}
+        const exercises = selectedValue.map((selected) => {
+            return allExercises.find((exercise) => selected.value === exercise._id)
+         })
+         const session = {title, exercises}
          const response = await fetch("/api/sessions/", {
              method: "POST",
              body: JSON.stringify(session),
