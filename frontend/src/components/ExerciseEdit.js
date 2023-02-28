@@ -8,7 +8,7 @@ const ExerciseEdit = ({exercise}) => {
     const [weight, setWeight] = useState(exercise.weight)
     const [error, setError] = useState(null)
 
-    const {dispatch} = useExerciseCtx()
+    const {dispatchExercise} = useExerciseCtx()
 
     const handleEdit = async (e) => {
         e.preventDefault()
@@ -36,37 +36,41 @@ const ExerciseEdit = ({exercise}) => {
         else {
             setError(null)
             console.log("Treningsøvelse ", json, "ble endret til", jsonEdit)
-            dispatch({type: "EDIT_EXERCISE", payload: jsonEdit})
+            dispatchExercise({type: "EDIT_EXERCISE", payload: jsonEdit})
         }
     }
 
     return (
         <form className="edit">
             <input 
+                className="edit-input"
                 type = "text"
                 onChange = {(e) => setTitle(e.target.value)}
                 value = {title}
             />
 
             <input 
+                className="edit-input"
                 type = "number"
                 onChange = {(e) => setSets(e.target.value)}
                 value = {sets}
             />
 
             <input 
+                className="edit-input"
                 type = "number"
                 onChange = {(e) => setReps(e.target.value)}
                 value = {reps}
             />
 
             <input 
+                className="edit-input"
                 type = "number"
                 onChange = {(e) => setWeight(e.target.value)}
                 value = {weight}
             />
 
-            <button onClick={handleEdit}>Lagre</button>
+            <button className="button" onClick={handleEdit}>Lagre</button>
             {error && <div className="error">{error}</div>}
         </form>
     )
