@@ -1,6 +1,7 @@
 
 const SessionDetails = ({session}) => {
 
+  
   return (
     <div className="session-details">
       <h4>{session.title}</h4> 
