@@ -1,79 +1,79 @@
 import { useState } from "react"
 import { useExerciseCtx } from "../hooks/useExerciseCtx"
 
-const ExerciseForm = () => {
-    const [title, setTitle] = useState('')
-    const [sets, setSets] = useState('')
-    const [reps, setReps] = useState('')
-    const [weight, setWeight] = useState('')
+const ExerciseEdit = ({exercise}) => {
+    const [title, setTitle] = useState(exercise.title)
+    const [sets, setSets] = useState(exercise.sets)
+    const [reps, setReps] = useState(exercise.reps)
+    const [weight, setWeight] = useState(exercise.weight)
     const [error, setError] = useState(null)
- 
+
     const {dispatchExercise} = useExerciseCtx()
 
-    const handleSubmit = async (e) => {
+    const handleEdit = async (e) => {
         e.preventDefault()
 
-        const exercise = {title, sets, reps, weight}
-        const response = await fetch("/api/exercises/", {
-            method: "POST",
-            body: JSON.stringify(exercise),
+        const exerciseEdit = {title, sets, reps, weight}
+        const response = await fetch("/api/exercises/" + exercise._id, {
+            method: "PATCH",
+            body: JSON.stringify(exerciseEdit),
             headers: {
                 "Content-Type": "application/json"
             }
         })
 
         const json = await response.json()
-
         if(!response.ok) {
             setError(json.error)
-        } 
+        }
+
+        const responseEdit = await fetch("/api/exercises/" + exercise._id)
+
+        const jsonEdit = await responseEdit.json()
+        if(!responseEdit.ok) {
+            setError(jsonEdit.error)
+        }
         else {
-            setTitle('')
-            setSets('')
-            setReps('')
-            setWeight('')
             setError(null)
-            console.log("Ny treningsøvelse lagt til", json)
-            dispatchExercise({type: "CREATE_EXERCISE", payload: json})
+            console.log("Treningsøvelse ", json, "ble endret til", jsonEdit)
+            dispatchExercise({type: "EDIT_EXERCISE", payload: jsonEdit})
         }
     }
 
     return (
-        <form className="createExercise" onSubmit={handleSubmit}>
-            <h3>Legg til øvelse</h3>
-
-            <input
-                placeholder="Navn"
+        <form className="edit">
+            <input 
+                className="edit-input"
                 type = "text"
                 onChange = {(e) => setTitle(e.target.value)}
                 value = {title}
             />
 
             <input 
-                placeholder="Antall sett"
+                className="edit-input"
                 type = "number"
                 onChange = {(e) => setSets(e.target.value)}
                 value = {sets}
             />
 
             <input 
-                placeholder="Repetisjoner"
+                className="edit-input"
                 type = "number"
                 onChange = {(e) => setReps(e.target.value)}
                 value = {reps}
             />
 
             <input 
-                placeholder="Vekt (kg)"
+                className="edit-input"
                 type = "number"
                 onChange = {(e) => setWeight(e.target.value)}
                 value = {weight}
             />
 
-            <button className="button">Legg til</button>
+            <button className="button" onClick={handleEdit}>Lagre</button>
             {error && <div className="error">{error}</div>}
         </form>
     )
 }
 
-export default ExerciseForm
+export default ExerciseEdit
