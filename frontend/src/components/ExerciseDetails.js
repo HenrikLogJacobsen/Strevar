@@ -20,6 +20,7 @@ const ExerciseDetails = ({ exercise }) => {
 
     if (response.ok) {
       dispatchExercise({type: "DELETE_EXERCISE", payload: json})
+      console.log()
     }
   }
 
