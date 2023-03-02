@@ -110,7 +110,7 @@ input, button {
   flex-wrap: wrap;
 }
 
-.session-details:hover, .addSessionBtn:hover {
+.addSessionBtn:hover {
   background-color: var(--primary);
   -webkit-text-fill-color: var(--compBg);
   transition: 400ms;

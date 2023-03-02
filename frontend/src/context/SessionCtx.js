@@ -12,6 +12,11 @@ export const sessionReducer = (state, action) => {
             return { 
                 sessions: [...state.sessions, action.payload] 
             }
+        case "DELETE_SESSION":
+            return {
+                sessions: state.sessions.filter(session => session._id !== action.payload._id)
+            }
+
         default:
             return state
     }
