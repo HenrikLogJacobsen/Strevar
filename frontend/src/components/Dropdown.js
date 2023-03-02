@@ -103,27 +103,29 @@ const Dropdown = ({ placeHolder, options, isMulti, allExercises }) => {
         e.preventDefault()
 
         // POST NEW SESSION
-        const exercises = selectedValue.map((selected) => {
-            return allExercises.find((exercise) => selected.value === exercise._id)
-         })
-         const session = {title, exercises}
-         const response = await fetch("/api/sessions/", {
-             method: "POST",
-             body: JSON.stringify(session),
-             headers: {
-                 "Content-Type": "application/json"
-             }
-         })
+        if (selectedValue.length !== 0) {
+            const exercises = selectedValue.map((selected) => {
+                return allExercises.find((exercise) => selected.value === exercise._id)
+            })
+            const session = {title, exercises}
+            const response = await fetch("/api/sessions/", {
+                method: "POST",
+                body: JSON.stringify(session),
+                headers: {
+                    "Content-Type": "application/json"
+                }
+            })
 
-         const json = await response.json()
+            const json = await response.json()
 
-         if(response.ok) {
-             setTitle('')
-             setSelectedValue([])
-             console.log("Ny treningsøkt lagt til", json)
-             dispatchSession({type: "CREATE_SESSION", payload: json})
-         }
-      }
+            if(response.ok) {
+                setTitle('')
+                setSelectedValue([])
+                console.log("Ny treningsøkt lagt til", json)
+                dispatchSession({type: "CREATE_SESSION", payload: json})
+            }
+        }
+    }
 
     
 
