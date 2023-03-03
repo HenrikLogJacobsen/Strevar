@@ -2,19 +2,19 @@ import { useState } from "react"
 import { useExerciseCtx } from "../hooks/useExerciseCtx"
 
 const ExerciseForm = () => {
-    const [tittel, setTitle] = useState('')
-    const [sett, setSets] = useState('')
-    const [repetisjoner, setReps] = useState('')
-    const [vekt, setWeight] = useState('')
+    const [title, setTitle] = useState('')
+    const [sets, setSets] = useState('')
+    const [reps, setReps] = useState('')
+    const [weight, setWeight] = useState('')
     const [error, setError] = useState(null)
  
-    const {dispatch} = useExerciseCtx()
+    const {dispatchExercise} = useExerciseCtx()
 
     const handleSubmit = async (e) => {
         e.preventDefault()
 
-        const exercise = {tittel, sett, repetisjoner, vekt}
-        const response = await fetch("/api/treningsokter", {
+        const exercise = {title, sets, reps, weight}
+        const response = await fetch("/api/exercises/", {
             method: "POST",
             body: JSON.stringify(exercise),
             headers: {
@@ -34,43 +34,43 @@ const ExerciseForm = () => {
             setWeight('')
             setError(null)
             console.log("Ny treningsøvelse lagt til", json)
-            dispatch({type: "CREATE_EXERCISE", payload: json})
+            dispatchExercise({type: "CREATE_EXERCISE", payload: json})
         }
     }
 
     return (
-        <form className="create" onSubmit={handleSubmit}>
+        <form className="createExercise" onSubmit={handleSubmit}>
             <h3>Legg til øvelse</h3>
 
-            <label>Navn:</label>
-            <input 
+            <input
+                placeholder="Navn"
                 type = "text"
                 onChange = {(e) => setTitle(e.target.value)}
-                value = {tittel}
+                value = {title}
             />
 
-            <label>Sett:</label>
             <input 
+                placeholder="Antall sett"
                 type = "number"
                 onChange = {(e) => setSets(e.target.value)}
-                value = {sett}
+                value = {sets}
             />
 
-            <label>Repitisjoner:</label>
             <input 
+                placeholder="Repetisjoner"
                 type = "number"
                 onChange = {(e) => setReps(e.target.value)}
-                value = {repetisjoner}
+                value = {reps}
             />
 
-            <label>Vekt (kg):</label>
             <input 
+                placeholder="Vekt (kg)"
                 type = "number"
                 onChange = {(e) => setWeight(e.target.value)}
-                value = {vekt}
+                value = {weight}
             />
 
-            <button>Legg til</button>
+            <button className="button">Legg til</button>
             {error && <div className="error">{error}</div>}
         </form>
     )
