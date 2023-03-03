@@ -8,6 +8,8 @@ import MySessions from './pages/MySessions';
 import MyPrograms from './pages/MyPrograms';
 
 
+import Login from './pages/Login';
+import Signup from './pages/Signup';
 
 
 function App() {
@@ -21,7 +23,8 @@ function App() {
             <Route path="/my-programs" element={<MyPrograms />} />
             <Route path="/my-exercises" element={<MyExercises />} />
             <Route path="/my-sessions" element={<MySessions />} />
-
+            <Route path="/login" element={<Login />} />
+            <Route path="/signup" element={<Signup />} />
           </Routes>
         </div>
       </BrowserRouter>
