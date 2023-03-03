@@ -79,12 +79,12 @@ input, button {
   border-radius: 5px;
   margin: 1rem;
   padding: 0.5rem;
-  height: 7rem;
   width: 8rem;
 }
 
 .exercise-details {
   width: 15rem;
+  height:7rem
 }
 
 .createExercise {
@@ -110,7 +110,7 @@ input, button {
   flex-wrap: wrap;
 }
 
-.session-details:hover, .addSessionBtn:hover {
+.addSessionBtn:hover {
   background-color: var(--primary);
   -webkit-text-fill-color: var(--compBg);
   transition: 400ms;
@@ -170,21 +170,17 @@ input, button {
   width: 350px;
 }
 .dropdown-menu {
-  position: absolute;
   transform: translateY(4px);
-  width: 370px;
-  border: solid 1px var(--primary);
-  border-radius: 5px;
+  margin: 3px;
   overflow: auto;
   max-height: 150px;
-  background-color: var(--primaryBg);
 }
 .dropdown-item {
   padding: 5px;
   cursor: pointer;
 }
 .dropdown-item:hover {
-  background-color: var(--compBg);
+  color: var(--primary);
 }
 .dropdown-item.selected {
   background-color: var(--primary);
@@ -206,3 +202,4 @@ input, button {
   display: flex;
   align-items: center;
 }
+
