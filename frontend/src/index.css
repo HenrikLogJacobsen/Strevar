@@ -6,7 +6,7 @@
   --primary: #4093fe;
   --primaryBg: #cec9c9dc;
   --compBg: #fff;
-  --error: #e7195a;
+  --error: #d50505;
   --textClr: #333;
 }
 
@@ -30,6 +30,17 @@ header .nav {
   display: flex;
   align-items: center;
   justify-content: space-between;
+}
+
+.userIcon {
+  display: flex;
+}
+
+
+.userIcon:hover {
+  transform: scale(1.1);
+  cursor: pointer;
+  transition: 400ms;
 }
 
 ul {

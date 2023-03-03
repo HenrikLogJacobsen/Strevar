@@ -1,13 +1,17 @@
 import { Link, useMatch, useResolvedPath } from "react-router-dom"
+import UserIcon from "./UserIcon"
+
 
 const Navbar = () => {
 
     return (
         <header>
             <div className="nav">
+    
                 <Link to='/'>
                     <h1>Strevar</h1>
                 </Link>
+                <UserIcon/>
                 <ul>
                     <CustomLink to="/">Hjem</CustomLink>
                     <CustomLink to="/">Grupper</CustomLink>
