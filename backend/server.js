@@ -3,6 +3,7 @@ require('dotenv').config()
 const express = require('express')
 const mongoose = require('mongoose')
 const exerciseRouter = require('./routes/workouts')
+const userRouter = require('./routes/user')
 const sessionRouter = require('./routes/sessions')
 
 //create express app
@@ -24,6 +25,7 @@ app.use((req, res, next) => {
 //henter alle routes i exerciseRouter
 app.use('/api/exercises',exerciseRouter)
 app.use('/api/sessions',sessionRouter)
+app.use('/api/user',userRouter)
 
 //kobler til databasen
 mongoose.connect(process.env.MONGO_URI)

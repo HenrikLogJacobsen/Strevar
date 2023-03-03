@@ -160,6 +160,9 @@ mongoose legger til et ekstra lag med struktur til databasen som mongoDB ikke la
   "__v": 0
 }
 
+## Autentisering
+
+Vi bruker JWT
 
 
 ### Endepunkt for å hente alle treningsøkter
