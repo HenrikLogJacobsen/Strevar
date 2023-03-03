@@ -19,17 +19,17 @@ run `npm install dotenv` for at denne filen kan gjore jobben sin
 
 ## Foreslåtte API endepunkter
 
-Henter alle treningsøkter:
+Henter alle øvelser:
 
-`GET /treningsokter`
+`GET /exercise`
 
-Henter en treningsøkt
+Henter en øvelse
 
-`GET /treningsokter/:id`
+`GET /exercise/:id`
 
-Lager en ny treningsokt
+Lager en ny øvelse
 
-`POST /treningsokter`
+`POST /exercise`
 {
   "tittel": "Benk",
   "sett": 2,
@@ -49,22 +49,146 @@ response:
   "__v": 0
 }
 
-Sletter en treningsokt
+Sletter en øvelse
 
-`DELTETE  /treningsokter/:id`
+`DELTETE  /exercise/:id`
 
-Oppdaterer en treningsøkt
+Oppdaterer en øvelse
 
-`PATCH  /treningsokter/:id`
+`PATCH  /exercise/:id`
 
 
 mongoose legger til et ekstra lag med struktur til databasen som mongoDB ikke lar ogss gjore
 
+### Eksempel på session POST request http://localhost:5553/api/sessions
+
+{
+  "title": "Chest Day",
+  "exercises": [
+    {
+      "title": "Bench Press",
+      "sets": 3,
+      "reps": 10,
+      "weight": 100
+    },
+    {
+      "title": "Incline Press",
+      "sets": 3,
+      "reps": 10,
+      "weight": 80
+    }
+  ]
+}
+
+### Eksempel på respons du vil få ved session POST request
+
+{
+  "title": "Chest Day",
+  "exercises": [
+    {
+      "title": "Bench Press",
+      "sets": 3,
+      "reps": 10,
+      "weight": 100,
+      "_id": "63f63168079e1379c6787584",
+      "createdAt": "2023-02-22T15:14:48.768Z",
+      "updatedAt": "2023-02-22T15:14:48.768Z"
+    },
+    {
+      "title": "Incline Press",
+      "sets": 3,
+      "reps": 10,
+      "weight": 80,
+      "_id": "63f63168079e1379c6787585",
+      "createdAt": "2023-02-22T15:14:48.769Z",
+      "updatedAt": "2023-02-22T15:14:48.769Z"
+    }
+  ],
+  "_id": "63f63168079e1379c6787583",
+  "createdAt": "2023-02-22T15:14:48.770Z",
+  "updatedAt": "2023-02-22T15:14:48.770Z",
+  "__v": 0
+}
+
+### Eksempel på session POST request http://localhost:5553/api/sessions
+
+{
+  "title": "Chest Day",
+  "exercises": [
+    {
+      "title": "Bench Press",
+      "sets": 3,
+      "reps": 10,
+      "weight": 100
+    },
+    {
+      "title": "Incline Press",
+      "sets": 3,
+      "reps": 10,
+      "weight": 80
+    }
+  ]
+}
+
+### Eksempel på respons du vil få ved session POST request
+
+{
+  "title": "Chest Day",
+  "exercises": [
+    {
+      "title": "Bench Press",
+      "sets": 3,
+      "reps": 10,
+      "weight": 100,
+      "_id": "63f63168079e1379c6787584",
+      "createdAt": "2023-02-22T15:14:48.768Z",
+      "updatedAt": "2023-02-22T15:14:48.768Z"
+    },
+    {
+      "title": "Incline Press",
+      "sets": 3,
+      "reps": 10,
+      "weight": 80,
+      "_id": "63f63168079e1379c6787585",
+      "createdAt": "2023-02-22T15:14:48.769Z",
+      "updatedAt": "2023-02-22T15:14:48.769Z"
+    }
+  ],
+  "_id": "63f63168079e1379c6787583",
+  "createdAt": "2023-02-22T15:14:48.770Z",
+  "updatedAt": "2023-02-22T15:14:48.770Z",
+  "__v": 0
+}
 
 ## Autentisering
 
 Vi bruker JWT
 
+
+### Endepunkt for å hente alle treningsøkter
+
+http://localhost:5553/api/sessions
+
+### Sletter en treningsokt
+
+`DELTETE  /exercise/:id`
+
+### Oppdaterer en treningsøkt
+
+`PATCH  /exercise/:id`
+
+
+### Endepunkt for å hente alle treningsøkter
+
+http://localhost:5553/api/sessions
+
+### Sletter en treningsokt
+
+`DELTETE  /exercise/:id`
+
+### Oppdaterer en treningsøkt
+
+`PATCH  /exercise/:id`
 
 
 
