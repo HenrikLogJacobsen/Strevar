@@ -19,11 +19,10 @@ function App() {
         <Navbar />
         <div className='pages'>
           <Routes>
-            <Route path='/' element={<Home />} />
+            <Route path='/' element={<Login />} />
             <Route path="/my-programs" element={<MyPrograms />} />
             <Route path="/my-exercises" element={<MyExercises />} />
             <Route path="/my-sessions" element={<MySessions />} />
-            <Route path="/login" element={<Login />} />
             <Route path="/signup" element={<Signup />} />
           </Routes>
         </div>

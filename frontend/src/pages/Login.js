@@ -1,4 +1,5 @@
 import { useState } from "react"
+import { Link, useMatch, useResolvedPath } from "react-router-dom"
 
 const Login = () => {
   const [username, setUsername] = useState('')
@@ -26,9 +27,22 @@ const Login = () => {
         onChange = {(c) => setPassword(c.target.value)} 
         value = {password} 
       />
-
-      <button>Logg inn</button>
+      <button className="button">Logg inn</button>
+      <CustomLink to="/signup">Ikke bruker? Registrer deg her!</CustomLink>
     </form>
+  )
+}
+
+function CustomLink({ to, children, ...props }) {
+  const resolvedPath = useResolvedPath(to)
+  const isActive = useMatch({ path: resolvedPath.pathname, end: true })
+
+  return (
+    <a className="signup-link">
+      <Link to={to} {...props}>
+        {children}
+      </Link>
+    </a>
   )
 }
 
