@@ -1,5 +1,5 @@
 import { Link, useMatch, useResolvedPath } from "react-router-dom"
-import UserIcon from "./UserIcon"
+import UserMenu from "./UserMenu"
 
 
 const Navbar = () => {
@@ -11,15 +11,16 @@ const Navbar = () => {
                 <Link to='/'>
                     <h1>Strevar</h1>
                 </Link>
-                <UserIcon/>
                 <ul>
                     <CustomLink to="/">Hjem</CustomLink>
                     <CustomLink to="/">Grupper</CustomLink>
-                    <CustomLink to="/my-programs">Treningsprogram</CustomLink>
-                    <CustomLink to="/my-sessions">Treningsøkter</CustomLink>
+                    {/* <CustomLink to="/my-programs">Treningsprogram</CustomLink> */}
+                </ul>
+                <ul>
+                    <CustomLink to="/my-sessions">Økter</CustomLink>
                     <CustomLink to="/my-exercises">Øvelser</CustomLink>
                 </ul>
-                
+                <UserMenu/>
             </div>
         </header>
     )

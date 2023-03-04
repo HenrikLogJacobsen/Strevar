@@ -9,8 +9,8 @@ function Streak ( {streak}, {days} ) {
         {streak && 
         <div>
           <svg 
-          height='30'
-          width='30'
+          height='25'
+          width='25'
           data-name="Layer 1" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
           <path d="M8.46777,8.39453l-.00225.00183-.00214.00208ZM18.42188,8.208a1.237,
           1.237,0,0,0-.23-.17481.99959.99959,0,0,0-1.39941.41114,5.78155,5.78155,0,0,
