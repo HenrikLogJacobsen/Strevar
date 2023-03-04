@@ -1,14 +1,17 @@
 import { useState } from "react"
+import {useLogin} from "../hooks/useLogin"
 import { Link, useMatch, useResolvedPath } from "react-router-dom"
 
 const Login = () => {
+  const {login, error, isLoading} = useLogin("")
   const [username, setUsername] = useState('')
   const [password, setPassword] = useState('')
 
   const submitHandler = async (a) => {
     a.preventDefault()
 
-    console.log("Brukernavn: ", username, "Passord: ", password)
+    await login(username, password)
+   // console.log("Brukernavn: ", username, "Passord: ", password)
 }
 
   return (
@@ -28,7 +31,8 @@ const Login = () => {
         value = {password} 
       />
       <button className="button">Logg inn</button>
-      <CustomLink to="/signup">Ikke bruker? Registrer deg her!</CustomLink>
+      {error && <div className="error">{error}</div>}
+      <CustomLink to="/login">Ikke bruker? Registrer deg her!</CustomLink>
     </form>
   )
 }
@@ -38,7 +42,7 @@ function CustomLink({ to, children, ...props }) {
   const isActive = useMatch({ path: resolvedPath.pathname, end: true })
 
   return (
-    <a className="signup-link">
+    <a className="login-link">
       <Link to={to} {...props}>
         {children}
       </Link>

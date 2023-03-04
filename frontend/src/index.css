@@ -21,6 +21,10 @@ body {
   font-family: "Poppins";
 }
 
+.error {
+  color: var(--error);
+}
+
 /* navbar */
 header .nav {
   margin-top: 0;

@@ -1,5 +1,7 @@
 import {useState} from 'react'
 import {useSignup} from "../hooks/useSignup"
+import { Link, useMatch, useResolvedPath } from "react-router-dom"
+
 
 const Signup = () => {
     const {signup, error, isLoading} = useSignup("")
@@ -32,10 +34,24 @@ const Signup = () => {
             />
 
             <button className='button' disabled={isLoading}>Registrer deg</button>
-            {error && <div className="Feilmelding">{error}</div>}
+            <CustomLink to="/signup">Allerede bruker? Logg inn her!</CustomLink>
+            {error && <div className="error">{error}</div>}
 
         </form>
     )
 }
+
+function CustomLink({ to, children, ...props }) {
+    const resolvedPath = useResolvedPath(to)
+    const isActive = useMatch({ path: resolvedPath.pathname, end: true })
+  
+    return (
+      <a className="signup-link">
+        <Link to={to} {...props}>
+          {children}
+        </Link>
+      </a>
+    )
+  }
 
 export default Signup
