@@ -32,7 +32,7 @@ const Login = () => {
       />
       <button className="button">Logg inn</button>
       {error && <div className="error">{error}</div>}
-      <CustomLink to="/login">Ikke bruker? Registrer deg her!</CustomLink>
+      <CustomLink to="/signup">Ikke bruker? Registrer deg her!</CustomLink>
     </form>
   )
 }

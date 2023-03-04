@@ -34,7 +34,7 @@ const Signup = () => {
             />
 
             <button className='button' disabled={isLoading}>Registrer deg</button>
-            <CustomLink to="/signup">Allerede bruker? Logg inn her!</CustomLink>
+            <CustomLink to="/">Allerede bruker? Logg inn her!</CustomLink>
             {error && <div className="error">{error}</div>}
 
         </form>
