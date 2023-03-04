@@ -211,3 +211,9 @@ This operation may cause conflicts that you need to solve manually.
 
 &nbsp;
 
+
+### Registrert bruker som kan brukes for innlogging
+
+s@trevar.no
+StrevarIsBest123!
+
