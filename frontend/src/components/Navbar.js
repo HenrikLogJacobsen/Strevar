@@ -1,6 +1,14 @@
 import { Link, useMatch, useResolvedPath } from "react-router-dom"
+import { useLogout } from '../hooks/useLogout'
+
 
 const Navbar = () => {
+
+  const { logout } = useLogout()
+
+  const handleLogout = () => {
+    logout()
+  }
 
     return (
         <header>
@@ -20,6 +28,7 @@ const Navbar = () => {
                     <CustomLink to="/my-programs">Treningsprogram</CustomLink>
                     <CustomLink to="/my-sessions">Treningsøkter</CustomLink>
                     <CustomLink to="/my-exercises">Øvelser</CustomLink>
+                    <button onClick={handleLogout}>Logg ut</button>
                 </ul>
                 
             </div>
