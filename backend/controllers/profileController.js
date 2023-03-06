@@ -33,7 +33,7 @@ const checkFollow= async(req, res) => {
 
 
 
-exports.setFollow = async(req,res)=>{
+const setFollow = async(req,res)=>{
     
     const userProfileId = req.params.userProfileId
     const userId = req.params.userId
@@ -50,7 +50,7 @@ exports.setFollow = async(req,res)=>{
     
 }
 
-exports.removeFollow=async(req,res)=>{
+const removeFollow=async(req,res)=>{
 
     const userProfileId = req.params.userProfileId
     const userId = req.params.userId
@@ -64,4 +64,10 @@ exports.removeFollow=async(req,res)=>{
     } catch (error) {
         return res.json(error)
     }
+}
+
+module.exports = {
+    checkFollow,
+    setFollow, 
+    removeFollow
 }
