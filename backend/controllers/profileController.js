@@ -1,15 +1,16 @@
+//Funksjoner som refereres til i router fil
+
 const user = require('../models/userModel')
-const formidable = require('formidable')
-const fs = require('fs')
+const mongoose = require('mongoose')
+const {response} = require('express')
 
-
-
+/*
 const checkFollow= async(req, res) => {
 
-    try{
         const userProfileId = req.params.userProfileId
         const userId = req.params.userId
 
+    try{    
         user.findById({_id: userId},'following').exec(async(err,user)=>{
             if(err){
                 return res.json({
@@ -31,7 +32,7 @@ const checkFollow= async(req, res) => {
     }
 }
 
-
+*/
 
 const setFollow = async(req,res)=>{
     
@@ -39,8 +40,8 @@ const setFollow = async(req,res)=>{
     const userId = req.params.userId
 
     try {
-        await User.findByIdAndUpdate({_id: userId},{$addToSet:{following: userProfileId}})
-        await User.findByIdAndUpdate({_id: userProfileId},{$addToSet:{followers: userId}})  
+        await user.findByIdAndUpdate({_id: userId},{$addToSet:{following: userProfileId}})
+        await user.findByIdAndUpdate({_id: userProfileId},{$addToSet:{followers: userId}})  
     } catch (error) {
         return res.json(error)
     }
@@ -67,7 +68,7 @@ const removeFollow=async(req,res)=>{
 }
 
 module.exports = {
-    checkFollow,
+    //checkFollow,
     setFollow, 
     removeFollow
 }
