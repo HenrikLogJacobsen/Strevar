@@ -217,3 +217,6 @@ This operation may cause conflicts that you need to solve manually.
 s@trevar.no
 StrevarIsBest123!
 
+strava@sucks.no
+StravaSucks123!
+

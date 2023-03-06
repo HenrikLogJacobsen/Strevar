@@ -1,10 +1,13 @@
 import { Link, useMatch, useResolvedPath } from "react-router-dom"
 import { useLogout } from '../hooks/useLogout'
+import { useUaCtx } from "../hooks/useUaCtx"
 
 
 const Navbar = () => {
 
   const { logout } = useLogout()
+
+  const { user } = useUaCtx()
 
   const handleLogout = () => {
     logout()
@@ -16,20 +19,22 @@ const Navbar = () => {
                 <Link to='/'>
                     <h1>Strevar</h1>
                 </Link>
-                <nav>
-                  <div>
-                    {/* <Link to="/login">Login</Link> */}
-                    {/* <Link to="/signup">Signup</Link> */}
-                  </div>
-                </nav>
-                <ul>
-                    <CustomLink to="/">Hjem</CustomLink>
-                    <CustomLink to="/">Grupper</CustomLink>
-                    <CustomLink to="/my-programs">Treningsprogram</CustomLink>
-                    <CustomLink to="/my-sessions">Treningsøkter</CustomLink>
-                    <CustomLink to="/my-exercises">Øvelser</CustomLink>
-                    <button onClick={handleLogout}>Logg ut</button>
-                </ul>
+                    {!user && 
+                      <nav>
+                          <Link to="/">Login</Link>
+                          <Link to="/signup">Signup</Link>
+                      </nav>
+                    }
+                    {user && 
+                    <ul>
+                     <CustomLink to="/">Hjem</CustomLink>
+                     <CustomLink to="/">Grupper</CustomLink>
+                     <CustomLink to="/my-programs">Treningsprogram</CustomLink>
+                     <CustomLink to="/my-sessions">Treningsøkter</CustomLink>
+                     <CustomLink to="/my-exercises">Øvelser</CustomLink>
+                      <button onClick={handleLogout}>Logg ut</button>
+                    </ul>
+                    }
                 
             </div>
         </header>
