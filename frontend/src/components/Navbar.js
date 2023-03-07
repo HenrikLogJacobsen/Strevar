@@ -1,5 +1,5 @@
 import { Link, useMatch, useResolvedPath } from "react-router-dom"
-import UserMenu from "./UserMenu"
+import UserMenuElement from "./UserMenuElement"
 
 
 const Navbar = () => {
@@ -19,7 +19,8 @@ const Navbar = () => {
                   <CustomLink to="/my-sessions">Økter</CustomLink>
                   <CustomLink to="/my-exercises">Øvelser</CustomLink>
                 
-                  <UserMenu/>
+                  <UserMenuElement/>
+                  
                 </div>
             </div>
         </header>

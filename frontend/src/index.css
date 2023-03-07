@@ -32,7 +32,7 @@ header .nav {
   justify-content: space-between;
 }
 
-.userMenu {
+.userMenuElement {
   display: flex;
   padding: 2px 0 0 0.5rem;
   border-left: solid 2px lightgray;

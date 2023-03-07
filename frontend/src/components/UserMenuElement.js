@@ -2,10 +2,10 @@ import React from 'react'
 import Streak from './Streak'
 import UserIcon from './UserIcon'
 
-const UserMenu = ( {username} ) => {
+const UserMenuElement = ( {username} ) => {
 
   return (
-      <div className='userMenu'>
+      <div className='userMenuElement'>
           <UserIcon/>
           <Streak streak={true} days={6}/>
           <p>{username}</p>
@@ -13,4 +13,4 @@ const UserMenu = ( {username} ) => {
       </div>
   )
 }
-export default UserMenu
+export default UserMenuElement
