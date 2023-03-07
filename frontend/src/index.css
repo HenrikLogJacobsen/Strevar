@@ -34,6 +34,21 @@ header .nav {
 
 .userMenu {
   display: flex;
+  padding: 2px 0 0 0.5rem;
+  border-left: solid 2px lightgray;
+}
+
+.menu {
+  width: 40%;
+  justify-content: space-between;
+  display: flex;
+  list-style: none;
+  margin-right: 4rem;
+  height: 40px;
+}
+
+.menu li {
+  padding: 0.5rem;
 }
 
 

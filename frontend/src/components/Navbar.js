@@ -11,16 +11,16 @@ const Navbar = () => {
                 <Link to='/'>
                     <h1>Strevar</h1>
                 </Link>
-                <ul>
-                    <CustomLink to="/">Hjem</CustomLink>
-                    <CustomLink to="/">Grupper</CustomLink>
-                    {/* <CustomLink to="/my-programs">Treningsprogram</CustomLink> */}
-                </ul>
-                <ul>
-                    <CustomLink to="/my-sessions">Økter</CustomLink>
-                    <CustomLink to="/my-exercises">Øvelser</CustomLink>
-                </ul>
-                <UserMenu/>
+                
+                <div className="menu">
+                  <CustomLink to="/">Hjem</CustomLink>
+                  <CustomLink to="/">Grupper</CustomLink>
+                  {/* <CustomLink to="/my-programs">Treningsprogram</CustomLink> */}
+                  <CustomLink to="/my-sessions">Økter</CustomLink>
+                  <CustomLink to="/my-exercises">Øvelser</CustomLink>
+                
+                  <UserMenu/>
+                </div>
             </div>
         </header>
     )
