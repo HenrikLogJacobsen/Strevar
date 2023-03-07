@@ -8,8 +8,6 @@ const UserMenuElement = () => {
       <div className='userMenuElement'>
           <UserIcon/>
           <Streak streak={true} days={6}/>
-          
-          
       </div>
   )
 }

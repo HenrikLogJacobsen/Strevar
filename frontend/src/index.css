@@ -38,8 +38,6 @@ header .nav {
   border-left: solid 2px lightgray;
 }
 
-
-
 .menu {
   width: 30rem;
   justify-content: space-between;
@@ -106,7 +104,7 @@ input, button {
   width: 15rem;
 }
 
-.session-details, .addSessionBtn, .exercise-details {
+.session-details, .addSessionBtn, .exercise-details, .stats {
   background-color: var(--compBg);
   color: var(--textClr);
   border-radius: 5px;
@@ -194,6 +192,34 @@ input, button {
 
 .sessionInput {
   width: 95%;
+}
+
+
+/* profile */
+
+.profile h2, .profile h3 {
+  text-align: center; 
+}
+
+.profile-stats {
+  margin: auto;
+  width: 40rem;
+}
+
+.stats {
+  width: auto;
+  padding: 1rem;
+}
+
+.progress-bar {
+  height: 0.5rem;
+  border-radius: 10px;
+  background-color: var(--primaryBg);
+}
+.progress-color {
+  height: inherit;
+  border-radius: 10px;
+  background-color: var(--primary);
 }
 
 

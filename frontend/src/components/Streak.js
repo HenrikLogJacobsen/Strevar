@@ -1,6 +1,6 @@
 import React from 'react'
 
-function Streak ( {streak}, {days} ) {
+function Streak ( {streak, days} ) {
 
     return (
     
@@ -26,8 +26,8 @@ function Streak ( {streak}, {days} ) {
           2.89874-4.63269,6.73625,6.73625,0,0,1,1.38623,8.08789,1.00024,1.00024,0,0,0,1.18359,1.418,7.85568,
           7.85568,0,0,0,3.86231-2.6875,7.00072,7.00072,0,0,1-3.2793,10.457Z" fill="#ff630f"/></svg>
         
-        {/*  days fungerer ikke ennå! */}
-        <p>{days}28</p> 
+
+        <p>{days}</p> 
         </div>
         }
       </div>
