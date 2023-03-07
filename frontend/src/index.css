@@ -34,16 +34,17 @@ header .nav {
 
 .userMenuElement {
   display: flex;
-  padding: 2px 0 0 0.5rem;
+  padding: 2px 1.5rem 0 0.5rem;
   border-left: solid 2px lightgray;
 }
 
+
+
 .menu {
-  width: 40%;
+  width: 30rem;
   justify-content: space-between;
   display: flex;
   list-style: none;
-  margin-right: 4rem;
   height: 40px;
 }
 
@@ -51,6 +52,12 @@ header .nav {
   padding: 0.5rem;
 }
 
+
+.streak p{
+  position:relative;
+  bottom: 50px;
+  left: 25px;
+}
 
 .userIcon:hover {
   transform: scale(1.1);
@@ -164,6 +171,18 @@ input, button {
 .button:hover {
   transform: scale(1.05);
   transition: 300ms;
+}
+
+.logoutBtn {
+  background-color: var(--compBg);
+  border: solid 1px var(--primaryBg);
+  cursor: pointer;
+  margin: 5px;
+  
+}
+.logoutBtn:hover {
+  background-color: var(--primaryBg);
+  transition: 0.3s;
 }
 
 /* create session / create program */

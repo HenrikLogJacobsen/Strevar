@@ -27,7 +27,7 @@ function Streak ( {streak}, {days} ) {
           7.85568,0,0,0,3.86231-2.6875,7.00072,7.00072,0,0,1-3.2793,10.457Z" fill="#ff630f"/></svg>
         
         {/*  days fungerer ikke ennå! */}
-        <p>{days}</p> 
+        <p>{days}28</p> 
         </div>
         }
       </div>

@@ -21,6 +21,7 @@ const Navbar = () => {
                 
                   <UserMenuElement/>
                   
+                  <button className="logoutBtn">Logg ut</button>
                 </div>
             </div>
         </header>
