@@ -35,8 +35,9 @@ const userLogin = async (req, res) => {
 
     //lage token
     const loginToken = generateJWT(loginUser._id)
+    const uid = loginUser._id
 
-    return res.status(200).json({username, loginToken})
+    return res.status(200).json({username, loginToken, uid})
 
 }
 
@@ -67,9 +68,10 @@ const userSignup = async (req, res) => {
         });
 
         const userJWT = generateJWT(newUser._id)
+        const loginToken = generateJWT(newUser._id)
 
-        console.log(userJWT)
-        res.status(200).json({username, userJWT})
+
+        res.status(200).json({username, userJWT, uid})
        
 }
 } 

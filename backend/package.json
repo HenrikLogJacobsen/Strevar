@@ -4,7 +4,7 @@
   "description": "package.json er for å holde styr på dependencies i tillegg til å registrere egne scripst",
   "main": "server.js",
   "scripts": {
-    "test": "jest", 
+    "test": "jest",
     "preset": "@shelf/jest-mongodb",
     "start": "node server.js",
     "dev": "nodemon server.js"
@@ -20,5 +20,4 @@
     "mongoose": "^6.9.0",
     "validator": "^13.9.0"
   }
-
 }

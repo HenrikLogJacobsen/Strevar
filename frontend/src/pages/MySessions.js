@@ -1,4 +1,5 @@
 import { useEffect} from "react"
+import { useUaCtx } from "../hooks/useUaCtx"
 
 // components
 import CreateSession from "../components/CreateSession"
@@ -9,6 +10,7 @@ import { useSessionCtx } from "../hooks/useSessionCtx"
 const MySessions = () => {
 
     const {sessions, dispatchSession} = useSessionCtx()
+    const { user } = useUaCtx()
 
     useEffect(() => {
     const fetchSessions = async () => {
@@ -28,9 +30,9 @@ const MySessions = () => {
             <h2>Mine Treningsøkter</h2>
             <div className="createAndSessions">
                 <div className="sessions">
-                {sessions && sessions.map(session => (
-                    <SessionDetails session={session} key={session._id} />
-                ))}
+                {sessions && sessions
+                .map(session => (<SessionDetails session={session} key={session._id} />))
+                .filter(session => session.user_id === user.uid)}
                 </div>
                 <CreateSession/>
             </div>
