@@ -2,7 +2,7 @@ import React from 'react'
 import Streak from './Streak'
 import UserIcon from './UserIcon'
 
-const UserMenuElement = () => {
+const UserMenuElement = ( {streak, days} ) => {
 
   return (
       <div className='userMenuElement'>
