@@ -28,6 +28,7 @@ const Navbar = () => {
                     {user && 
                     <ul>
                      <CustomLink to="/">Hjem</CustomLink>
+                     <CustomLink to="/friends">Friends</CustomLink>
                      <CustomLink to="/">Grupper</CustomLink>
                      <CustomLink to="/my-programs">Treningsprogram</CustomLink>
                      <CustomLink to="/my-sessions">Treningsøkter</CustomLink>
