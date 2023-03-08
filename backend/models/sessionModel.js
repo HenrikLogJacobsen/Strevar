@@ -1,4 +1,4 @@
-const Exercise = require('../models/workoutModel')
+const Exercise = require('../models/exerciseModel')
 const mongoose = require('mongoose')
 
 

@@ -1,4 +1,6 @@
 import { useEffect} from "react"
+import { useUaCtx } from "../hooks/useUaCtx"
+
 
 // components
 import ExerciseDetails from "../components/ExerciseDetails"
@@ -9,19 +11,20 @@ import { useExerciseCtx } from "../hooks/useExerciseCtx"
 
 const MyExercises = () => {
   const {exercises, dispatchExercise} = useExerciseCtx()
+  const { user } = useUaCtx()
 
   useEffect(() => {
     const fetchExercises = async () => {
-      const response = await fetch("api/exercises/")
-      const json = await response.json()
-
+      const response = await fetch('api/exercises/');
       if (response.ok) {
-        dispatchExercise({type: "SET_EXERCISES", payload: json})
+        const json = await response.json();
+        const filteredExercises = json.filter((exercise) => exercise.user_id === user.uid);
+        dispatchExercise({ type: 'SET_EXERCISES', payload: filteredExercises });
       }
-    }
-    
-    fetchExercises()
-  }, [dispatchExercise])
+    };
+  
+    fetchExercises();
+  }, [dispatchExercise, user.uid]);
 
   return (
     <div className="myExercises">

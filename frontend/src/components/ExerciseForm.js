@@ -1,5 +1,6 @@
 import { useState } from "react"
 import { useExerciseCtx } from "../hooks/useExerciseCtx"
+import { useUaCtx } from "../hooks/useUaCtx"
 
 const ExerciseForm = () => {
     const [title, setTitle] = useState('')
@@ -9,11 +10,13 @@ const ExerciseForm = () => {
     const [error, setError] = useState(null)
  
     const {dispatchExercise} = useExerciseCtx()
+    const { user } = useUaCtx()
 
     const handleSubmit = async (e) => {
         e.preventDefault()
 
-        const exercise = {title, sets, reps, weight}
+        const user_id = user.uid;
+        const exercise = {title, sets, reps, weight, user_id}
         const response = await fetch("/api/exercises/", {
             method: "POST",
             body: JSON.stringify(exercise),
