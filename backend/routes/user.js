@@ -1,5 +1,5 @@
 const express = require('express')
-const { setFollow } = require('../controllers/profileController')
+//const { setFollow } = require('../controllers/profileController')
 
 const router = express.Router()
 
