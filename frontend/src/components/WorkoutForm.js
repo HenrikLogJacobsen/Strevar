@@ -1,6 +1,11 @@
 import { useState } from "react"
+import { useUaCtx } from '../hooks/useUaCtx'
+
 
 const WorkoutForm = () => {
+    const { user } = useUaCtx()
+
+
     const [title, setTitle] = useState('')
     const [sets, setSets] = useState('')
     const [reps, setReps] = useState('')

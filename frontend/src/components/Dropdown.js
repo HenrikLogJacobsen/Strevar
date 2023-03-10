@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useSessionCtx } from "../hooks/useSessionCtx"
+import { useUaCtx } from "../hooks/useUaCtx"
+
 
 const Icon = ({rotate}) => {
     return (
@@ -13,11 +15,11 @@ const Icon = ({rotate}) => {
   
   
 const Dropdown = ({ placeHolder, options, isMulti, allExercises }) => {
-    
     const [showMenu, setShowMenu] = useState(false)
     const [selectedValue, setSelectedValue] = useState(isMulti ? [] : null)
     const [title, setTitle] = useState("")
     const {dispatchSession} = useSessionCtx()
+    const { user } = useUaCtx()
 
     useEffect(() => {
         const handler = () => setShowMenu(false)
@@ -109,7 +111,8 @@ const Dropdown = ({ placeHolder, options, isMulti, allExercises }) => {
             const exercises = selectedValue.map((selected) => {
                 return allExercises.find((exercise) => selected.value === exercise._id)
             })
-            const session = {title, exercises}
+            const user_id = user.uid
+            const session = {title, exercises, user_id}
             const response = await fetch("/api/sessions/", {
                 method: "POST",
                 body: JSON.stringify(session),
@@ -158,7 +161,9 @@ const Dropdown = ({ placeHolder, options, isMulti, allExercises }) => {
                     >
                         {option.label}
                     </div>
-                ))}
+                    
+                ))  
+            }
             </div>
         )}
         <button className='button' onClick={handleClick}>Opprett ny økt</button>

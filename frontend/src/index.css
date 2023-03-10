@@ -21,6 +21,10 @@ body {
   font-family: "Poppins";
 }
 
+.error {
+  color: var(--error);
+}
+
 /* navbar */
 header .nav {
   margin-top: 0;
@@ -67,13 +71,19 @@ ul {
   list-style-type: none;
 }
 
-header h1, header a:hover {
+header h1, header, .signup-link a:hover {
   color: var(--primary);
   transition: 300ms;
 }
 
 header {
   background: var(--compBg)
+}
+
+/* sign up */
+
+.signup, .login {
+  width: 16rem;
 }
 
 /* pages */

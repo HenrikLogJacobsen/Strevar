@@ -9,6 +9,8 @@ import MyPrograms from './pages/MyPrograms';
 import Profile from './pages/Profile';
 
 
+import Login from './pages/Login';
+import Signup from './pages/Signup';
 
 
 function App() {
@@ -18,12 +20,12 @@ function App() {
         <Navbar />
         <div className='pages'>
           <Routes>
-            <Route path='/' element={<Home />} />
+            <Route path='/' element={<Login />} />
             <Route path="/my-programs" element={<MyPrograms />} />
             <Route path="/my-exercises" element={<MyExercises />} />
             <Route path="/my-sessions" element={<MySessions />} />
             <Route path="/profile" element={<Profile />} />
-
+            <Route path="/signup" element={<Signup />} />
           </Routes>
         </div>
       </BrowserRouter>
