@@ -112,6 +112,31 @@ input, button {
   width: 92%; 
 }
 
+/* friends */
+
+.friendElement{
+  background-color: var(--compBg);
+  border-radius: 10px;
+  width: 30rem;
+  margin: right;
+  display: flex;
+  margin-top: 0.3rem;
+
+}
+
+.friendInfo {
+  width: 40rem;
+  text-align: left;
+  padding: 10px;
+  margin: auto;
+}
+
+.followButton{
+  width: 5rem;
+  padding: 5px;
+  margin: auto;
+}
+
 
 /* sessions */
 
@@ -145,8 +170,9 @@ input, button {
   cursor: pointer;
   width: 100%;
 }
+
 .button:hover {
-  transform: scale(1.05);
+  transform: scale(1.02);
   transition: 300ms;
 }
 

@@ -9,6 +9,7 @@ import MyPrograms from './pages/MyPrograms';
 import Friends from './pages/Friends';
 
 
+
 import Login from './pages/Login';
 import Signup from './pages/Signup';
 
@@ -21,6 +22,7 @@ function App() {
         <div className='pages'>
           <Routes>
             <Route path='/' element={<Login />} />
+            <Route path='/friends' element={<Friends />} />
             <Route path='/friends' element={<Friends />} />
             <Route path="/my-programs" element={<MyPrograms />} />
             <Route path="/my-exercises" element={<MyExercises />} />
