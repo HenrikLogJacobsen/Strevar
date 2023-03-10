@@ -1,5 +1,6 @@
 import { useState } from "react"
 import { useExerciseCtx } from "../hooks/useExerciseCtx"
+import '../index.css';
 
 const ExerciseForm = () => {
     const [title, setTitle] = useState('')
@@ -7,8 +8,17 @@ const ExerciseForm = () => {
     const [reps, setReps] = useState('')
     const [weight, setWeight] = useState('')
     const [error, setError] = useState(null)
+    const [isChecked, setIsChecked] = useState(false);
+    const [shareType, setShareType] = useState("");
  
     const {dispatchExercise} = useExerciseCtx()
+
+    const handleChange = (event) => {
+        setIsChecked(event.target.checked);
+      };    
+    const handleShareTypeChange = (event) => {
+        setShareType(event.target.value);
+      };
 
     const handleSubmit = async (e) => {
         e.preventDefault()
@@ -69,9 +79,28 @@ const ExerciseForm = () => {
                 onChange = {(e) => setWeight(e.target.value)}
                 value = {weight}
             />
+           
+            <label>
+                <input
+                type="checkbox"
+                checked={isChecked}
+                onChange={handleChange}
+            />
+            Del økt
+            </label>
+            {isChecked && (
+                <div>
+                    <select value={shareType} onChange={handleShareTypeChange}>
+                        <option value="">Velg delingsmetode</option>
+                        <option value="feed">Del i feed</option>
+                        <option value="group">Del i gruppe</option>
+                    </select>
+                </div>
+            )}
 
             <button className="button">Legg til</button>
             {error && <div className="error">{error}</div>}
+            
         </form>
     )
 }
