@@ -34,6 +34,8 @@ const checkFollow= async(req, res) => {
 
 */
 
+//Sette ny følger
+
 const setFollow = async(req,res)=>{
     
     const userProfileId = req.params.userProfileId
@@ -57,8 +59,8 @@ const removeFollow=async(req,res)=>{
     const userId = req.params.userId
 
     try {
-        await User.findByIdAndUpdate({_id: userId},{$pull:{following: userProfileId}})
-        await User.findByIdAndUpdate({_id: userProfileId},{$pull:{followers:userId}})
+        await user.findByIdAndUpdate({_id: userId},{$pull:{following: userProfileId}})
+        await user.findByIdAndUpdate({_id: userProfileId},{$pull:{followers:userId}})
         return res.json({
             message: "unfollowed"
         })
