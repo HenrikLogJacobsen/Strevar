@@ -76,8 +76,9 @@ const updateWorkout = async (req, res) => {
         title: title,
         sets: sets,
         reps: reps,
-        weight: weight
-        }) 
+        weight: weight,
+        user_id: user_id
+    })
     
     if (!workout) {
       return res.status(400).json({error: 'Feil i endring av øvelse'})

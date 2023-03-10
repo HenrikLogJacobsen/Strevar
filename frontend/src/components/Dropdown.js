@@ -15,7 +15,6 @@ const Icon = ({rotate}) => {
   
   
 const Dropdown = ({ placeHolder, options, isMulti, allExercises }) => {
-    
     const [showMenu, setShowMenu] = useState(false)
     const [selectedValue, setSelectedValue] = useState(isMulti ? [] : null)
     const [title, setTitle] = useState("")
@@ -112,7 +111,8 @@ const Dropdown = ({ placeHolder, options, isMulti, allExercises }) => {
             const exercises = selectedValue.map((selected) => {
                 return allExercises.find((exercise) => selected.value === exercise._id)
             })
-            const session = {title, exercises}
+            const user_id = user.uid
+            const session = {title, exercises, user_id}
             const response = await fetch("/api/sessions/", {
                 method: "POST",
                 body: JSON.stringify(session),
@@ -162,9 +162,7 @@ const Dropdown = ({ placeHolder, options, isMulti, allExercises }) => {
                         {option.label}
                     </div>
                     
-                ))
-                // .filter(option => option.user_id === user.uid)
-                
+                ))  
             }
             </div>
         )}

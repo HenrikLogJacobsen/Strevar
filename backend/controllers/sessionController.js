@@ -9,7 +9,8 @@ const createSession = async (req, res) => {
   try {
     const sessionDetails = {
       title: req.body.title,
-      exercises: [...req.body.exercises], // remove the JSON.parse method
+      exercises: [...req.body.exercises],
+      user_id: req.body.user_id // remove the JSON.parse method
     };
 
     console.log(sessionDetails)

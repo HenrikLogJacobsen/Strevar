@@ -31,8 +31,9 @@ const MySessions = () => {
             <div className="createAndSessions">
                 <div className="sessions">
                 {sessions && sessions
+                .filter(session => session.user_id === user.uid)
                 .map(session => (<SessionDetails session={session} key={session._id} />))
-                .filter(session => session.user_id === user.uid)}
+                }
                 </div>
                 <CreateSession/>
             </div>
