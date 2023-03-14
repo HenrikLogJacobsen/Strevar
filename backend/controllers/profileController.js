@@ -42,7 +42,7 @@ const setFollow = async(req,res)=>{
     const userId = req.params.userId
 
     try {
-        await user.findByIdAndUpdate({_id: userId},{$addToSet:{following: userProfileId}})
+        //await user.findByIdAndUpdate({_id: userId},{$addToSet:{following: userProfileId}})
         await user.findByIdAndUpdate({_id: userProfileId},{$addToSet:{followers: userId}})  
     } catch (error) {
         return res.json(error)

@@ -4,6 +4,7 @@ const validator = require('validator')
 const JWT = require('jsonwebtoken')
 
 
+
 const generateJWT = (_id) => {
     return JWT.sign({_id}, process.env.SECRET, { expiresIn: '1d' })
   }
@@ -81,4 +82,21 @@ const getUsers = async (req, res) => {
     res.status(200).json(users)
 } 
 
-module.exports = {userLogin, userSignup, getUsers}
+const setFollow = async(req,res)=>{
+    
+    const {selfUserID, followingUserID} = req.body
+
+
+    try {
+        //await user.findByIdAndUpdate({_id: userId},{$addToSet:{following: userProfileId}})
+        await User.findByIdAndUpdate({_id: selfUserID},{$addToSet:{following: followingUserID}})  
+    } catch (error) {
+        return res.json(error)
+    }
+    return res.json({
+        message: "following"
+    })
+    
+}
+
+module.exports = {userLogin, userSignup, getUsers, setFollow}

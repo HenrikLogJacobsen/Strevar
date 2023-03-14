@@ -1,9 +1,12 @@
 import React from 'react'
 import { useEffect } from 'react'
 import {useUserCtx} from "../hooks/useUserCtx"
+import { useUaCtx } from "../hooks/useUaCtx"
+
 
 const FindFriends = () => {
 
+  const { user } = useUaCtx()
 
   const {users, dispatchUser} = useUserCtx()
 
@@ -52,17 +55,20 @@ const FindFriends = () => {
 //     }
 // }
 
-const hhandleClick = async (userId) => {
+const hhandleClick = async (followingUserID) => {
     // Send a request to add the user's id to the current user's following array
-    console.log(userId)
-    // const response = await fetch(`/api/users/${userId}/follow`, {
-    //   method: 'PUT',
-    //   headers: { 'Content-Type': 'application/json' },
-    //   body: JSON.stringify({ followeeId: user._id }),
-    // });
-    // if (!response.ok) {
-    //   throw new Error('Unable to follow user');
-    // }
+
+    console.log(followingUserID)
+    const selfUserID = user.uid;
+    const followDetails = {selfUserID, followingUserID}
+    const response = await fetch(`/api/users/newfollow`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(followDetails),
+    });
+    if (!response.ok) {
+      throw new Error('Unable to follow user');
+    }
   }
 
   return (
