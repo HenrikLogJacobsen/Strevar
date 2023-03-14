@@ -6,7 +6,7 @@
   --primary: #4093fe;
   --primaryBg: #cec9c9dc;
   --compBg: #fff;
-  --error: #e7195a;
+  --error: #d50505;
   --textClr: #333;
 }
 
@@ -34,6 +34,46 @@ header .nav {
   display: flex;
   align-items: center;
   justify-content: space-between;
+}
+
+.userMenuElement {
+  display: flex;
+  padding: 2px 1.5rem 0 0.5rem;
+  border-left: solid 2px lightgray;
+}
+
+.userMenu {
+  display: flex;
+  list-style: none;
+}
+.userMenu li {
+  padding: 1rem;
+}
+
+
+.menu {
+  width: 30rem;
+  justify-content: space-between;
+  display: flex;
+  list-style: none;
+  height: 40px;
+}
+
+.menu li {
+  padding: 0.5rem;
+}
+
+
+.streak p{
+  position:relative;
+  bottom: 50px;
+  left: 25px;
+}
+
+.userIcon:hover {
+  transform: scale(1.1);
+  cursor: pointer;
+  transition: 400ms;
 }
 
 ul {
@@ -83,7 +123,7 @@ input, button {
   width: 15rem;
 }
 
-.session-details, .addSessionBtn, .exercise-details {
+.session-details, .addSessionBtn, .exercise-details, .stats {
   background-color: var(--compBg);
   color: var(--textClr);
   border-radius: 5px;
@@ -150,6 +190,18 @@ input, button {
   transition: 300ms;
 }
 
+.logoutBtn {
+  background-color: var(--compBg);
+  border: solid 1px var(--primaryBg);
+  cursor: pointer;
+  margin: 5px;
+  
+}
+.logoutBtn:hover {
+  background-color: var(--primaryBg);
+  transition: 0.3s;
+}
+
 /* create session / create program */
 
 .createSession {
@@ -159,6 +211,34 @@ input, button {
 
 .sessionInput {
   width: 95%;
+}
+
+
+/* profile */
+
+.profile h2, .profile h3 {
+  text-align: center; 
+}
+
+.profile-stats {
+  margin: auto;
+  width: 40rem;
+}
+
+.stats {
+  width: auto;
+  padding: 1rem;
+}
+
+.progress-bar {
+  height: 0.5rem;
+  border-radius: 10px;
+  background-color: var(--primaryBg);
+}
+.progress-color {
+  height: inherit;
+  border-radius: 10px;
+  background-color: var(--primary);
 }
 
 

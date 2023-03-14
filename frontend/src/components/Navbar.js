@@ -1,4 +1,6 @@
 import { Link, useMatch, useResolvedPath } from "react-router-dom"
+import UserMenuElement from "./UserMenuElement"
+
 import { useLogout } from '../hooks/useLogout'
 import { useUaCtx } from "../hooks/useUaCtx"
 
@@ -16,6 +18,7 @@ const Navbar = () => {
     return (
         <header>
             <div className="nav">
+    
                 <Link to='/'>
                     <h1>Strevar</h1>
                 </Link>
@@ -25,19 +28,24 @@ const Navbar = () => {
                           <Link to="/signup">Signup</Link>
                       </nav>
                     }
+                    
                     {user && 
-                    <ul>
-                     <CustomLink to="/">Hjem</CustomLink>
-                     <CustomLink to="/">Grupper</CustomLink>
-                     <CustomLink to="/my-programs">Treningsprogram</CustomLink>
-                     <CustomLink to="/my-sessions">Treningsøkter</CustomLink>
-                     <CustomLink to="/my-exercises">Øvelser</CustomLink>
-                      <button onClick={handleLogout}>Logg ut</button>
-                    </ul>
-                    }
-                
-            </div>
+                    <div className="userMenu">
+                    
+                    <CustomLink to="/">Hjem</CustomLink>
+                    <CustomLink to="/">Grupper</CustomLink>
+                    <CustomLink to="/my-programs">Treningsprogram</CustomLink>
+                    <CustomLink to="/my-sessions">Treningsøkter</CustomLink>
+                    <CustomLink to="/my-exercises">Øvelser</CustomLink>
+                    
+                    <UserMenuElement/>
+              
+                    <button onClick={handleLogout}>Logg ut</button>
+                    </div>
+                    }   
+                </div>
         </header>
+        
     )
 }
 

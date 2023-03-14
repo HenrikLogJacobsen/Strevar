@@ -2,6 +2,7 @@
 
 //components
 
+
 const Home = () => {
     return (
         <div className="home">

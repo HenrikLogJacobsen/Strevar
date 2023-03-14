@@ -6,6 +6,7 @@ import Navbar from './components/Navbar';
 import MyExercises from './pages/MyExercises';  
 import MySessions from './pages/MySessions';
 import MyPrograms from './pages/MyPrograms';
+import Profile from './pages/Profile';
 
 
 import Login from './pages/Login';
@@ -23,6 +24,7 @@ function App() {
             <Route path="/my-programs" element={<MyPrograms />} />
             <Route path="/my-exercises" element={<MyExercises />} />
             <Route path="/my-sessions" element={<MySessions />} />
+            <Route path="/profile" element={<Profile />} />
             <Route path="/signup" element={<Signup />} />
           </Routes>
         </div>
