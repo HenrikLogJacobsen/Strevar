@@ -1,10 +1,10 @@
 import { useEffect} from "react"
-import { useUaCtx } from "../hooks/useUaCtx"
+import { useUaCtx } from "../../hooks/useUaCtx"
 
 // components
-import CreateSession from "../components/CreateSession"
-import SessionDetails from "../components/SessionDetails"
-import { useSessionCtx } from "../hooks/useSessionCtx"
+import CreateSession from "../../components/CreateSession"
+import SessionDetails from "../../components/SessionDetails"
+import { useSessionCtx } from "../../hooks/useSessionCtx"
 
 
 const MySessions = () => {

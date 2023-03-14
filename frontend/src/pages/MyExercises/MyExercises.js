@@ -1,11 +1,11 @@
 import { useEffect} from "react"
-import { useUaCtx } from "../hooks/useUaCtx"
+import { useUaCtx } from "../../hooks/useUaCtx"
 
 
 // components
-import ExerciseDetails from "../components/ExerciseDetails"
-import ExerciseForm from "../components/ExerciseForm"
-import { useExerciseCtx } from "../hooks/useExerciseCtx"
+import ExerciseDetails from "../../components/ExerciseDetails"
+import ExerciseForm from "../../components/ExerciseForm"
+import { useExerciseCtx } from "../../hooks/useExerciseCtx"
 
 
 

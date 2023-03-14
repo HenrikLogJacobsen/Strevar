@@ -1,4 +1,4 @@
-import Stats from "../components/Stats"
+import Stats from "../../components/Stats"
 
 
 const Profile = () => {
