@@ -10,7 +10,7 @@ const FindFriends = () => {
 
   useEffect(() => {
     const fetchUsers = async () => {
-      const response = await fetch("api/users/")
+      const response = await fetch("api/user/")
       const json = await response.json()
 
 
@@ -28,8 +28,8 @@ const FindFriends = () => {
   return (
     <div className="findFriends">
       {users && users.map(user => (
-          <div className="friendElement" key={user}>
-              <span className="friendInfo">{user}</span>
+          <div className="friendElement" key={user._id}>
+              <span className="friendInfo">{user.username}</span>
               <span className="followButton">
                   <button className="button">Følg</button> 
               </span>
