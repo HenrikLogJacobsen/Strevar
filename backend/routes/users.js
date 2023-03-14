@@ -3,7 +3,7 @@ const express = require('express')
 
 const router = express.Router()
 
-const {userLogin, userSignup} = require("../controllers/userController")
+const {userLogin, userSignup, getUsers} = require("../controllers/userController")
 const {setFollow, removeFollow} = require("../controllers/profileController")
 
 //innlogging
@@ -18,5 +18,9 @@ router.post('/newfollow', setFollow)
 
 //ta bort en følger
 router.post('/removefollow', removeFollow)
+
+//hent alle brukere
+router.get('/', getUsers)
+
 
 module.exports = router
