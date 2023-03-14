@@ -14,10 +14,10 @@ router.post('/login', userLogin)
 router.post('/signup', userSignup)
 
 //følge ny bruker
-router.post('/newfollow', setFollow)
+//router.post('/newfollow', setFollow)
 
 //ta bort en følger
-router.post('/removefollow', removeFollow)
+//router.post('/removefollow', removeFollow)
 
 //hent alle brukere
 router.get('/', getUsers)
