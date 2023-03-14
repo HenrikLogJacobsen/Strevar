@@ -6,7 +6,7 @@ import { useUaCtx } from "../../hooks/useUaCtx"
 import ExerciseDetails from "../../components/ExerciseDetails"
 import ExerciseForm from "../../components/ExerciseForm"
 import { useExerciseCtx } from "../../hooks/useExerciseCtx"
-
+import'./MyExercises.css'
 
 
 const MyExercises = () => {

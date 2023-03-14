@@ -2,6 +2,7 @@ import React from 'react'
 import {  useEffect } from "react"
 import { useUaCtx } from "../hooks/useUaCtx"
 
+import './createSession.css'
 
 //components
 import Dropdown from './Dropdown'

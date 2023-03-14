@@ -5,7 +5,7 @@ import { useUaCtx } from "../../hooks/useUaCtx"
 import CreateSession from "../../components/CreateSession"
 import SessionDetails from "../../components/SessionDetails"
 import { useSessionCtx } from "../../hooks/useSessionCtx"
-
+import'./MySessions.css'
 
 const MySessions = () => {
 

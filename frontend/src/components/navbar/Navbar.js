@@ -4,6 +4,7 @@ import UserMenuElement from "./UserMenuElement"
 import { useLogout } from '../hooks/useLogout'
 import { useUaCtx } from "../hooks/useUaCtx"
 
+import './navbar.css'
 
 const Navbar = () => {
 

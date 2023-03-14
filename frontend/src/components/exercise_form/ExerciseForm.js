@@ -2,6 +2,8 @@ import { useState } from "react"
 import { useExerciseCtx } from "../hooks/useExerciseCtx"
 import { useUaCtx } from "../hooks/useUaCtx"
 
+import './exerciseForm.css'
+
 const ExerciseForm = () => {
     const [title, setTitle] = useState('')
     const [sets, setSets] = useState('')

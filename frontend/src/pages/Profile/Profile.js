@@ -1,4 +1,5 @@
 import Stats from "../../components/Stats"
+import'./Profile.css'
 
 
 const Profile = () => {

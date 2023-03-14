@@ -1,5 +1,6 @@
 import ExerciseDetails from "../../components/ExerciseDetails"
 import Program from "../../components/Program"
+import'./MyPrograms.css'
 
 const MyPrograms = () => {
     

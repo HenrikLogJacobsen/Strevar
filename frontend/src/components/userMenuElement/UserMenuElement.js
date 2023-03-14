@@ -1,5 +1,7 @@
 import React from 'react'
 
+import './userMenuElement.css'
+
 const UserMenuElement = ( {streak, days} ) => {
 
   return (

@@ -1,5 +1,8 @@
 import React from 'react'
 
+
+import './stats.css'
+
 const Stats = ( {description, status, goal} ) => {
 
     const percent = status / goal * 100

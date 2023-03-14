@@ -1,5 +1,6 @@
 import { useSessionCtx } from "../hooks/useSessionCtx"
 
+import './sessionDetails.css'
 
 const SessionDetails = ({session}) => {
   const {dispatchSession} = useSessionCtx()

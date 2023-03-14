@@ -1,3 +1,4 @@
+import'./Home.css'
 
 
 //components

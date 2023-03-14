@@ -1,6 +1,8 @@
 import { useState } from "react"
 import { useExerciseCtx } from "../hooks/useExerciseCtx"
 
+import './exerciseEdit.css'
+
 const ExerciseEdit = ({exercise}) => {
     const [title, setTitle] = useState(exercise.title)
     const [sets, setSets] = useState(exercise.sets)

@@ -2,6 +2,8 @@ import { useExerciseCtx } from "../hooks/useExerciseCtx"
 import ExerciseEdit from "./ExerciseEdit"
 import { useState } from "react"
 
+import './exerciseDetails.css'
+
 //date handling
 import formatDistanceToNow from "date-fns/formatDistanceToNow"
 

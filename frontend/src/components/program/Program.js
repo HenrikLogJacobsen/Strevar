@@ -1,6 +1,7 @@
 import SessionDetails from "./SessionDetails"
 import AddSession from "./AddSessionBtn"
 
+import './program.css'
 
 //TODO: program-objekt (tittel, person, sessions[])
 const Program = ({programTitle}) => {
