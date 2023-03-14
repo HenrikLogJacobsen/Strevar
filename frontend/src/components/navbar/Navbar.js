@@ -20,7 +20,7 @@ const Navbar = () => {
         <header>
             <div className="nav">
     
-                <Link to='/'>
+                <Link to='/home'>
                     <h1>Strevar</h1>
                 </Link>
                     {!user && 
@@ -33,8 +33,8 @@ const Navbar = () => {
                     {user && 
                     <div className="userMenu">
                     
-                    <CustomLink to="/">Hjem</CustomLink>
-                    <CustomLink to="/">Grupper</CustomLink>
+                    <CustomLink to="/home">Hjem</CustomLink>
+                    <CustomLink to="/groups">Grupper</CustomLink>
                     <CustomLink to="/my-programs">Treningsprogram</CustomLink>
                     <CustomLink to="/my-sessions">Treningsøkter</CustomLink>
                     <CustomLink to="/my-exercises">Øvelser</CustomLink>

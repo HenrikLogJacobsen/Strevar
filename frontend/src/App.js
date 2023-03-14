@@ -2,7 +2,7 @@ import  {BrowserRouter, Routes, Route} from 'react-router-dom'
 
 //Pages and Components
 import Home from './pages/Home/Home'
-import Navbar from './components/navbar/Navbar';
+import Navbar from './components/Navbar/Navbar';
 import MyExercises from './pages/MyExercises/MyExercises';  
 import MySessions from './pages/MySessions/MySessions';
 import MyPrograms from './pages/MyPrograms/MyPrograms';
@@ -21,6 +21,7 @@ function App() {
         <div className='pages'>
           <Routes>
             <Route path='/' element={<Login />} />
+            <Route path='/home' element={<Home />} />
             <Route path="/my-programs" element={<MyPrograms />} />
             <Route path="/my-exercises" element={<MyExercises />} />
             <Route path="/my-sessions" element={<MySessions />} />
