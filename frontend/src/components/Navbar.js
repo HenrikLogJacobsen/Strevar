@@ -28,22 +28,24 @@ const Navbar = () => {
                           <Link to="/signup">Signup</Link>
                       </nav>
                     }
+                    
                     {user && 
-                    <ul>
-                     <CustomLink to="/">Hjem</CustomLink>
-                     <CustomLink to="/">Grupper</CustomLink>
-                     <CustomLink to="/my-programs">Treningsprogram</CustomLink>
-                     <CustomLink to="/my-sessions">Treningsøkter</CustomLink>
-                     <CustomLink to="/my-exercises">Øvelser</CustomLink>
-                      <button onClick={handleLogout}>Logg ut</button>
-                    </ul>
-                    }
-                
-                  <UserMenuElement/>
-                  
-                  <button className="logoutBtn">Logg ut</button>
+                    <div className="userMenu">
+                    
+                    <CustomLink to="/">Hjem</CustomLink>
+                    <CustomLink to="/">Grupper</CustomLink>
+                    <CustomLink to="/my-programs">Treningsprogram</CustomLink>
+                    <CustomLink to="/my-sessions">Treningsøkter</CustomLink>
+                    <CustomLink to="/my-exercises">Øvelser</CustomLink>
+                    
+                    <UserMenuElement/>
+              
+                    <button onClick={handleLogout}>Logg ut</button>
+                    </div>
+                    }   
                 </div>
         </header>
+        
     )
 }
 

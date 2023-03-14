@@ -42,6 +42,15 @@ header .nav {
   border-left: solid 2px lightgray;
 }
 
+.userMenu {
+  display: flex;
+  list-style: none;
+}
+.userMenu li {
+  padding: 1rem;
+}
+
+
 .menu {
   width: 30rem;
   justify-content: space-between;
