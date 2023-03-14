@@ -1,12 +1,10 @@
-import { React, Link } from 'react'
+import React from 'react'
 
-import './userMenuElement.css'
+import './streak.css'
 
-const UserMenuElement = ( {streak, days} ) => {
+const Streak = ( {streak, days} ) => {
 
   return (
-      <div className='userMenuElement'>
-
       <div className='streak'>
         {streak && 
         <div>
@@ -32,7 +30,6 @@ const UserMenuElement = ( {streak, days} ) => {
           </div>
          }
          </div>
-      </div>
   )
 }
-export default UserMenuElement
+export default Streak

@@ -30,8 +30,8 @@ const MyExercises = () => {
   return (
     <div className="myExercises">
         <h2>Mine Øvelser</h2>
-      <div className="workoutsAndForm">
-        <div className="workouts">
+      <div className="exercisesAndForm">
+        <div className="exercises">
           {exercises && exercises.map(exercise => (
             <ExerciseDetails exercise={exercise} key={exercise._id} />
           ))}

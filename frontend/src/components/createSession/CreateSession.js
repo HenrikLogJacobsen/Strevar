@@ -5,10 +5,10 @@ import { useUaCtx } from "../../hooks/useUaCtx"
 import './createSession.css'
 
 //components
-import Dropdown from '../dropdown/Dropdown'
+import Dropdown from '../Dropdown/Dropdown'
 import { useExerciseCtx } from "../../hooks/useExerciseCtx"
 
-export default function CreateSession() {
+const CreateSession = () => {
 
   const {exercises, dispatchExercise} = useExerciseCtx()
   const { user } = useUaCtx()
@@ -43,3 +43,5 @@ export default function CreateSession() {
     </div>
   )
 } 
+
+export default CreateSession

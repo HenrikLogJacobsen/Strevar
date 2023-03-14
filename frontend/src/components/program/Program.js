@@ -1,5 +1,5 @@
 import SessionDetails from "../SessionDetails/SessionDetails"
-import AddSession from "./AddSessionBtn"
+
 
 import './program.css'
 
@@ -23,7 +23,9 @@ const Program = ({programTitle}) => {
         <SessionDetails title={'Core'} week={1} day={3}/>
         <SessionDetails title={'Arms'} week={1} day={4}/> */}
 
-        <AddSession/>
+        <div className='addSessionBtn'>
+            <h1>+</h1>
+        </div>
           
         </div>
       </div>

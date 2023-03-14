@@ -1,4 +1,4 @@
-import Stats from "../../components/stats/Stats"
+import Stats from "../../components/Stats/Stats"
 import'./Profile.css'
 
 

@@ -1,5 +1,5 @@
 import { Link, useMatch, useResolvedPath } from "react-router-dom"
-import UserMenuElement from "../userMenuElement/UserMenuElement"
+import Streak from "../Streak/Streak"
 
 import { useLogout } from '../../hooks/useLogout'
 import { useUaCtx } from "../../hooks/useUaCtx"
@@ -20,17 +20,21 @@ const Navbar = () => {
         <header>
             <div className="nav">
     
-                <Link to='/home'>
-                    <h1>Strevar</h1>
-                </Link>
                     {!user && 
-                      <nav>
-                          <Link to="/">Login</Link>
-                          <Link to="/signup">Signup</Link>
-                      </nav>
+                      <>
+                        <Link to='/'>
+                            <h1>Strevar</h1>
+                        </Link>
+                      
+                      </>
                     }
                     
                     {user && 
+                    <>
+                      <Link to='/home'>
+                              <h1>Strevar</h1>
+                      </Link>
+
                     <div className="userMenu">
                     
                     <CustomLink to="/home">Hjem</CustomLink>
@@ -41,7 +45,7 @@ const Navbar = () => {
 
                     <div className='userIcon'>
                     <CustomLink to="/profile">
-                      <svg height="35px" viewBox="0 0 48 48 " width="35px" xmlns="http://www.w3.org/2000/svg">
+                      <svg className="icon" height="35px" viewBox="0 0 48 48 " width="35px" xmlns="http://www.w3.org/2000/svg">
                       <path
                       d="M24,45C12.402,45,3,35.598,3,24S12.402,3,24,3s21,9.402,21,21S35.598,45,24,45z   
                       M35.633,39c-0.157-0.231-0.355-0.518-0.514-0.742c-0.277-0.394-0.554-0.788-0.802-1.178C34.305,37.062,32.935,35.224,28,35  
@@ -61,10 +65,12 @@ const Navbar = () => {
                     </CustomLink>
                   </div>
                     
-                    <UserMenuElement/>
+                    <Streak streak={true} days={6}/>
               
-                    <button onClick={handleLogout}>Logg ut</button>
+                    <button className="logoutBtn" onClick={handleLogout}>Logg ut</button>
                     </div>
+                    </>
+                    
                     }   
                 </div>
         </header>
