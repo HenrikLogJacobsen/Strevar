@@ -1,4 +1,4 @@
-import SessionDetails from "./SessionDetails"
+import SessionDetails from "../SessionDetails/SessionDetails"
 import AddSession from "./AddSessionBtn"
 
 import './program.css'

@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
-import { useSessionCtx } from "../hooks/useSessionCtx"
-import { useUaCtx } from "../hooks/useUaCtx"
+import { useSessionCtx } from "../../hooks/useSessionCtx"
+import { useUaCtx } from "../../hooks/useUaCtx"
 
 import './dropdown.css'
 

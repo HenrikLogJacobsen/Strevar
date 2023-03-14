@@ -2,8 +2,8 @@ import { useEffect} from "react"
 import { useUaCtx } from "../../hooks/useUaCtx"
 
 // components
-import CreateSession from "../../components/CreateSession"
-import SessionDetails from "../../components/SessionDetails"
+import CreateSession from "../../components/CreateSession/CreateSession"
+import SessionDetails from "../../components/SessionDetails/SessionDetails"
 import { useSessionCtx } from "../../hooks/useSessionCtx"
 import'./MySessions.css'
 

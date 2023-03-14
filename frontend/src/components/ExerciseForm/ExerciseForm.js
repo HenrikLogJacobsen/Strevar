@@ -1,6 +1,6 @@
 import { useState } from "react"
-import { useExerciseCtx } from "../hooks/useExerciseCtx"
-import { useUaCtx } from "../hooks/useUaCtx"
+import { useExerciseCtx } from "../../hooks/useExerciseCtx"
+import { useUaCtx } from "../../hooks/useUaCtx"
 
 import './exerciseForm.css'
 

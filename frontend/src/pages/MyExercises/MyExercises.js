@@ -1,12 +1,13 @@
 import { useEffect} from "react"
 import { useUaCtx } from "../../hooks/useUaCtx"
+import'./MyExercises.css'
 
 
 // components
-import ExerciseDetails from "../../components/ExerciseDetails"
-import ExerciseForm from "../../components/ExerciseForm"
+import ExerciseDetails from "../../components/ExerciseDetails/ExerciseDetails"
+import ExerciseForm from "../../components/ExerciseForm/ExerciseForm"
 import { useExerciseCtx } from "../../hooks/useExerciseCtx"
-import'./MyExercises.css'
+
 
 
 const MyExercises = () => {

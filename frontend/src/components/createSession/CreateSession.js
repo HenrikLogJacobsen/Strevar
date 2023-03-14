@@ -1,12 +1,12 @@
 import React from 'react'
 import {  useEffect } from "react"
-import { useUaCtx } from "../hooks/useUaCtx"
+import { useUaCtx } from "../../hooks/useUaCtx"
 
 import './createSession.css'
 
 //components
-import Dropdown from './Dropdown'
-import { useExerciseCtx } from "../hooks/useExerciseCtx"
+import Dropdown from '../dropdown/Dropdown'
+import { useExerciseCtx } from "../../hooks/useExerciseCtx"
 
 export default function CreateSession() {
 

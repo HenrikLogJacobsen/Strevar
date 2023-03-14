@@ -1,4 +1,4 @@
-import { useSessionCtx } from "../hooks/useSessionCtx"
+import { useSessionCtx } from "../../hooks/useSessionCtx"
 
 import './sessionDetails.css'
 

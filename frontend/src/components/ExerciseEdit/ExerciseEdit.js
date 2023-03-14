@@ -1,5 +1,5 @@
 import { useState } from "react"
-import { useExerciseCtx } from "../hooks/useExerciseCtx"
+import { useExerciseCtx } from "../../hooks/useExerciseCtx"
 
 import './exerciseEdit.css'
 
