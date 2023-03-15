@@ -18,7 +18,7 @@ const Friends = () => {
 
     const {users, dispatchUser} = useUserCtx()
 
-    const {following, setFollowing} = useState('')
+    const [following, setFollowing] = useState('')
 
 
 
