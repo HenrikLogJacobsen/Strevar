@@ -13,7 +13,7 @@ const FindFriends = () => {
 
   useEffect(() => {
     const fetchUsers = async () => {
-      const response = await fetch("api/user/")
+      const response = await fetch("api/users/")
       const json = await response.json()
 
 
