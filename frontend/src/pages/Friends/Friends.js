@@ -1,7 +1,7 @@
 import FindFriends from "../../components/FindFriends/FindFriends"
 import MyFriends from "../../components/MyFriends/MyFriends"
 import './friends.css'
-import { useEffect } from 'react'
+import { useEffect, useState } from 'react'
 import {useUserCtx} from "../../hooks/useUserCtx"
 import { useUaCtx } from "../../hooks/useUaCtx"
 
@@ -18,9 +18,7 @@ const Friends = () => {
 
     const {users, dispatchUser} = useUserCtx()
 
-    const {following, dispatchFollowing} = useUserCtx()
-
-    
+    const {following, setFollowing} = useState('')
 
 
 
@@ -34,8 +32,23 @@ const Friends = () => {
 
       if (response.ok) {
         dispatchUser({type: "SET_USERS", payload: json})
-        const filteredFollowing = json.filter((following) => following.user_id === user.following);
-        dispatchFollowing({ type: 'FOLLOW_USER', payload: filteredFollowing });
+        // const filteredFollowing = json.filter((following) => following.user_id === user.following);
+        // dispatchFollowing({ type: 'FOLLOW_USER', payload: filteredFollowing });
+        console.log("folger")
+        console.log(user.following)
+        // const followingz = user.following.filter((followUser) => followUser==users.uid)
+        // const filteredExercises = json.filter((exercise) => exercise.user_id === user.uid);
+
+
+        //test
+        const followings = user.following
+        const followingNames = followings.map(idToNameMapper)
+        function idToNameMapper(id) {
+          return json.filter((userFollow) => userFollow._id === id)[0].username
+        }
+        console.log(followingNames)
+        setFollowing(followingNames)
+        
       }
     }
     
@@ -66,7 +79,7 @@ const handleClick = async (followingUserID) => {
         <div className="friends">
             <h2>Finn venner</h2>
             <FindFriends user={user} users={users} handleClick={handleClick}/>
-            <MyFriends user={user} users={users} handleClick={handleClick}/>
+            <MyFriends following={following}/>
 
         </div>
     )

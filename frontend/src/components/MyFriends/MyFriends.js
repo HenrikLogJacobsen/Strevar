@@ -1,11 +1,16 @@
 import React from 'react'
 import './myFriends.css'
 
-const MyFriends = ( {user, users, handleClick} ) => {
+const MyFriends = ( {following} ) => {
     
+  
+
   return (
     <div className='myFriends'>
-        {users && users.map(user => (
+
+      <p>{following}</p>
+      
+        {/* {users && users.map(user => (
           <div className="friendElement" key={user._id}>
               <span className="friendInfo">{user.following}</span>
               <span className="followButton">
@@ -13,9 +18,12 @@ const MyFriends = ( {user, users, handleClick} ) => {
 
               </span>
           </div>
-      ))}
+      ))} */}
     </div>
   )
+
+
+
 }
 
 export default MyFriends
