@@ -7,6 +7,7 @@ import MyExercises from './pages/MyExercises/MyExercises';
 import MySessions from './pages/MySessions/MySessions';
 import MyPrograms from './pages/MyPrograms/MyPrograms';
 import Profile from './pages/Profile/Profile';
+import Friends from './pages/Friends/Friends';
 
 
 import Login from './pages/Login/Login';
@@ -22,6 +23,7 @@ function App() {
           <Routes>
             <Route path='/' element={<Login />} />
             <Route path='/home' element={<Home />} />
+            <Route path='/friends' element={<Friends />} />
             <Route path="/my-programs" element={<MyPrograms />} />
             <Route path="/my-exercises" element={<MyExercises />} />
             <Route path="/my-sessions" element={<MySessions />} />
