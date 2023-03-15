@@ -2,7 +2,7 @@ import  {BrowserRouter, Routes, Route} from 'react-router-dom'
 
 //Pages and Components
 import Home from './pages/Home/Home'
-import Navbar from './components/Navbar/Navbar';
+import Navbar from './components/navbar/Navbar';
 import MyExercises from './pages/MyExercises/MyExercises';  
 import MySessions from './pages/MySessions/MySessions';
 import MyPrograms from './pages/MyPrograms/MyPrograms';
