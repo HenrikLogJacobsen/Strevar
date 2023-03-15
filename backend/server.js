@@ -26,7 +26,7 @@ app.use((req, res, next) => {
 //henter alle routes i exerciseRouter
 app.use('/api/exercises',exerciseRouter)
 app.use('/api/sessions',sessionRouter)
-app.use('/api/user',userRouter)
+app.use('/api/users',userRouter)
 app.use('/api/friends',friendsRouter)
 
 //kobler til databasen
