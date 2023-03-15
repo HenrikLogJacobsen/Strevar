@@ -5,7 +5,7 @@ import { useUaCtx } from "../../hooks/useUaCtx"
 import './createSession.css'
 
 //components
-import Dropdown from '../Dropdown/Dropdown'
+import Dropdown from '../dropdown/Dropdown'
 import { useExerciseCtx } from "../../hooks/useExerciseCtx"
 
 const CreateSession = () => {
