@@ -56,3 +56,15 @@ input, textarea {
   transform: scale(1.05);
   transition: 300ms;
 }
+
+.button2 {
+  width: 100%;
+  background-color: var(--compBg);
+  border: solid 1px var(--primaryBg);
+}
+
+.button2:hover {
+  background-color: var(--primaryBg);
+  cursor: pointer;
+  transition: 0.4s;
+}

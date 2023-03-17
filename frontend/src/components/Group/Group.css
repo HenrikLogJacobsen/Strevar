@@ -2,20 +2,26 @@
     background-color: var(--compBg);
     border-radius: 5px;
     width: 100%;
-    position: relative;
     margin-bottom: 1rem;
     padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    
 }
 
 h4 {
     margin: 0;
 }
 
-.group .button {
-    position: absolute;
-    bottom: 0;
-    right: 1rem;
-    width: 10rem;
-    /* add any other styles you need for the button */
-  }
-  
+.groupFlex {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.groupInfo {
+    flex-basis: 70%;
+}
+
+.groupMembers {
+    flex-basis: 30%;
+}
