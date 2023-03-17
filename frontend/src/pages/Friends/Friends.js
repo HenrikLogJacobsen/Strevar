@@ -26,28 +26,11 @@ const Friends = () => {
 
       if (response.ok) {
         dispatchUser({type: "SET_USERS", payload: json})
-        // const filteredFollowing = json.filter((following) => following.user_id === user.following);
-        // dispatchFollowing({ type: 'FOLLOW_USER', payload: filteredFollowing });
-        // console.log("folger")
-        // console.log(user)
-        // const followingz = user.following.filter((followUser) => followUser==users.uid)
-        // const filteredExercises = json.filter((exercise) => exercise.user_id === user.uid);
-
-
-        //test
-
-        // const followings = user.following
-        // const followingNames = followings.map(idToNameMapper)
-        // function idToNameMapper(id) {
-        //   return json.filter((userFollow) => userFollow._id === id)[0].username
-        // }
-        // console.log(followingNames)
-        // setFollowing(followingNames)
       }
     }
     
     fetchUsers()
-  }, [dispatchUser]) //, user
+  }, [dispatchUser])
 
 
 
