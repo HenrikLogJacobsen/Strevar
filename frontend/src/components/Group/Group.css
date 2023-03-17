@@ -1,0 +1,21 @@
+.group {
+    background-color: var(--compBg);
+    border-radius: 5px;
+    width: 100%;
+    position: relative;
+    margin-bottom: 1rem;
+    padding: 1rem;
+}
+
+h4 {
+    margin: 0;
+}
+
+.group .button {
+    position: absolute;
+    bottom: 0;
+    right: 1rem;
+    width: 10rem;
+    /* add any other styles you need for the button */
+  }
+  

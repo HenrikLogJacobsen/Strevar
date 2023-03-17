@@ -1,5 +1,11 @@
 .createGroups {
-    width: 15rem;
+    width: 20rem;
+    margin-left: 10rem;
+}
+
+input, textarea {
+    min-width: 19rem;
+    width: 19rem;
 }
 
 textarea {

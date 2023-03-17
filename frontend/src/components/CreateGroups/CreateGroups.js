@@ -44,7 +44,7 @@ const CreateGroups = () => {
 
   return (
     <form className="createGroups" onSubmit={handleSubmit} >
-      <h3>Ny gruppe</h3>
+      <h3>Lag ny gruppe</h3>
       
       <input
         placeholder="Gruppenavn"
