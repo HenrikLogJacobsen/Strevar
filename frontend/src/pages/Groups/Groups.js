@@ -1,11 +1,11 @@
 import React from 'react'
-import CreateGroup from '../../components/CreateGroups/CreateGroups'
+import CreateGroups from '../../components/CreateGroups/CreateGroups'
 import './groups.css'
 
 const Groups = () => {
   return (
     <div className='groups'>
-        <CreateGroup/>
+        <CreateGroups/>
     </div>
   )
 }

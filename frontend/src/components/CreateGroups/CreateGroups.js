@@ -21,6 +21,8 @@ const CreateGroups = () => {
   const handleSubmit = async (e) => {
     e.preventDefault()
 
+    setAdministrator(user)
+
     const user_id = user.uid;
     const group = {groupName, description, administrator, members, image}
     const response = await fetch("/api/groups/", {
@@ -41,32 +43,27 @@ const CreateGroups = () => {
 
 
   return (
-    <form className="createGroups" /*onSubmit={handleSubmit}*/>
+    <form className="createGroups" onSubmit={handleSubmit} >
       <h3>Ny gruppe</h3>
       
       <input
         placeholder="Gruppenavn"
         type = "text"
-        // onChange = {(e) => setTitle(e.target.value)}
-        // value = {title}
+        onChange = {(e) => setGroupName(e.target.value)}
+        value = {groupName}
       />
 
-      <input 
-        placeholder="Treningstype"
-        type = "text"
-        // onChange = {(e) => setWorkoutType(e.target.value)}
-        // value = {workoutType}
-      />
-
-      <input 
+      <textarea
+        className='textarea'
         placeholder="Beskrivelse"
-        type = "text"
-        // onChange = {(e) => setDescription(e.target.value)}
-        // value = {description}
+        type = "textarea"
+        onChange = {(e) => setDescription(e.target.value)}
+        value = {description}
       />
 
+      
       <button className="button">Opprett gruppe</button>
-      {/* {error && <div className="error">{error}</div>} */}
+      {error && <div className="error">{error}</div>}
     </form>
   )
 }

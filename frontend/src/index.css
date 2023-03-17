@@ -34,7 +34,7 @@ ul {
 }
 
 
-input {
+input, textarea {
   margin-bottom: 10px;
   border-radius: 5px;
   padding: 0.5rem;
