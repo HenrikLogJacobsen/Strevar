@@ -3,8 +3,6 @@ import './myFriends.css'
 
 const MyFriends = ( {following} ) => {
     
-  console.log(following)
-
   return (
     <div className='myFriends'>
       {following.map(user => <p key={user._id}>{user.username}</p>)}

@@ -91,11 +91,13 @@ const setFollow = async(req,res)=>{
     try {
         //await user.findByIdAndUpdate({_id: userId},{$addToSet:{following: userProfileId}})
         await User.findByIdAndUpdate({_id: selfUserID},{$addToSet:{following: followingUserID}})  
+
     } catch (error) {
         return res.json(error)
     }
+    const followUser = await User.findById({_id: followingUserID})
     return res.json({
-        message: "following"
+        message: followUser
     })
     
 }

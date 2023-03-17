@@ -15,13 +15,13 @@ root.render(
   <React.StrictMode>
     {/* TODO: change providers dynamically? */}
     <UaCtxProvider>
-      <ExerciseCtxProvider>
-      <SessionCtxProvider>
-      <UserCtxProvider>
-          <App />
-      </UserCtxProvider>
-      </SessionCtxProvider>
-      </ExerciseCtxProvider>
+    <ExerciseCtxProvider>
+    <SessionCtxProvider>
+    <UserCtxProvider>
+        <App />
+    </UserCtxProvider>
+    </SessionCtxProvider>
+    </ExerciseCtxProvider>
     </UaCtxProvider>
   </React.StrictMode>
 );
