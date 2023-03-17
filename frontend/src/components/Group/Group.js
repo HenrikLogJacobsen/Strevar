@@ -17,7 +17,7 @@ const Group = ({ group, key }) => {
         <div className='groupFlex'>
             <div className='groupInfo'>
                 {/* <p>{group.description}</p> */}
-                <p>Gruppa for oss osm skal bli megasterke</p>
+                <p>Gruppa for oss som skal bli megasterke!</p>
             </div>
             <div className='groupMembers'>
                 <p className='memberBtn' onClick={handleMembersClick}>
