@@ -3,12 +3,12 @@ import './myFriends.css'
 
 const MyFriends = ( {following} ) => {
     
-  
+  console.log(following)
 
   return (
     <div className='myFriends'>
 
-      <p>{following}</p>
+      {following.map(user => <p key={user._id}>{user.username}</p>)}
       
         {/* {users && users.map(user => (
           <div className="friendElement" key={user._id}>

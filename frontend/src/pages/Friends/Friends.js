@@ -9,17 +9,11 @@ import { useUaCtx } from "../../hooks/useUaCtx"
 
 const Friends = () => {
 
-    //TODO: hent ut alle du følger
-    //TODO: hent ut alle brukere
-    //vis alle unntatt de du følger
-
-
     const { user } = useUaCtx()
 
     const {users, dispatchUser} = useUserCtx()
 
-    const [following, setFollowing] = useState('')
-
+    //const [following, setFollowing] = useState('')
 
 
 
@@ -34,26 +28,26 @@ const Friends = () => {
         dispatchUser({type: "SET_USERS", payload: json})
         // const filteredFollowing = json.filter((following) => following.user_id === user.following);
         // dispatchFollowing({ type: 'FOLLOW_USER', payload: filteredFollowing });
-        console.log("folger")
-        console.log(user.following)
+        // console.log("folger")
+        // console.log(user)
         // const followingz = user.following.filter((followUser) => followUser==users.uid)
         // const filteredExercises = json.filter((exercise) => exercise.user_id === user.uid);
 
 
         //test
-        const followings = user.following
-        const followingNames = followings.map(idToNameMapper)
-        function idToNameMapper(id) {
-          return json.filter((userFollow) => userFollow._id === id)[0].username
-        }
-        console.log(followingNames)
-        setFollowing(followingNames)
-        
+
+        // const followings = user.following
+        // const followingNames = followings.map(idToNameMapper)
+        // function idToNameMapper(id) {
+        //   return json.filter((userFollow) => userFollow._id === id)[0].username
+        // }
+        // console.log(followingNames)
+        // setFollowing(followingNames)
       }
     }
     
     fetchUsers()
-  }, [dispatchUser])
+  }, [dispatchUser]) //, user
 
 
 
@@ -72,17 +66,20 @@ const handleClick = async (followingUserID) => {
       throw new Error('Unable to follow user');
     }
   }
-
   
+  if (user && users) {
 
     return (
         <div className="friends">
             <h2>Finn venner</h2>
-            <FindFriends user={user} users={users} handleClick={handleClick}/>
-            <MyFriends following={following}/>
-
+            <FindFriends user={user} 
+            users={users.filter(u => !user.following.includes(u._id) && u._id !== user.uid)} 
+            handleClick={handleClick}/> 
+            <MyFriends 
+            following={users.filter(u => user.following.includes(u._id))}/>
         </div>
     )
+  }
 }
 
 export default Friends
