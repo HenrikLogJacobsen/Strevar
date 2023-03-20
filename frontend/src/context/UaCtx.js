@@ -8,6 +8,10 @@ export const uaReducer = (state, action) => {
       return { user: action.payload }
     case 'LOGOUT':
       return { user: null }
+    case "FOLLOW_USER":
+      let tempUser = state.user
+      tempUser.following = [...tempUser.following, action.payload]
+      return {user: tempUser}
     default:
       return state
   }

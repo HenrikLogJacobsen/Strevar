@@ -38,6 +38,7 @@ const Navbar = () => {
                     <div className="userMenu">
                     
                     <CustomLink to="/home">Hjem</CustomLink>
+                    <CustomLink to="/friends">Venner</CustomLink>
                     <CustomLink to="/groups">Grupper</CustomLink>
                     <CustomLink to="/my-programs">Treningsprogram</CustomLink>
                     <CustomLink to="/my-sessions">Treningsøkter</CustomLink>

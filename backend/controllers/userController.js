@@ -4,6 +4,7 @@ const validator = require('validator')
 const JWT = require('jsonwebtoken')
 
 
+
 const generateJWT = (_id) => {
     return JWT.sign({_id}, process.env.SECRET, { expiresIn: '1d' })
   }
@@ -36,8 +37,9 @@ const userLogin = async (req, res) => {
     //lage token
     const loginToken = generateJWT(loginUser._id)
     const uid = loginUser._id
+    const following = loginUser.following
 
-    return res.status(200).json({username, loginToken, uid})
+    return res.status(200).json({username, loginToken, uid, following})
 
 }
 
@@ -71,9 +73,33 @@ const userSignup = async (req, res) => {
         const loginToken = generateJWT(newUser._id)
 
 
-        res.status(200).json({username, userJWT, uid})
+        res.status(200).json({username, userJWT, uid, following})
        
 }
 } 
 
-module.exports = {userLogin, userSignup}
+const getUsers = async (req, res) => {
+    const users = await User.find({})
+    res.status(200).json(users)
+} 
+
+const setFollow = async(req,res)=>{
+    
+    const {selfUserID, followingUserID} = req.body
+
+
+    try {
+        //await user.findByIdAndUpdate({_id: userId},{$addToSet:{following: userProfileId}})
+        await User.findByIdAndUpdate({_id: selfUserID},{$addToSet:{following: followingUserID}})  
+
+    } catch (error) {
+        return res.json(error)
+    }
+    const followUser = await User.findById({_id: followingUserID})
+    return res.json({
+        message: followUser
+    })
+    
+}
+
+module.exports = {userLogin, userSignup, getUsers, setFollow}
