@@ -10,6 +10,7 @@ input, textarea {
 
 textarea {
     height: 3rem;
+    font-family: "Poppins";
 }
 
 .uploadImg {
@@ -22,5 +23,5 @@ textarea {
 
 .uploadImg p {
     margin: 0;
-
+    font-size: small;
 }

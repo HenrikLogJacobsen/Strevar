@@ -64,7 +64,7 @@ const CreateGroups = () => {
       />
 
       <div className='uploadImg'>
-        <p>Last opp et bilde</p>
+        <p>Last opp et gruppebilde:</p>
         <FileBase64
           multiple={false} 
           onDone={ ({base64}) => setImage({ ...
