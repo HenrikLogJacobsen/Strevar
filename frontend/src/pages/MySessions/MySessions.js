@@ -32,7 +32,7 @@ const MySessions = () => {
                 <div className="sessions">
                 {sessions && sessions
                 .filter(session => session.user_id === user.uid)
-                .map(session => (<SessionDetails session={session} key={session._id} />))
+                .map(session => (<SessionDetails session={session} key={session._id} editable = {true} />))
                 }
                 </div>
                 <CreateSession/>

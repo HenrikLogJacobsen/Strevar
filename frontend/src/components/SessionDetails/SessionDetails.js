@@ -2,7 +2,7 @@ import { useSessionCtx } from "../../hooks/useSessionCtx"
 
 import './sessionDetails.css'
 
-const SessionDetails = ({session}) => {
+const SessionDetails = ({session, editable}) => {
   const {dispatchSession} = useSessionCtx()
 
 
@@ -24,7 +24,7 @@ const SessionDetails = ({session}) => {
       {session.exercises && session.exercises.map(e => (
         <p className="container" key={e._id}>{e.title}: {e.reps} x {e.sets} ({e.weight}kg)</p>
       ))}
-      <button className="button" onClick={handleDelete}>Fjern økt</button>
+      {editable && <button className="button" onClick={handleDelete}>Fjern økt</button>}
     </div>
   ) 
 }
