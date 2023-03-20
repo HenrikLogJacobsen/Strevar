@@ -14,13 +14,16 @@ const CreateGroups = () => {
   const [description, setDescription] = useState('')
   const [administrator, setAdministrator] = useState('')
   const [members, setMembers] = useState('')
-  const [image, setImage] = useState({ title: '', image: '' })
+  const [image, setImage] = useState('')
   const [error, setError] = useState(null)
 
   const { user } = useUaCtx()
   
 
   const handleSubmit = async (e) => {
+
+    // skal opprette en ny gruppe i backend
+
     e.preventDefault()
 
     setAdministrator(user)
@@ -46,7 +49,7 @@ const CreateGroups = () => {
 
   return (
     <form className="createGroups" onSubmit={handleSubmit} >
-      <h3>Lag ny gruppe</h3>
+      <h3>Opprett gruppe</h3>
       
       <input
         placeholder="Gruppenavn"
@@ -67,8 +70,7 @@ const CreateGroups = () => {
         <p>Last opp et gruppebilde:</p>
         <FileBase64
           multiple={false} 
-          onDone={ ({base64}) => setImage({ ...
-          image , image: base64 }) } />
+          onDone={ ({base64}) => setImage({image , image: base64}) } />
       </div>
     
     

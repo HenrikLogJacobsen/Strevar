@@ -23,7 +23,7 @@ const ExistingGroups = () => {
         <h3>Finn nye grupper</h3>
         <div className='groupContainer'>
             
-            {/* hardkoding for eksempel */}
+            {/* hardkoding for eksempel, skal hente ut en liste med grupper fra backend */}
             <Group/>
             <Group/>
             <Group/>
