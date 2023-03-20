@@ -5,6 +5,11 @@ const Group = ({ group, key }) => {
   const [showMembers, setShowMembers] = useState(false);
   const [arrowRotation, setArrowRotation] = useState(0);
 
+  // const image = group.image
+
+  //eksempel:
+  const image = "https://media.npr.org/assets/img/2010/08/22/strength_wide-f82ab7c6cf40ee7df563c3a7a05f2709a38aac88-s1600-c85.webp"
+
   const handleMembersClick = () => {
     setShowMembers(!showMembers);
     setArrowRotation(arrowRotation + 180);
@@ -17,7 +22,10 @@ const Group = ({ group, key }) => {
         <div className='groupFlex'>
             <div className='groupInfo'>
                 {/* <p>{group.description}</p> */}
+
+                {/* eksempel: */}
                 <p>Gruppa for oss som skal bli megasterke!</p>
+                <img src={image} alt="image" />
             </div>
             <div className='groupMembers'>
                 <p className='memberBtn' onClick={handleMembersClick}>
@@ -32,13 +40,19 @@ const Group = ({ group, key }) => {
                 {showMembers && (
                 <div className="memberList">
                     {/* List of group members */}
+
+                    {/* Eksempel: */}
                     <ul>
-                        <li>hfubufrbf</li>
-                        <li>hfubufrbf</li>
-                        <li>hfubufrbf</li>
-                        <li>hfubufrbf</li>
-                        <li>hfubufrbf</li>
-                        <li>hfubufrbf</li>
+                        <li>Per</li>
+                        <li>Liv</li>
+                        <li>Brage</li>
+                        <li>Hans</li>
+                        <li>Lise</li>
+                        <li>Ingmar</li>
+                        <li>Vigleik</li>
+                        <li>Ingunn</li>
+                        <li>Børge</li>
+                        <li>Berit</li>
                     </ul>
                 </div>
                 )}
