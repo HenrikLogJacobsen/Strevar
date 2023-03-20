@@ -5,6 +5,8 @@ import './createGroups.css'
 import { useState } from "react"
 import { useUaCtx } from "../../hooks/useUaCtx"
 
+import FileBase64 from 'react-file-base64'
+
 
 const CreateGroups = () => {
 
@@ -12,7 +14,7 @@ const CreateGroups = () => {
   const [description, setDescription] = useState('')
   const [administrator, setAdministrator] = useState('')
   const [members, setMembers] = useState('')
-  const [image, setImage] = useState('')
+  const [image, setImage] = useState({ title: '', image: '' })
   const [error, setError] = useState(null)
 
   const { user } = useUaCtx()
@@ -61,7 +63,15 @@ const CreateGroups = () => {
         value = {description}
       />
 
-      
+      <div className='uploadImg'>
+        <p>Last opp et bilde</p>
+        <FileBase64
+          multiple={false} 
+          onDone={ ({base64}) => setImage({ ...
+          image , image: base64 }) } />
+      </div>
+    
+    
       <button className="button">Opprett gruppe</button>
       {error && <div className="error">{error}</div>}
     </form>
