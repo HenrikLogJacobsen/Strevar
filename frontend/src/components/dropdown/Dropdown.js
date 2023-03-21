@@ -19,6 +19,7 @@ const Dropdown = ({ placeHolder, options, isMulti, allExercises }) => {
     const [showMenu, setShowMenu] = useState(false)
     const [selectedValue, setSelectedValue] = useState(isMulti ? [] : null)
     const [title, setTitle] = useState("")
+    const [comment, setComment] = useState("")
     const {dispatchSession} = useSessionCtx()
     const { user } = useUaCtx()
 
@@ -113,7 +114,7 @@ const Dropdown = ({ placeHolder, options, isMulti, allExercises }) => {
                 return allExercises.find((exercise) => selected.value === exercise._id)
             })
             const user_id = user.uid
-            const session = {title, exercises, user_id}
+            const session = {title, exercises, user_id,comment}
             const response = await fetch("/api/sessions/", {
                 method: "POST",
                 body: JSON.stringify(session),
@@ -126,6 +127,7 @@ const Dropdown = ({ placeHolder, options, isMulti, allExercises }) => {
 
             if(response.ok) {
                 setTitle('')
+                setComment('')
                 setSelectedValue([])
                 console.log("Ny treningsøkt lagt til", json)
                 dispatchSession({type: "CREATE_SESSION", payload: json})
@@ -143,6 +145,13 @@ const Dropdown = ({ placeHolder, options, isMulti, allExercises }) => {
             type = "text"
             onChange = {(e) => setTitle(e.target.value)}
             value = {title}
+        />
+        <input
+            className="sessionCommentInput"
+            placeholder="Kommentar"
+            type = "text"
+            onChange={(e) => setComment(e.target.value)}
+            value = {comment}
         />
         <div onClick={handleInputClick} className="dropdown-input">
           <div className="dropdown-selected-value">{getDisplay()}</div>

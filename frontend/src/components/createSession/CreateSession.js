@@ -35,7 +35,7 @@ const CreateSession = () => {
         isMulti={true} 
         placeHolder="Velg øvelse..." 
         options={exercises
-          .filter(e => e.user_id == user.uid)
+          .filter(e => e.user_id === user.uid)
           .map(e => ({value: e._id, label: e.title}))}
           //.filter(e =>(e.user_id === user.uid))}
         allExercises={exercises}

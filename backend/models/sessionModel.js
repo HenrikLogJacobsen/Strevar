@@ -17,6 +17,10 @@ const sessionSchema = new mongoose.Schema({
         type: String,
         required: true
     },
+    comment: {
+      type: String,
+      
+    }
   }, { timestamps: true });
 
 module.exports = mongoose.model('Session', sessionSchema)
