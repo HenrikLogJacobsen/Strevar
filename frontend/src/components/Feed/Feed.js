@@ -108,12 +108,12 @@ const Feed = () => {
       <h2 className="feed-header">Feed</h2>
       <div className="feed-box">
         {sharedSessions && users && sharedSessions
-        .filter((session) => user.following.includes(session.user_id))
+        .filter((session) => user.following.includes(session.user_id) && session.share)
         .map((session) => (
           <div key={session._id} className="session-card">
             <p>Økt delt av {users.find((us) => us._id === session.user_id).username}</p>
             {/* <p>Økt delt av session._id</p> */}
-            <p>{format(parseISO(session.createdAt), 'yyyy-MM-dd HH:mm')
+            <p>Opprettet: {format(parseISO(session.createdAt), 'yyyy-MM-dd HH:mm')
 }</p>
             <SessionDetails session={session} editable = {false} />
           </div>
