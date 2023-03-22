@@ -7,8 +7,10 @@ const Groups = () => {
   return (
     <div className='groups'>
         <h1>Grupper</h1>
-        <ExistingGroups/>
-        <CreateGroups/>
+        <div className="group-content">
+          <ExistingGroups/>
+          <CreateGroups/>
+        </div>
     </div>
   )
 }
