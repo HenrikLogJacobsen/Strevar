@@ -12,6 +12,7 @@ const Login = () => {
     a.preventDefault()
 
     await login(username, password)
+    
    // console.log("Brukernavn: ", username, "Passord: ", password)
 }
 

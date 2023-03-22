@@ -45,13 +45,11 @@ const Signup = () => {
 function CustomLink({ to, children, ...props }) {
     const resolvedPath = useResolvedPath(to)
     const isActive = useMatch({ path: resolvedPath.pathname, end: true })
-  
+    
     return (
-      <a className="signup-link">
-        <Link to={to} {...props}>
-          {children}
-        </Link>
-      </a>
+      <Link className={`signup-link ${isActive ? 'active' : ''}`} to={to} {...props}>
+        {children}
+      </Link>
     )
   }
 

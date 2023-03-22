@@ -10,7 +10,6 @@ const Home = () => {
         <div className="home">
             <h2>Hjem</h2>
             <Feed />
-
         </div>
     )
 }
