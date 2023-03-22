@@ -21,7 +21,8 @@ export const useLogin = () => {
       localStorage.setItem('user', JSON.stringify(user))
 
       // ua context oppdatering
-      dispatch({type: 'INNLOGGING', payload: user})
+      dispatch({type: 'LOGIN', payload: user})
+      window.location.reload()
       setIsLoading(false)
     }
     else {   
