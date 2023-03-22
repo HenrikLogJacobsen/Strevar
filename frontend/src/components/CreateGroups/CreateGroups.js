@@ -13,11 +13,9 @@ const CreateGroups = () => {
 
   const [groupName, setGroupName] = useState('')
   const [description, setDescription] = useState('')
-  const [administrator, setAdministrator] = useState('')
-  const [members, setMembers] = useState('')
   const [image, setImage] = useState('')
   const [error, setError] = useState(null)
-  const {groups, dispatchGroup} = useGroupCtx()
+  const {dispatchGroup} = useGroupCtx()
 
 
   const { user } = useUaCtx()
@@ -29,27 +27,39 @@ const CreateGroups = () => {
 
     e.preventDefault()
 
-    setAdministrator(user)
 
-    const user_id = user.uid;
+    //     "groupName": "Streve gruppen",
+    //     "description": "Vi gir oss aldri dersom vi setter et milepele! Alle som vil kan delta i denne gruppen.",
+    //     "administrator": "63ecbaa2efd240931c78c49d",
+    //     "members": [
+    //         "6406657134a64d6672e7cc5a",
+    //         "64083e9e0d932884a574fb08"
+    //     ],
+    //     "image": "https://assets.newatlas.com/dims4/default/59b2f26/2147483647/strip/true/crop/2000x1335+0+0/resize/2880x1922!/quality/90/?url=http%3A%2F%2Fnewatlas-brightspot.s3.amazonaws.com%2Fde%2Fd2%2F0133f194417d8762b5211d9af176%2Fsex-diff-exercise.jpg",
+    //     "__v": 0
+
+    //const user_id = user.uid;
+    const administrator = user.uid
+    const members = []
     const group = {groupName, description, administrator, members, image}
-    // const response = await fetch("/api/groups/", {
-    //     method: "POST",
-    //     body: JSON.stringify(group),
-    //     headers: {
-    //         "Content-Type": "application/json"
-    //     }
-    // })
+    
+    const response = await fetch("/api/groups/", {
+        method: "POST",
+        body: JSON.stringify(group),
+        headers: {
+            "Content-Type": "application/json"
+        }
+    })
 
-    // const json = await response.json()
+    const json = await response.json()
 
-    // if(!response.ok) {
-    //     setError(json.error)
-    // } 
+    if(!response.ok) {
+        setError(json.error)
+    } 
 
-    // else {
-    dispatchGroup({type: "CREATE_GROUP", payload: group}) //TODO: husk å endre payload til json
-    // }
+    else {
+    dispatchGroup({type: "CREATE_GROUP", payload: json}) 
+    }
     
 }
 

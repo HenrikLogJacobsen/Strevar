@@ -30,6 +30,7 @@ function App() {
               <Routes>
                 <Route path='/' element={<Home />} /> 
                 <Route path='/friends' element={<Friends />} />
+                <Route path='/groups' element={<Groups />} />
                 <Route path="/my-programs" element={<MyPrograms />} />
                 <Route path="/my-exercises" element={<MyExercises />} />
                 <Route path="/my-sessions" element={<MySessions />} />

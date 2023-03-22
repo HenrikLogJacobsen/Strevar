@@ -1,14 +1,30 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import './Group.css'
+import {useUserCtx} from '../../hooks/useUserCtx'
 
 const Group = ({ group, key }) => {
   const [showMembers, setShowMembers] = useState(false);
   const [arrowRotation, setArrowRotation] = useState(0);
+  const image = group.image
 
-  // const image = group.image
+  const {users, dispatchUser} = useUserCtx()
+
+
+  useEffect(() => {
+    const fetchUsers = async () => {
+      const response = await fetch("api/users/")
+      const json = await response.json()
+
+      if (response.ok) {
+        dispatchUser({type: "SET_USERS", payload: json})
+      }
+    }
+    
+    fetchUsers()
+  }, [dispatchUser])
 
   //eksempel:
-  const image = "https://media.npr.org/assets/img/2010/08/22/strength_wide-f82ab7c6cf40ee7df563c3a7a05f2709a38aac88-s1600-c85.webp"
+  //const image = "https://media.npr.org/assets/img/2010/08/22/strength_wide-f82ab7c6cf40ee7df563c3a7a05f2709a38aac88-s1600-c85.webp"
 
   const handleMembersClick = () => {
     setShowMembers(!showMembers);
@@ -18,14 +34,11 @@ const Group = ({ group, key }) => {
 
   return (
     <div className='group'>
-        {/* <h3>{group.groupName}</h3> */}
-        <h4>Styrkegruppa</h4>
+        <h3>{group.groupName}</h3>
         <div className='groupFlex'>
             <div className='groupInfo'>
-                {/* <p>{group.description}</p> */}
+                <p>{group.description}</p>
 
-                {/* eksempel: */}
-                <p>Gruppa for oss som skal bli megasterke!</p>
                 <img src={image} alt="image" />
             </div>
             <div className='groupMembers'>
@@ -41,24 +54,13 @@ const Group = ({ group, key }) => {
                 {showMembers && (
                 <div className="memberList">
                     {/* List of group members */}
-
-                    {/* Eksempel: */}
-                    {/* <ul>
-                        <li>Per</li>
-                        <li>Liv</li>
-                        <li>Brage</li>
-                        <li>Hans</li>
-                        <li>Lise</li>
-                        <li>Ingmar</li>
-                        <li>Vigleik</li>
-                        <li>Ingunn</li>
-                        <li>Børge</li>
-                        <li>Berit</li>
-                    </ul> */}
                     <ul>
-                      {group.members && group.members.map(m => (
-                        <li>{m.username}</li>
-                      ))}
+                      {group.members && users && users
+                      .filter(u => group.members.includes(u._id))
+                      .map(u => (
+                        <li>{u.username}</li>
+                      ))
+                      }
                     </ul>
                 </div>
                 )}

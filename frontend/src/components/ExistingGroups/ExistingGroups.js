@@ -25,12 +25,6 @@ const ExistingGroups = () => {
     <div className='existingGroups'>
         <h3>Finn nye grupper</h3>
         <div className='groupContainer'>
-            
-            {/* hardkoding for eksempel, skal hente ut en liste med grupper fra backend */}
-            <Group/>
-            <Group/>
-            <Group/>
-
         {groups && groups.map(group => (
             <Group group={group} key={group._id} />
           ))}
