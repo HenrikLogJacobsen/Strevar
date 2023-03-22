@@ -15,6 +15,7 @@ const Group = ({ group, key }) => {
     setArrowRotation(arrowRotation + 180);
   }
 
+
   return (
     <div className='group'>
         {/* <h3>{group.groupName}</h3> */}
@@ -42,7 +43,7 @@ const Group = ({ group, key }) => {
                     {/* List of group members */}
 
                     {/* Eksempel: */}
-                    <ul>
+                    {/* <ul>
                         <li>Per</li>
                         <li>Liv</li>
                         <li>Brage</li>
@@ -53,12 +54,18 @@ const Group = ({ group, key }) => {
                         <li>Ingunn</li>
                         <li>Børge</li>
                         <li>Berit</li>
+                    </ul> */}
+                    <ul>
+                      {group.members && group.members.map(m => (
+                        <li>{m.username}</li>
+                      ))}
                     </ul>
                 </div>
                 )}
                 <button className='button'>Bli med i gruppe!</button>
             </div>
         </div>
+
     </div>
   )
 }

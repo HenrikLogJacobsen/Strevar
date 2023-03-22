@@ -4,6 +4,7 @@ import './createGroups.css'
 
 import { useState } from "react"
 import { useUaCtx } from "../../hooks/useUaCtx"
+import { useGroupCtx } from '../../hooks/useGroupCtx'
 
 import FileBase64 from 'react-file-base64'
 
@@ -16,6 +17,8 @@ const CreateGroups = () => {
   const [members, setMembers] = useState('')
   const [image, setImage] = useState('')
   const [error, setError] = useState(null)
+  const {groups, dispatchGroup} = useGroupCtx()
+
 
   const { user } = useUaCtx()
   
@@ -30,19 +33,23 @@ const CreateGroups = () => {
 
     const user_id = user.uid;
     const group = {groupName, description, administrator, members, image}
-    const response = await fetch("/api/groups/", {
-        method: "POST",
-        body: JSON.stringify(group),
-        headers: {
-            "Content-Type": "application/json"
-        }
-    })
+    // const response = await fetch("/api/groups/", {
+    //     method: "POST",
+    //     body: JSON.stringify(group),
+    //     headers: {
+    //         "Content-Type": "application/json"
+    //     }
+    // })
 
-    const json = await response.json()
+    // const json = await response.json()
 
-    if(!response.ok) {
-        setError(json.error)
-    } 
+    // if(!response.ok) {
+    //     setError(json.error)
+    // } 
+
+    // else {
+    dispatchGroup({type: "CREATE_GROUP", payload: group}) //TODO: husk å endre payload til json
+    // }
     
 }
 

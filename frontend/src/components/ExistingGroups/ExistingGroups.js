@@ -13,11 +13,12 @@ const ExistingGroups = () => {
         const response = await fetch('api/groups/');
         if (response.ok) {
           const json = await response.json();
+          dispatchGroup({type: "SET_GROUPS", payload: json})
         }
       };
     
       fetchGroups();
-    });
+    }, [dispatchGroup]);
 
 
   return (
