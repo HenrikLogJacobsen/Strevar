@@ -19,25 +19,17 @@ const Navbar = () => {
     return (
         <header>
             <div className="nav">
-    
-                    {!user && 
-                      <>
-                        <Link to='/'>
+  
+                    <Link to='/'>
                             <h1>Strevar</h1>
-                        </Link>
-                      
-                      </>
-                    }
+                    </Link>
                     
                     {user && 
                     <>
-                      <Link to='/home'>
-                              <h1>Strevar</h1>
-                      </Link>
 
                     <div className="userMenu">
                     
-                    <CustomLink to="/home">Hjem</CustomLink>
+                    <CustomLink to="/">Hjem</CustomLink>
                     <CustomLink to="/friends">Venner</CustomLink>
                     <CustomLink to="/groups">Grupper</CustomLink>
                     <CustomLink to="/my-programs">Treningsprogram</CustomLink>

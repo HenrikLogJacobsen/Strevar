@@ -2,7 +2,7 @@ import { useSessionCtx } from "../../hooks/useSessionCtx"
 
 import './sessionDetails.css'
 
-const SessionDetails = ({session}) => {
+const SessionDetails = ({session, editable}) => {
   const {dispatchSession} = useSessionCtx()
 
 
