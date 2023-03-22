@@ -17,6 +17,8 @@ const SessionDetails = ({session, editable}) => {
       console.log("Fjernet økt:", json)
     }
   }
+
+
   
   return (
     <div className="session-details">
@@ -24,7 +26,9 @@ const SessionDetails = ({session, editable}) => {
       {session.exercises && session.exercises.map(e => (
         <p className="container" key={e._id}>{e.title}: {e.reps} x {e.sets} ({e.weight}kg)</p>
       ))}
-      {editable && <button className="button" onClick={handleDelete}>Fjern økt</button>}
+      <p>{"Kommentar: "}</p>
+      <p>{session.comment}</p>
+      <button className="button" onClick={handleDelete}>Fjern økt</button>
     </div>
   ) 
 }
