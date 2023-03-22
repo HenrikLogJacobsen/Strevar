@@ -26,8 +26,8 @@ const SessionDetails = ({session}) => {
       {session.exercises && session.exercises.map(e => (
         <p className="container" key={e._id}>{e.title}: {e.reps} x {e.sets} ({e.weight}kg)</p>
       ))}
-      <text>{"Kommentar: "}</text>
-      <text>{session.comment}</text>
+      <p>{"Kommentar: "}</p>
+      <p>{session.comment}</p>
       <button className="button" onClick={handleDelete}>Fjern økt</button>
     </div>
   ) 
