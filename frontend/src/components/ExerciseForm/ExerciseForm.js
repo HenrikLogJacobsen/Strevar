@@ -10,19 +10,13 @@ const ExerciseForm = () => {
     const [reps, setReps] = useState('')
     const [weight, setWeight] = useState('')
     const [error, setError] = useState(null)
-    const [isChecked, setIsChecked] = useState(false);
-    const [shareType, setShareType] = useState("");
+
  
     const {dispatchExercise} = useExerciseCtx()
     const { user } = useUaCtx()
 
-    const handleChange = (e) => {
-        setIsChecked(e.target.checked);
-      };
     
-      const handleShareTypeChange = (e) => {
-        setShareType(e.target.value);
-      };
+
 
     const handleSubmit = async (e) => {
         e.preventDefault()
@@ -85,23 +79,7 @@ const ExerciseForm = () => {
                 value = {weight}
             />
 
-            <label>
-                <input
-                    type="checkbox"
-                    checked={isChecked}
-                    onChange={handleChange}
-            />
-            Del økt
-            </label>
-            {isChecked && (
-                <div>
-                    <select value={shareType} onChange={handleShareTypeChange}>
-                        <option value="">Velg delingsmetode</option>
-                        <option value="feed">Del i feed</option>
-                        <option value="group">Del i gruppe</option>
-                    </select>
-                </div>
-            )}
+            
             <button className="button">Legg til</button>
             {error && <div className="error">{error}</div>}
         </form>

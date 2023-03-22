@@ -19,8 +19,11 @@ const Dropdown = ({ placeHolder, options, isMulti, allExercises }) => {
     const [showMenu, setShowMenu] = useState(false)
     const [selectedValue, setSelectedValue] = useState(isMulti ? [] : null)
     const [title, setTitle] = useState("")
+    const { session } = useSessionCtx()
+    const [share,setIsShared] = useState(session?.share || false)
     const {dispatchSession} = useSessionCtx()
     const { user } = useUaCtx()
+   
 
     useEffect(() => {
         const handler = () => setShowMenu(false)
@@ -113,7 +116,7 @@ const Dropdown = ({ placeHolder, options, isMulti, allExercises }) => {
                 return allExercises.find((exercise) => selected.value === exercise._id)
             })
             const user_id = user.uid
-            const session = {title, exercises, user_id}
+            const session = {title, exercises, user_id, share}
             const response = await fetch("/api/sessions/", {
                 method: "POST",
                 body: JSON.stringify(session),
@@ -125,6 +128,7 @@ const Dropdown = ({ placeHolder, options, isMulti, allExercises }) => {
             const json = await response.json()
 
             if(response.ok) {
+                setIsShared(false)
                 setTitle('')
                 setSelectedValue([])
                 console.log("Ny treningsøkt lagt til", json)
@@ -144,6 +148,15 @@ const Dropdown = ({ placeHolder, options, isMulti, allExercises }) => {
             onChange = {(e) => setTitle(e.target.value)}
             value = {title}
         />
+        <label>
+      <input
+          type="checkbox"
+          checked={share}
+          onChange={(e) => setIsShared(e.target.checked)}
+          value = {share}
+   />
+        Del økt
+    </label>
         <div onClick={handleInputClick} className="dropdown-input">
           <div className="dropdown-selected-value">{getDisplay()}</div>
           <div className="dropdown-tools">
