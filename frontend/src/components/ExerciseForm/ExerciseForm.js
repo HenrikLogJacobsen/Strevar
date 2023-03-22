@@ -10,9 +10,13 @@ const ExerciseForm = () => {
     const [reps, setReps] = useState('')
     const [weight, setWeight] = useState('')
     const [error, setError] = useState(null)
+
  
     const {dispatchExercise} = useExerciseCtx()
     const { user } = useUaCtx()
+
+    
+
 
     const handleSubmit = async (e) => {
         e.preventDefault()
@@ -75,6 +79,7 @@ const ExerciseForm = () => {
                 value = {weight}
             />
 
+            
             <button className="button">Legg til</button>
             {error && <div className="error">{error}</div>}
         </form>

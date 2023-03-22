@@ -1,17 +1,25 @@
 import React from 'react'
 import {  useEffect } from "react"
 import { useUaCtx } from "../../hooks/useUaCtx"
+import { useExerciseCtx } from "../../hooks/useExerciseCtx"
+
 
 import './createSession.css'
 
 //components
 import Dropdown from '../dropdown/Dropdown'
-import { useExerciseCtx } from "../../hooks/useExerciseCtx"
+
 
 const CreateSession = () => {
 
   const {exercises, dispatchExercise} = useExerciseCtx()
   const { user } = useUaCtx()
+  //const [share, setIsShared] = useState(session?.share || false);
+
+
+
+
+
 
 
   useEffect(() => {
@@ -40,7 +48,12 @@ const CreateSession = () => {
           //.filter(e =>(e.user_id === user.uid))}
         allExercises={exercises}
       />}
+      
+    
+
     </div>
+    
+    
   )
 } 
 

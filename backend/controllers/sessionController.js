@@ -11,7 +11,8 @@ const createSession = async (req, res) => {
       title: req.body.title,
       exercises: [...req.body.exercises],
       user_id: req.body.user_id, // remove the JSON.parse method
-      comment: req.body.comment
+      comment: req.body.comment,
+      share: req.body.share
     };
 
     console.log(sessionDetails)

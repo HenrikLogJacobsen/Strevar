@@ -17,6 +17,10 @@ const sessionSchema = new mongoose.Schema({
         type: String,
         required: true
     },
+    share: {
+      type: Boolean,
+      required: true
+    },
     comment: {
       type: String,
       
