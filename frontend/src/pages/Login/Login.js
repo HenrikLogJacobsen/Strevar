@@ -12,6 +12,7 @@ const Login = () => {
     a.preventDefault()
 
     await login(username, password)
+    
    // console.log("Brukernavn: ", username, "Passord: ", password)
 }
 
@@ -43,13 +44,12 @@ function CustomLink({ to, children, ...props }) {
   const isActive = useMatch({ path: resolvedPath.pathname, end: true })
 
   return (
-    <a className="login-link">
-      <Link to={to} {...props}>
-        {children}
-      </Link>
-    </a>
+    <Link className={`login-link ${isActive ? 'active' : ''}`} to={to} {...props}>
+      {children}
+    </Link>
   )
 }
+
 
 export default Login
 

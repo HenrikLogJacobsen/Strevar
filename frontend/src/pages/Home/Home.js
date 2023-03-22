@@ -1,13 +1,15 @@
 import'./Home.css'
+//import Feed from "../../Feed/Feed"
+import Feed from "../../components/Feed/Feed"
 
 
-//components
 
 
 const Home = () => {
     return (
         <div className="home">
             <h2>Hjem</h2>
+            <Feed />
         </div>
     )
 }

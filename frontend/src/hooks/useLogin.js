@@ -10,7 +10,7 @@ export const useLogin = () => {
     setIsLoading(true)
     setError(null) 
 
-    const response = await fetch('/api/user/login', {
+    const response = await fetch('/api/users/login', {
       method: 'POST',
       headers: {'Content-Type': 'application/json'},
       body: JSON.stringify({ username, password })
@@ -21,7 +21,8 @@ export const useLogin = () => {
       localStorage.setItem('user', JSON.stringify(user))
 
       // ua context oppdatering
-      dispatch({type: 'INNLOGGING', payload: user})
+      dispatch({type: 'LOGIN', payload: user})
+      window.location.reload()
       setIsLoading(false)
     }
     else {   

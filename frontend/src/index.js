@@ -4,6 +4,9 @@ import './index.css';
 import App from './App';
 import { ExerciseCtxProvider } from './context/ExerciseCtx';
 import { SessionCtxProvider } from './context/SessionCtx';
+import { UserCtxProvider } from './context/UserCtx';
+
+
 import {GroupCtxProvider} from './context/GroupCtx'
 
 import { UaCtxProvider } from './context/UaCtx'
@@ -13,13 +16,15 @@ root.render(
   <React.StrictMode>
     {/* TODO: change providers dynamically? */}
     <UaCtxProvider>
-    <GroupCtxProvider>
     <ExerciseCtxProvider>
+    <GroupCtxProvider>
     <SessionCtxProvider>
-      <App />
+    <UserCtxProvider>
+        <App />
+    </UserCtxProvider>
     </SessionCtxProvider>
-    </ExerciseCtxProvider>
     </GroupCtxProvider>
+    </ExerciseCtxProvider>
     </UaCtxProvider>
   </React.StrictMode>
 );
