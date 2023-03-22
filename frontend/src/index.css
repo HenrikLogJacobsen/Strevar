@@ -1,12 +1,11 @@
 /* google font */
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;800&family=VT323&display=swap');
 
-
 :root {
   --primary: #4093fe;
   --primaryBg: #cec9c9dc;
   --compBg: #fff;
-  --error: #e7195a;
+  --error: #d50505;
   --textClr: #333;
 }
 
@@ -21,50 +20,21 @@ body {
   font-family: "Poppins";
 }
 
-/* navbar */
-header .nav {
-  margin-top: 0;
-  max-width: 1400px;
-  margin: 0 auto;
-  padding: 10px 20px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
+.error {
+  color: var(--error);
 }
 
 ul {
   list-style-type: none;
 }
 
-header h1, header a:hover {
-  color: var(--primary);
-  transition: 300ms;
-}
-
-header {
-  background: var(--compBg)
-}
-
-/* pages */
 .pages {
   margin: 1rem;
   padding: 1rem;
 }
 
-/* exercises and sessions */
 
-.workoutsAndForm, .createAndSessions {
-  display: inline-flex;
-}
-.workouts, .sessions {
-  display: flex;
-  flex-wrap: wrap;
-  width: 70%;
-}
-
-/* excercises */
-
-input, button {
+input {
   margin-bottom: 10px;
   border-radius: 5px;
   padding: 0.5rem;
@@ -73,175 +43,16 @@ input, button {
   width: 15rem;
 }
 
-.session-details, .addSessionBtn, .exercise-details {
-  background-color: var(--compBg);
-  color: var(--textClr);
-  border-radius: 5px;
-  margin: 1rem;
-  padding: 0.5rem;
-  width: 8rem;
-}
 
-.exercise-details {
-  width: 15rem;
-  height:7rem
-}
-
-.createExercise {
-  margin-top: -8px;
-}
-
-.editExercise {
-  background-color: var(--compBg);
-}
-
-
-.edit-input {
-  background-color: var(--primaryBg);
-  /* ikke bra, fiks dette!! */
-  width: 92%; 
-}
-
-
-/* sessions */
-
-.program-sessions {
-  display: flex;
-  flex-wrap: wrap;
-}
-
-.addSessionBtn:hover {
-  background-color: var(--primary);
-  -webkit-text-fill-color: var(--compBg);
-  transition: 400ms;
-  cursor: pointer;
-}
-
-.addSessionBtn {
-  background-color: #ffffff3b;
-  font-size: xx-large;
-  width: 4rem;
-}
-
-.addSessionBtn:hover {
-  background-color: rgba(0, 181, 0, 0.683);
-}
-
-/* button */
 .button {
   background-color: var(--primary);
-  color: #f1f1f1;
+  color: var(--compBg);
   border: none;
   cursor: pointer;
   width: 100%;
 }
+
 .button:hover {
-  transform: scale(1.05);
+  transform: scale(1.02);
   transition: 300ms;
 }
-
-/* create session / create program */
-
-.createSession {
-  padding: 10px;
-  width: 25rem;
-}
-
-.sessionInput {
-  width: 95%;
-}
-
-
-/* dropdown */
-.dropdown-container {
-  background-color: var(--compBg);
-  border-radius: 5px;
-  text-align: left;
-  width: 100%;
-  margin-bottom: 10px;
-  
-}
-.dropdown-input {
-  padding: 5px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  user-select: none;
-  width: 350px;
-}
-.dropdown-menu {
-  transform: translateY(4px);
-  margin: 3px;
-  overflow: auto;
-  max-height: 150px;
-}
-.dropdown-item {
-  padding: 5px;
-  cursor: pointer;
-}
-.dropdown-item:hover {
-  color: var(--primary);
-}
-.dropdown-item.selected {
-  background-color: var(--primary);
-  color: #fff;
-}
-.dropdown-tags {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 5px;
-}
-.dropdown-tag-item {
-  background-color: #ddd;
-  padding: 2px 4px;
-  border-radius: 2px;
-  display: flex;
-  align-items: center;
-}
-.dropdown-tag-close {
-  display: flex;
-  align-items: center;
-}
-
-label {
-  display: flex;
-  align-items: center;
-  font-size: 1.2rem;
-  margin-bottom: 5px;
-}
-
-label input[type="checkbox"] {
-  width: 1.5rem;
-  height: 1.5rem;
-  margin-right: 10px;
-}
-
-input[type="checkbox"] {
-  margin-right: 10px;
-}
-
-select {
-  padding: 5px;
-  border-radius: 5px;
-  border: none;
-  width: 200px;
-  background-color: var(--compBg);
-  color: var(--textClr);
-}
-
-select option {
-  background-color: var(--compBg);
-  color: var(--textClr);
-}
-
-button.button {
-  margin-top: 10px;
-}
-
-.error {
-  color: var(--error);
-}
-
-
-
-

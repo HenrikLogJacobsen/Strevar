@@ -191,4 +191,17 @@ http://localhost:5553/api/sessions
 `PATCH  /exercise/:id`
 
 
+## Grupper
+
+### Eksempel på group POST request http://localhost:5553/api/groups
+
+{
+  "groupName": "Streve gruppen",
+  "description": "Vi gir oss aldri dersom vi setter et milepele! Alle som vil kan delta i denne gruppen.",
+  "administrator": "63ecbaa2efd240931c78c49d",
+  "members": ["6406657134a64d6672e7cc5a", "64083e9e0d932884a574fb08"],
+  "image": "https://assets.newatlas.com/dims4/default/59b2f26/2147483647/strip/true/crop/2000x1335+0+0/resize/2880x1922!/quality/90/?url=http%3A%2F%2Fnewatlas-brightspot.s3.amazonaws.com%2Fde%2Fd2%2F0133f194417d8762b5211d9af176%2Fsex-diff-exercise.jpg"
+}
+
+
 

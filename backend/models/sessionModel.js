@@ -1,4 +1,4 @@
-const Exercise = require('../models/workoutModel')
+const Exercise = require('../models/exerciseModel')
 const mongoose = require('mongoose')
 
 
@@ -13,6 +13,10 @@ const sessionSchema = new mongoose.Schema({
           ref: 'Exercise',
         },
       ],
+      user_id: {
+        type: String,
+        required: true
+    },
   }, { timestamps: true });
 
 module.exports = mongoose.model('Session', sessionSchema)
