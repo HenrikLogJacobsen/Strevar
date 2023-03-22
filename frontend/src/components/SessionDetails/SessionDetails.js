@@ -1,7 +1,6 @@
 import { useSessionCtx } from "../../hooks/useSessionCtx"
 
 import './sessionDetails.css'
-import SessionEdit from "../SessionEdit/SessionEdit"
 
 const SessionDetails = ({session}) => {
   const {dispatchSession} = useSessionCtx()
@@ -19,9 +18,6 @@ const SessionDetails = ({session}) => {
     }
   }
 
-  const handleEdit = async() => {
-
-  }
 
   
   return (
@@ -32,11 +28,6 @@ const SessionDetails = ({session}) => {
       ))}
       <text>{"Kommentar: "}</text>
       <text>{session.comment}</text>
-
-    <div className="editSession">
-      {<SessionEdit  session = {session} key = {session._id} />}
-    </div>
-      <button className="button" onClick={handleEdit}>Legg til kommentar</button>
       <button className="button" onClick={handleDelete}>Fjern økt</button>
     </div>
   ) 
