@@ -1,23 +1,23 @@
 import {React, useEffect } from 'react'
-import { useExistingGroupCtx } from '../../hooks/useExistingGroupCtx'
+import { useGroupCtx } from '../../hooks/useGroupCtx'
 import Group from '../Group/Group'
 import './ExistingGroups.css'
 
 
 const ExistingGroups = () => {
 
-    // const {groups} = useExistingGroupCtx()
+    const {groups, dispatchGroup} = useGroupCtx()
   
-    // useEffect(() => {
-    //   const fetchGroups= async () => {
-    //     const response = await fetch('api/groups/');
-    //     if (response.ok) {
-    //       const json = await response.json();
-    //     }
-    //   };
+    useEffect(() => {
+      const fetchGroups= async () => {
+        const response = await fetch('api/groups/');
+        if (response.ok) {
+          const json = await response.json();
+        }
+      };
     
-    //   fetchGroups();
-    // });
+      fetchGroups();
+    });
 
 
   return (
@@ -30,9 +30,9 @@ const ExistingGroups = () => {
             <Group/>
             <Group/>
 
-        {/* {groups && groups.map(group => (
+        {groups && groups.map(group => (
             <Group group={group} key={group._id} />
-          ))} */}
+          ))}
         </div>
     </div>
   )
