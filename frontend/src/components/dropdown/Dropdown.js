@@ -151,21 +151,23 @@ const Dropdown = ({ placeHolder, options, isMulti, allExercises }) => {
             value = {title}
         />
         <label>
-      <input
-          type="checkbox"
-          checked={share}
-          onChange={(e) => setIsShared(e.target.checked)}
-          value = {share}
-   />
-        Del økt
     </label>
         <input
             className="sessionCommentInput"
-            placeholder="Kommentar"
+            placeholder="Kommentar..."
             type = "text"
             onChange={(e) => setComment(e.target.value)}
             value = {comment}
         />
+        <div className="checkbox-container" >
+            Del økt
+            <input
+            className="checkbox"
+                type="checkbox"
+                checked={share}
+                onChange={(e) => setIsShared(e.target.checked)}
+                value = {share}/>
+        </div>
         <div onClick={handleInputClick} className="dropdown-input">
           <div className="dropdown-selected-value">{getDisplay()}</div>
           <div className="dropdown-tools">
