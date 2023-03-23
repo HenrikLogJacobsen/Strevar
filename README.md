@@ -220,3 +220,14 @@ StrevarIsBest123!
 strava@sucks.no
 StravaSucks123!
 
+pu@demo.no
+LykkeTil123!
+
+strevar_gruppen@demo.no
+password: LykkeTil123!
+
+Usain@Bolt.com
+password": LykkeTil123!
+
+per@ntnu.com
+Puforlivet123!
