@@ -228,3 +228,6 @@ password: LykkeTil123!
 
 Usain@Bolt.com
 password": LykkeTil123!
+
+per@ntnu.com
+Puforlivet123!
