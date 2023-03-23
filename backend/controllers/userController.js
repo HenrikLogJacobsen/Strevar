@@ -70,10 +70,9 @@ const userSignup = async (req, res) => {
         });
 
         const userJWT = generateJWT(newUser._id)
-        const loginToken = generateJWT(newUser._id)
 
 
-        res.status(200).json({username, userJWT, uid, following})
+        res.status(200).json({username, userJWT})
        
 }
 } 
