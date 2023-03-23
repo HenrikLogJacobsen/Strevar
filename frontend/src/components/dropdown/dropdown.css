@@ -3,7 +3,6 @@
 }
 
 .dropdown-container {
-    background-color: var(--compBg);
     border-radius: 5px;
     text-align: left;
     width: 100%;
@@ -51,3 +50,16 @@
     display: flex;
     align-items: center;
 }
+
+.checkbox-container input {
+    margin: 0;
+    margin-left: -8rem;
+}
+
+.checkbox-container {
+    display: flex;
+    padding: 0.5rem;
+    font-size: medium;
+    
+}
+
