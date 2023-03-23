@@ -7,6 +7,7 @@ import { SessionCtxProvider } from './context/SessionCtx';
 import { UserCtxProvider } from './context/UserCtx';
 
 
+import {GroupCtxProvider} from './context/GroupCtx'
 
 import { UaCtxProvider } from './context/UaCtx'
 
@@ -16,11 +17,13 @@ root.render(
     {/* TODO: change providers dynamically? */}
     <UaCtxProvider>
     <ExerciseCtxProvider>
+    <GroupCtxProvider>
     <SessionCtxProvider>
     <UserCtxProvider>
         <App />
     </UserCtxProvider>
     </SessionCtxProvider>
+    </GroupCtxProvider>
     </ExerciseCtxProvider>
     </UaCtxProvider>
   </React.StrictMode>

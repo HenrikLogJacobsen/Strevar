@@ -8,6 +8,7 @@ import MySessions from './pages/MySessions/MySessions';
 import MyPrograms from './pages/MyPrograms/MyPrograms';
 import Profile from './pages/Profile/Profile';
 import Friends from './pages/Friends/Friends';
+import Groups from './pages/Groups/Groups';
 
 
 import Login from './pages/Login/Login';
@@ -29,6 +30,7 @@ function App() {
               <Routes>
                 <Route path='/' element={<Home />} /> 
                 <Route path='/friends' element={<Friends />} />
+                <Route path='/groups' element={<Groups />} />
                 <Route path="/my-programs" element={<MyPrograms />} />
                 <Route path="/my-exercises" element={<MyExercises />} />
                 <Route path="/my-sessions" element={<MySessions />} />

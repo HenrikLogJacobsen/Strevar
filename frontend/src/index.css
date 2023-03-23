@@ -9,7 +9,7 @@
   --textClr: #333;
 }
 
-a, p, h1, h2, h3 {
+a, p, h1, h2, h3, h4 {
   color: var(--textClr);
   text-decoration: none;
 }
@@ -34,7 +34,7 @@ ul {
 }
 
 
-input {
+input, textarea {
   margin-bottom: 10px;
   border-radius: 5px;
   padding: 0.5rem;
@@ -55,4 +55,16 @@ input {
 .button:hover {
   transform: scale(1.02);
   transition: 300ms;
+}
+
+.button2 {
+  width: 100%;
+  background-color: var(--compBg);
+  border: solid 1px var(--primaryBg);
+}
+
+.button2:hover {
+  background-color: var(--primaryBg);
+  cursor: pointer;
+  transition: 0.4s;
 }
