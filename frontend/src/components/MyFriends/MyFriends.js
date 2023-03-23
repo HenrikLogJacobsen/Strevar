@@ -5,7 +5,11 @@ const MyFriends = ( {following} ) => {
     
   return (
     <div className='myFriends'>
-      {following.map(user => <p key={user._id}>{user.username}</p>)}
+      {following.map(user => 
+      <div className="friendElement">
+        <p key={user._id}>{user.username}</p> 
+      </div>
+      )}
       
         {/* {users && users.map(user => (
           <div className="friendElement" key={user._id}>

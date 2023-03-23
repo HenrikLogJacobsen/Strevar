@@ -54,13 +54,18 @@ const handleClick = async (followingUserID) => {
   if (user && users) {
     return (
         <div className="friends">
-            <h2>Finn venner</h2>
-            <input name="q" type="text" placeholder="Søk etter venner" onChange={(e) => setSearch(e.target.value)} value={search}></input>
-            <FindFriends user={user} 
-            users ={users.filter(u => !user.following.includes(u._id) && u._id !== user.uid && u.username.toLowerCase().includes(search.toLowerCase()))}
-            handleClick={handleClick}/> 
-            <MyFriends 
-            following={users.filter(u => user.following.includes(u._id))}/>
+            <div className="findFriendsContainer">
+              <h2>Finn venner</h2>
+              <input className="friendSearch" name="q" type="text" placeholder="Søk etter venner" onChange={(e) => setSearch(e.target.value)} value={search}></input>
+              <FindFriends user={user} 
+              users ={users.filter(u => !user.following.includes(u._id) && u._id !== user.uid && u.username.toLowerCase().includes(search.toLowerCase()))}
+              handleClick={handleClick}/> 
+            </div>
+            <div className="myFriendsContainer">
+              <h2>Mine venner</h2>
+              <MyFriends 
+              following={users.filter(u => user.following.includes(u._id))}/>
+            </div>
         </div>
     )
   }
